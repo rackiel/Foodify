@@ -1,0 +1,6 @@
+{
+    "name": "foodify/foodify",
+    "require": {
+        "smalot/pdfparser": "1.0"
+    }
+}

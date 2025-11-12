@@ -1,0 +1,1352 @@
+Dish Name,Category,Serving Size,Calories (kcal),Carbs (g),Protein (g),Fat (g),Notes
+Sinangag (Garlic Fried Rice),Breakfast,1 cup (150g),200,40,4,3,"Paired with tapa, tocino, or longganisa"
+Longganisa w/ Rice,Breakfast,1 link + 1 cup rice,450,55,15,20,Common silog breakfast
+Tapsilog,Breakfast,1 set,650,60,30,25,Tapa + sinangag + itlog
+Tocilog,Breakfast,1 set,620,62,26,24,Tocino + sinangag + itlog
+Bangsilog,Breakfast,1 set,550,58,27,18,Bangus + sinangag + itlog
+Hotsilog,Breakfast,1 set,520,60,18,20,Hotdog + sinangag + itlog
+Spamsilog,Breakfast,1 set,700,62,22,35,Spam + sinangag + itlog
+Cornsilog,Breakfast,1 set,600,63,20,24,Corned beef + sinangag + itlog
+Baconsilog,Breakfast,1 set,680,60,24,35,Bacon + sinangag + itlog
+Dangsilog,Breakfast,1 set,530,58,25,18,Dried fish + sinangag + itlog
+Adobolog,Breakfast,1 set,640,61,28,24,Adobo + sinangag + itlog
+Lugaw (Rice Porridge),Breakfast/Snack,1 bowl (200g),180,38,4,2,Light meal or merienda
+Goto (Tripe Porridge),Breakfast/Snack,1 bowl (250g),260,40,12,6,With beef tripe
+Arroz Caldo (Chicken),Breakfast/Snack,1 bowl (250g),300,42,16,8,Ginger rice porridge
+Champorado,Breakfast,1 bowl (200g),250,55,6,4,Chocolate rice porridge
+Pandesal,Breakfast,1 piece (30g),90,18,3,1,Eaten with coffee
+Taho,Breakfast/Snack,1 cup (250ml),180,30,6,3,Soft tofu with arnibal & sago
+Omelette w/ Tomatoes,Breakfast,1 serving,220,5,14,16,Simple Filipino omelette
+Tortang Talong,Breakfast/Lunch,1 piece (150g),230,12,10,15,Eggplant omelette
+Tortang Giniling,Breakfast/Lunch,1 slice (150g),320,10,18,22,Ground pork omelette
+Pancit Canton,Snack/Lunch,1 plate (250g),400,55,18,12,Stir-fried egg noodles
+Pancit Bihon,Snack/Lunch,1 plate (250g),380,58,15,10,Rice noodles with veg & meat
+Pancit Malabon,Snack/Lunch,1 plate (250g),420,60,20,14,Seafood pancit
+Pancit Palabok,Snack/Lunch,1 plate (250g),450,62,18,14,"Shrimp sauce, chicharon, egg"
+Pancit Habhab (Lucban),Snack/Lunch,1 plate (250g),380,56,16,10,Served on banana leaf
+Sotanghon Guisado,Snack/Lunch,1 plate (250g),360,54,16,8,Glass noodles stir-fry
+Lomi (Batangas),Lunch/Dinner,1 bowl (300g),480,62,20,16,Thick egg noodle soup
+Batchoy (La Paz),Lunch/Dinner,1 bowl (300g),520,48,22,22,With pork innards & chicharon
+Sopas (Macaroni Soup),Snack/Lunch,1 bowl (300g),350,42,16,12,Creamy chicken macaroni soup
+Adobo (Chicken),Lunch/Dinner,1 cup (200g),250,5,25,15,Soy-vinegar stew
+Adobo (Pork),Lunch/Dinner,1 cup (200g),330,6,28,22,Classic ulam
+Adobo sa Gata,Lunch/Dinner,1 cup (200g),380,8,26,26,Adobo with coconut milk
+Adobong Puti,Lunch/Dinner,1 cup (200g),300,4,27,18,Adobo without soy sauce
+Paksiw na Lechon,Lunch/Dinner,1 cup (200g),420,10,24,30,Lechon in vinegar sauce
+Paksiw na Isda,Lunch/Dinner,1 cup (200g),220,4,24,12,Fish stewed in vinegar
+Kare-Kare,Lunch/Dinner,1 cup stew + 1 cup rice,700,65,30,35,"Peanut stew, bagoong on side"
+Caldereta (Beef),Lunch/Dinner,1 cup (200g),350,18,26,20,Tomato-based beef stew
+Menudo (Pork),Lunch/Dinner,1 cup (200g),280,12,22,18,Tomato-based pork stew
+Afritada (Chicken),Lunch/Dinner,1 cup (200g),290,15,23,14,Chicken in tomato sauce
+Mechado (Beef),Lunch/Dinner,1 cup (200g),340,16,26,18,Beef stew with larded pork
+Bicol Express,Lunch/Dinner,1 cup (150g),400,12,18,30,Spicy pork in coconut milk
+Laing,Lunch/Dinner,1 cup (150g),350,20,10,28,Dried taro leaves in coconut
+Pinakbet (Ilocano),Lunch/Dinner,1 cup (200g),180,20,8,6,Veg stew with bagoong
+Dinengdeng,Lunch/Dinner,1 bowl (250g),160,18,10,5,Light veg soup with grilled fish
+Ginataang Sitaw at Kalabasa,Lunch/Dinner,1 cup (200g),280,22,8,18,String beans & squash in coconut
+Inihaw na Liempo,Lunch/Dinner,150g,520,3,28,42,Grilled pork belly
+Chicken Inasal,Lunch/Dinner,1 quarter (200g),320,4,28,20,Grilled chicken Bacolod-style
+Lechon Kawali,Lunch/Dinner,120g,480,6,20,36,Crispy pan-fried pork belly
+Crispy Pata,Lunch/Dinner,150g,650,4,30,50,Deep-fried pork knuckle
+Bistek Tagalog,Lunch/Dinner,1 cup (200g),300,10,28,16,Beef steak with onions & soy
+Giniling (Pork),Lunch/Dinner,1 cup (200g),320,14,24,18,Ground pork with peas & carrots
+Tokwa't Baboy,Snack/Lunch,1 plate (200g),320,14,22,18,Fried tofu & pork in vinegar
+Sinigang na Baboy,Lunch/Dinner,1 bowl (250g),300,8,22,20,Sour tamarind soup
+Sinigang na Baka,Lunch/Dinner,1 bowl (250g),320,8,24,22,Beef version
+Sinigang na Hipon,Lunch/Dinner,1 bowl (250g),250,7,20,15,Shrimp version
+Sinigang sa Miso (Bangus),Lunch/Dinner,1 bowl (250g),280,9,22,16,Milkfish in miso-tamarind soup
+Tinola (Chicken),Lunch/Dinner,1 bowl (250g),210,6,25,10,Ginger broth with papaya & sayote
+Nilagang Baka,Lunch/Dinner,1 bowl (250g),280,10,24,16,Boiled beef soup with veggies
+Bulalo,Lunch/Dinner,1 bowl (300g),480,10,30,34,Bone marrow beef shank soup
+Sinigang sa Bayabas,Lunch/Dinner,1 bowl (250g),270,10,20,14,Guava-based sour soup
+Pininyahang Manok,Lunch/Dinner,1 cup (200g),320,16,22,18,Chicken with pineapple
+Pochero (Luzon),Lunch/Dinner,1 bowl (300g),380,22,24,18,Banana & tomato broth
+Pochero (Visayas),Lunch/Dinner,1 bowl (300g),420,24,26,20,With chorizo & saba
+Humba (Visayas),Lunch/Dinner,1 cup (200g),420,16,22,28,Braised pork with black beans
+Igado (Ilocos),Lunch/Dinner,1 cup (200g),340,10,24,22,Pork & liver stew
+Papaitan (Ilocos),Lunch/Dinner,1 bowl (250g),260,6,24,14,Bitter beef innards soup
+Bagnet (Ilocos),Lunch/Dinner,120g,520,3,22,40,Crispy deep-fried pork
+Dinuguan,Lunch/Dinner,1 cup (200g),300,8,20,20,Pork blood stew
+Pinangat (Bicol),Lunch/Dinner,1 cup (200g),300,12,12,22,Taro leaves in coconut parcels
+Relyenong Bangus,Lunch/Dinner,1 slice (150g),360,10,26,22,Stuffed milkfish
+Embutido,Lunch/Dinner,1 slice (120g),280,16,14,16,Filipino meatloaf
+Lumpiang Shanghai,Snack/Lunch,4 pcs (120g),320,28,14,18,Fried pork spring rolls
+Lumpiang Gulay,Snack/Lunch,2 pcs (120g),260,30,6,10,Vegetable spring rolls
+Fresh Lumpia (Lumpiang Sariwa),Snack/Lunch,1 roll (200g),280,36,8,10,With peanut sauce
+Ukoy (Shrimp Fritters),Snack,2 pcs (120g),300,28,10,16,Crispy fritters
+Okoy Kalabasa,Snack,2 pcs (120g),280,30,8,14,Squash fritters
+Inihaw na Pusit,Lunch/Dinner,150g,220,6,28,8,Grilled squid
+Inihaw na Bangus,Lunch/Dinner,150g,260,0,30,14,Grilled milkfish
+Inihaw na Tilapia,Lunch/Dinner,150g,240,0,28,12,Grilled tilapia
+Kinilaw na Tanigue,Lunch/Dinner,150g,220,6,26,8,Filipino ceviche
+Kilawing Puso ng Saging,Lunch/Dinner,1 cup (200g),240,16,8,14,Banana blossom salad in vinegar
+Ginisang Munggo,Lunch/Dinner,1 cup (200g),260,36,16,6,Mung bean stew
+Munggo with Chicharon,Lunch/Dinner,1 cup (220g),320,36,18,10,With pork cracklings
+Ginisang Ampalaya,Lunch/Dinner,1 cup (200g),180,14,10,8,Bitter gourd with egg
+Chopsuey,Lunch/Dinner,1 cup (200g),220,22,10,8,Stir-fried mixed vegetables
+Pakbet Tagalog,Lunch/Dinner,1 cup (200g),190,20,8,7,Veg medley with bagoong
+Isaw Manok,Snack/Street,3 sticks (90g),240,6,18,16,Grilled chicken intestines
+Isaw Baboy,Snack/Street,3 sticks (90g),260,6,16,18,Grilled pork intestines
+Betamax (Dugo),Snack/Street,3 pcs (90g),210,9,14,12,Grilled pork blood
+Adidas (Chicken Feet),Snack/Street,3 pcs (120g),220,6,16,12,Grilled chicken feet
+Helmet (Chicken Head),Snack/Street,2 pcs (120g),240,4,18,14,Grilled chicken head
+Kwek-Kwek,Snack/Street,6 pcs (150g),420,42,18,20,Quail eggs in orange batter
+Tokneneng,Snack/Street,3 pcs (180g),450,40,22,24,Chicken egg battered & fried
+Fishball,Snack/Street,10 pcs (120g),260,28,8,10,With sweet or spicy sauce
+Kikiam,Snack/Street,6 pcs (150g),320,30,12,14,Street variant
+Squidball,Snack/Street,8 pcs (140g),300,28,10,14,Popular street snack
+Calamares (Fried Squid),Snack/Street,1 plate (180g),420,30,22,22,Fried battered squid
+Balut (Fertilized Duck Egg),Snack/Street,1 egg (70g),188,2,13,14,Street delicacy
+Penoy (Unfertilized Duck Egg),Snack/Street,1 egg (60g),160,2,12,12,Boiled duck egg
+Ensaymada,Snack/Dessert,1 piece (80g),280,35,6,12,Buttery brioche with cheese
+Spanish Bread,Snack,1 piece (60g),200,30,4,6,Sweet filled bread
+Monay,Snack,1 piece (80g),220,40,6,3,Dense bread roll
+Hopia (Mongo),Snack/Dessert,1 piece (50g),210,28,4,8,Flaky pastry with mung bean
+Bibingka,Snack/Dessert,1 slice (100g),220,45,4,3,Rice cake
+Puto,Snack/Dessert,1 piece (40g),90,20,2,1,Steamed rice cake
+Kutsinta,Snack/Dessert,1 piece (40g),70,15,1,0.5,Sticky rice cake
+Biko,Snack/Dessert,1 slice (120g),320,60,4,8,Sticky rice with coconut & sugar
+Sapin-Sapin,Snack/Dessert,1 slice (100g),250,55,3,5,Layered sticky rice dessert
+Maja Blanca,Snack/Dessert,1 slice (120g),280,40,4,10,Coconut milk pudding
+Palitaw,Snack/Dessert,1 piece (50g),120,25,2,2,Coated with sugar & coconut
+Suman Malagkit,Snack/Dessert,1 piece (80g),200,42,3,2,Sticky rice roll
+Cassava Cake,Snack/Dessert,1 slice (120g),320,50,4,10,Baked cassava dessert
+Ube Halaya,Dessert,1 slice (100g),260,50,3,5,Purple yam jam
+Leche Flan,Dessert,1 slice (80g),300,50,7,10,Rich custard dessert
+Halo-Halo,Dessert,1 glass,350,75,6,5,Shaved ice dessert
+Mais con Yelo,Dessert,1 glass,280,62,4,3,Sweet corn with milk & ice
+Saba con Yelo,Dessert,1 glass,300,65,3,3,Caramelized banana with milk & ice
+Turon,Snack/Dessert,1 piece (80g),150,30,2,5,Banana spring roll
+Banana Cue,Snack/Dessert,1 stick (100g),200,45,2,6,Caramelized saba banana
+Camote Cue,Snack/Dessert,1 stick (120g),220,48,2,5,Caramelized sweet potato
+Kansi (Bacolod),Lunch/Dinner,1 bowl (300g),420,10,28,30,Sour beef marrow soup
+"KBL (Kadios, Baboy, Langka)",Lunch/Dinner,1 bowl (300g),380,20,26,20,Ilonggo sour stew
+Laswa (Iloilo),Lunch/Dinner,1 bowl (250g),180,18,8,6,Light vegetable soup
+Piyanggang Manok (Tausug),Lunch/Dinner,1 cup (200g),340,8,26,22,Chicken with burnt coconut
+Tiyula Itum (Tausug),Lunch/Dinner,1 bowl (300g),360,12,28,22,Black soup with burnt coconut
+Piaparan (Maranao),Lunch/Dinner,1 cup (200g),360,14,24,22,Coconut & turmeric
+Pastil (Maguindanao),Snack/Lunch,1 pack (180g),420,60,16,10,Rice with shredded chicken
+Tinowa (Cebu),Lunch/Dinner,1 bowl (250g),240,6,26,10,Clear fish soup
+Linarang (Cebu),Lunch/Dinner,1 bowl (250g),300,10,24,16,Sour-savory fish stew
+Kinilaw na Lato,Snack/Lunch,1 cup (150g),120,10,4,4,Seaweed salad
+Bringhe (Kapampangan Paella),Lunch/Dinner,1 plate (300g),520,78,18,12,Sticky rice paella
+Morcon,Lunch/Dinner,1 slice (150g),360,12,24,22,Stuffed beef roulade
+Callos (Filipino),Lunch/Dinner,1 cup (200g),320,16,24,18,Tripe stew
+Tinapa Fried Rice,Breakfast/Lunch,1 cup (200g),320,50,10,8,Smoked fish fried rice
+Gising-Gising,Lunch/Dinner,1 cup (200g),300,14,14,20,Spicy coconut green beans
+Pritong Tilapia,Lunch/Dinner,150g,280,0,28,16,Fried tilapia
+Pritong Bangus,Lunch/Dinner,150g,300,0,30,18,Fried milkfish
+Inasal na Baboy,Lunch/Dinner,150g,420,6,28,30,Grilled pork inasal
+Tinapang Galunggong,Lunch/Dinner,120g,240,0,24,14,Smoked round scad
+Lumpiang Togue,Snack,2 pcs (120g),240,28,6,10,Bean sprout lumpia
+Binagoongan (Pork),Lunch/Dinner,1 cup (200g),360,12,24,24,Pork in shrimp paste
+Ginataang Hipon,Lunch/Dinner,1 cup (200g),340,12,24,22,Shrimp in coconut milk
+Ginataang Gulay (Mixed),Lunch/Dinner,1 cup (200g),280,22,8,18,Mixed veggies in coconut milk
+Tinapa at Kamatis,Breakfast/Lunch,1 plate (150g),220,8,16,12,Smoked fish with tomato
+Arroz Valenciana,Lunch/Dinner,1 plate (300g),540,80,18,12,Fiesta rice dish
+Pritong Manok,Lunch/Dinner,150g,360,6,28,22,Fried chicken
+Inihaw na Manok,Lunch/Dinner,150g,320,4,28,20,Grilled chicken
+Skinless Longganisa,Breakfast,2 links (80g),280,6,12,22,Homemade style
+Pork Tocino,Breakfast/Lunch,100g,290,20,12,18,Sweet cured pork
+Beef Tapa,Breakfast/Lunch,100g,260,6,20,16,Cured beef strips
+Luncheon Meatsilog,Breakfast,1 set,620,62,20,30,Luncheon Meat + sinangag + itlog
+Tinapasilog,Breakfast,1 set,560,58,26,18,Tinapa + sinangag + itlog
+Bangus Bellysilog,Breakfast,1 set,600,60,28,22,Bangus Belly + sinangag + itlog
+Embutidosilog,Breakfast,1 set,640,60,22,26,Embutido + sinangag + itlog
+Chickensilog,Breakfast,1 set,590,60,28,20,Chicken + sinangag + itlog
+Tunasilog,Breakfast,1 set,560,58,30,16,Tuna + sinangag + itlog
+Sardinassilog,Breakfast,1 set,540,60,20,16,Sardinas + sinangag + itlog
+Corned Tunasilog,Breakfast,1 set,550,60,26,18,Corned Tuna + sinangag + itlog
+Sisigsilog,Breakfast,1 set,700,60,24,38,Sisig + sinangag + itlog
+Bisteksilog,Breakfast,1 set,650,58,30,26,Bistek + sinangag + itlog
+Pichi-Pichi,Snack/Dessert,1 slice/piece (80-120g),343,37,2,6,Traditional Filipino kakanin
+Puto Bumbong,Snack/Dessert,1 slice/piece (80-120g),242,44,3,3,Traditional Filipino kakanin
+Suman sa Lihiya,Snack/Dessert,1 slice/piece (80-120g),353,64,2,11,Traditional Filipino kakanin
+Suman sa Ibus,Snack/Dessert,1 slice/piece (80-120g),288,32,2,3,Traditional Filipino kakanin
+Butsi,Snack/Dessert,1 slice/piece (80-120g),235,44,6,11,Traditional Filipino kakanin
+Cassava Suman,Snack/Dessert,1 slice/piece (80-120g),186,65,3,12,Traditional Filipino kakanin
+Binignit,Snack/Dessert,1 slice/piece (80-120g),359,64,5,5,Traditional Filipino kakanin
+Kalamay,Snack/Dessert,1 slice/piece (80-120g),294,67,4,2,Traditional Filipino kakanin
+Tibok-Tibok,Snack/Dessert,1 slice/piece (80-120g),220,57,4,6,Traditional Filipino kakanin
+Yema,Snack/Dessert,1 slice/piece (80-120g),219,43,4,3,Traditional Filipino kakanin
+Polvoron,Snack/Dessert,1 slice/piece (80-120g),203,54,2,7,Traditional Filipino kakanin
+Pastillas,Snack/Dessert,1 slice/piece (80-120g),268,68,4,2,Traditional Filipino kakanin
+Canonigo,Snack/Dessert,1 slice/piece (80-120g),297,64,2,8,Traditional Filipino kakanin
+Brazo de Mercedes,Snack/Dessert,1 slice/piece (80-120g),200,65,4,12,Traditional Filipino kakanin
+Sylvanas,Snack/Dessert,1 slice/piece (80-120g),338,53,6,5,Traditional Filipino kakanin
+Sans Rival,Snack/Dessert,1 slice/piece (80-120g),360,34,2,12,Traditional Filipino kakanin
+Napoleones,Snack/Dessert,1 slice/piece (80-120g),238,48,2,5,Traditional Filipino kakanin
+Piaya,Snack/Dessert,1 slice/piece (80-120g),205,54,4,9,Traditional Filipino kakanin
+Barquillos,Snack/Dessert,1 slice/piece (80-120g),342,53,3,7,Traditional Filipino kakanin
+Otap,Snack/Dessert,1 slice/piece (80-120g),270,43,4,12,Traditional Filipino kakanin
+Rosquillos,Snack/Dessert,1 slice/piece (80-120g),345,34,6,12,Traditional Filipino kakanin
+Bañadas,Snack/Dessert,1 slice/piece (80-120g),223,64,3,4,Traditional Filipino kakanin
+Pan de Coco,Snack/Dessert,1 slice/piece (80-120g),298,54,4,12,Traditional Filipino kakanin
+Sinangag (Garlic Fried Rice) (Small Serving),Breakfast,1 cup (150g),150,30,3,2,"Paired with tapa, tocino, or longganisa"
+Sinangag (Garlic Fried Rice) (Large Serving),Breakfast,1 cup (150g),250,50,5,3,"Paired with tapa, tocino, or longganisa"
+Sinangag (Garlic Fried Rice) (Spicy Variant),Breakfast,1 cup (150g),200,40,4,3,"Paired with tapa, tocino, or longganisa; spicy"
+Sinangag (Garlic Fried Rice) (Low-Sodium),Breakfast,1 cup (150g),200,40,4,3,"Paired with tapa, tocino, or longganisa; reduced salt"
+Sinangag (Garlic Fried Rice) (With Brown Rice),Breakfast,1 cup (150g),210,48,4,3,"Paired with tapa, tocino, or longganisa; whole grain option"
+Sinangag (Garlic Fried Rice) (Fiesta Portion),Breakfast,1 cup (150g),280,56,5,4,"Paired with tapa, tocino, or longganisa"
+Sinangag (Garlic Fried Rice) (Budget Bowl),Breakfast,1 cup (150g),170,34,3,2,"Paired with tapa, tocino, or longganisa"
+Longganisa w/ Rice (Small Serving),Breakfast,1 link + 1 cup rice,337,41,11,15,Common silog breakfast
+Longganisa w/ Rice (Large Serving),Breakfast,1 link + 1 cup rice,562,68,18,25,Common silog breakfast
+Longganisa w/ Rice (Spicy Variant),Breakfast,1 link + 1 cup rice,450,55,15,20,Common silog breakfast; spicy
+Longganisa w/ Rice (Low-Sodium),Breakfast,1 link + 1 cup rice,450,55,15,20,Common silog breakfast; reduced salt
+Longganisa w/ Rice (With Brown Rice),Breakfast,1 link + 1 cup rice,472,63,15,21,Common silog breakfast; whole grain option
+Longganisa w/ Rice (Fiesta Portion),Breakfast,1 link + 1 cup rice,630,77,21,28,Common silog breakfast
+Longganisa w/ Rice (Budget Bowl),Breakfast,1 link + 1 cup rice,382,46,12,17,Common silog breakfast
+Tapsilog (Small Serving),Breakfast,1 set,487,45,22,18,Tapa + sinangag + itlog
+Tapsilog (Large Serving),Breakfast,1 set,812,75,37,31,Tapa + sinangag + itlog
+Tapsilog (Spicy Variant),Breakfast,1 set,650,60,30,25,Tapa + sinangag + itlog; spicy
+Tapsilog (Low-Sodium),Breakfast,1 set,650,60,30,25,Tapa + sinangag + itlog; reduced salt
+Tapsilog (With Brown Rice),Breakfast,1 set,682,69,31,26,Tapa + sinangag + itlog; whole grain option
+Tapsilog (Fiesta Portion),Breakfast,1 set,909,84,42,35,Tapa + sinangag + itlog
+Tapsilog (Budget Bowl),Breakfast,1 set,552,51,25,21,Tapa + sinangag + itlog
+Tocilog (Small Serving),Breakfast,1 set,465,46,19,18,Tocino + sinangag + itlog
+Tocilog (Large Serving),Breakfast,1 set,775,77,32,30,Tocino + sinangag + itlog
+Tocilog (Spicy Variant),Breakfast,1 set,620,62,26,24,Tocino + sinangag + itlog; spicy
+Tocilog (Low-Sodium),Breakfast,1 set,620,62,26,24,Tocino + sinangag + itlog; reduced salt
+Tocilog (With Brown Rice),Breakfast,1 set,651,71,27,25,Tocino + sinangag + itlog; whole grain option
+Tocilog (Fiesta Portion),Breakfast,1 set,868,86,36,33,Tocino + sinangag + itlog
+Tocilog (Budget Bowl),Breakfast,1 set,527,52,22,20,Tocino + sinangag + itlog
+Bangsilog (Small Serving),Breakfast,1 set,412,43,20,13,Bangus + sinangag + itlog
+Bangsilog (Large Serving),Breakfast,1 set,687,72,33,22,Bangus + sinangag + itlog
+Bangsilog (Spicy Variant),Breakfast,1 set,550,58,27,18,Bangus + sinangag + itlog; spicy
+Bangsilog (Low-Sodium),Breakfast,1 set,550,58,27,18,Bangus + sinangag + itlog; reduced salt
+Bangsilog (With Brown Rice),Breakfast,1 set,577,66,28,18,Bangus + sinangag + itlog; whole grain option
+Bangsilog (Fiesta Portion),Breakfast,1 set,770,81,37,25,Bangus + sinangag + itlog
+Bangsilog (Budget Bowl),Breakfast,1 set,467,49,22,15,Bangus + sinangag + itlog
+Hotsilog (Small Serving),Breakfast,1 set,390,45,13,15,Hotdog + sinangag + itlog
+Hotsilog (Large Serving),Breakfast,1 set,650,75,22,25,Hotdog + sinangag + itlog
+Hotsilog (Spicy Variant),Breakfast,1 set,520,60,18,20,Hotdog + sinangag + itlog; spicy
+Hotsilog (Low-Sodium),Breakfast,1 set,520,60,18,20,Hotdog + sinangag + itlog; reduced salt
+Hotsilog (With Brown Rice),Breakfast,1 set,546,69,18,21,Hotdog + sinangag + itlog; whole grain option
+Hotsilog (Fiesta Portion),Breakfast,1 set,728,84,25,28,Hotdog + sinangag + itlog
+Hotsilog (Budget Bowl),Breakfast,1 set,442,51,15,17,Hotdog + sinangag + itlog
+Spamsilog (Small Serving),Breakfast,1 set,525,46,16,26,Spam + sinangag + itlog
+Spamsilog (Large Serving),Breakfast,1 set,875,77,27,43,Spam + sinangag + itlog
+Spamsilog (Spicy Variant),Breakfast,1 set,700,62,22,35,Spam + sinangag + itlog; spicy
+Spamsilog (Low-Sodium),Breakfast,1 set,700,62,22,35,Spam + sinangag + itlog; reduced salt
+Spamsilog (With Brown Rice),Breakfast,1 set,735,71,23,36,Spam + sinangag + itlog; whole grain option
+Spamsilog (Fiesta Portion),Breakfast,1 set,979,86,30,49,Spam + sinangag + itlog
+Spamsilog (Budget Bowl),Breakfast,1 set,595,52,18,29,Spam + sinangag + itlog
+Cornsilog (Small Serving),Breakfast,1 set,450,47,15,18,Corned beef + sinangag + itlog
+Cornsilog (Large Serving),Breakfast,1 set,750,78,25,30,Corned beef + sinangag + itlog
+Cornsilog (Spicy Variant),Breakfast,1 set,600,63,20,24,Corned beef + sinangag + itlog; spicy
+Cornsilog (Low-Sodium),Breakfast,1 set,600,63,20,24,Corned beef + sinangag + itlog; reduced salt
+Cornsilog (With Brown Rice),Breakfast,1 set,630,72,21,25,Corned beef + sinangag + itlog; whole grain option
+Cornsilog (Fiesta Portion),Breakfast,1 set,840,88,28,33,Corned beef + sinangag + itlog
+Cornsilog (Budget Bowl),Breakfast,1 set,510,53,17,20,Corned beef + sinangag + itlog
+Baconsilog (Small Serving),Breakfast,1 set,510,45,18,26,Bacon + sinangag + itlog
+Baconsilog (Large Serving),Breakfast,1 set,850,75,30,43,Bacon + sinangag + itlog
+Baconsilog (Spicy Variant),Breakfast,1 set,680,60,24,35,Bacon + sinangag + itlog; spicy
+Baconsilog (Low-Sodium),Breakfast,1 set,680,60,24,35,Bacon + sinangag + itlog; reduced salt
+Baconsilog (With Brown Rice),Breakfast,1 set,714,69,25,36,Bacon + sinangag + itlog; whole grain option
+Baconsilog (Fiesta Portion),Breakfast,1 set,951,84,33,49,Bacon + sinangag + itlog
+Baconsilog (Budget Bowl),Breakfast,1 set,578,51,20,29,Bacon + sinangag + itlog
+Dangsilog (Small Serving),Breakfast,1 set,397,43,18,13,Dried fish + sinangag + itlog
+Dangsilog (Large Serving),Breakfast,1 set,662,72,31,22,Dried fish + sinangag + itlog
+Dangsilog (Spicy Variant),Breakfast,1 set,530,58,25,18,Dried fish + sinangag + itlog; spicy
+Dangsilog (Low-Sodium),Breakfast,1 set,530,58,25,18,Dried fish + sinangag + itlog; reduced salt
+Dangsilog (With Brown Rice),Breakfast,1 set,556,66,26,18,Dried fish + sinangag + itlog; whole grain option
+Dangsilog (Fiesta Portion),Breakfast,1 set,742,81,35,25,Dried fish + sinangag + itlog
+Dangsilog (Budget Bowl),Breakfast,1 set,450,49,21,15,Dried fish + sinangag + itlog
+Adobolog (Small Serving),Breakfast,1 set,480,45,21,18,Adobo + sinangag + itlog
+Adobolog (Large Serving),Breakfast,1 set,800,76,35,30,Adobo + sinangag + itlog
+Adobolog (Spicy Variant),Breakfast,1 set,640,61,28,24,Adobo + sinangag + itlog; spicy
+Adobolog (Low-Sodium),Breakfast,1 set,640,61,28,24,Adobo + sinangag + itlog; reduced salt
+Adobolog (With Brown Rice),Breakfast,1 set,672,70,29,25,Adobo + sinangag + itlog; whole grain option
+Adobolog (Fiesta Portion),Breakfast,1 set,896,85,39,33,Adobo + sinangag + itlog
+Adobolog (Budget Bowl),Breakfast,1 set,544,51,23,20,Adobo + sinangag + itlog
+Lugaw (Rice Porridge) (Small Serving),Breakfast/Snack,1 bowl (200g),135,28,3,1,Light meal or merienda
+Lugaw (Rice Porridge) (Large Serving),Breakfast/Snack,1 bowl (200g),225,47,5,2,Light meal or merienda
+Lugaw (Rice Porridge) (Spicy Variant),Breakfast/Snack,1 bowl (200g),180,38,4,2,Light meal or merienda; spicy
+Lugaw (Rice Porridge) (Low-Sodium),Breakfast/Snack,1 bowl (200g),180,38,4,2,Light meal or merienda; reduced salt
+Lugaw (Rice Porridge) (With Brown Rice),Breakfast/Snack,1 bowl (200g),189,45,4,2,Light meal or merienda; whole grain option
+Lugaw (Rice Porridge) (Fiesta Portion),Breakfast/Snack,1 bowl (200g),251,53,5,2,Light meal or merienda
+Lugaw (Rice Porridge) (Budget Bowl),Breakfast/Snack,1 bowl (200g),153,32,3,1,Light meal or merienda
+Goto (Tripe Porridge) (Small Serving),Breakfast/Snack,1 bowl (250g),195,30,9,4,With beef tripe
+Goto (Tripe Porridge) (Large Serving),Breakfast/Snack,1 bowl (250g),325,50,15,7,With beef tripe
+Goto (Tripe Porridge) (Spicy Variant),Breakfast/Snack,1 bowl (250g),260,40,12,6,With beef tripe; spicy
+Goto (Tripe Porridge) (Low-Sodium),Breakfast/Snack,1 bowl (250g),260,40,12,6,With beef tripe; reduced salt
+Goto (Tripe Porridge) (With Brown Rice),Breakfast/Snack,1 bowl (250g),273,48,12,6,With beef tripe; whole grain option
+Goto (Tripe Porridge) (Fiesta Portion),Breakfast/Snack,1 bowl (250g),364,56,16,8,With beef tripe
+Goto (Tripe Porridge) (Budget Bowl),Breakfast/Snack,1 bowl (250g),221,34,10,5,With beef tripe
+Arroz Caldo (Chicken) (Small Serving),Breakfast/Snack,1 bowl (250g),225,31,12,6,Ginger rice porridge
+Arroz Caldo (Chicken) (Large Serving),Breakfast/Snack,1 bowl (250g),375,52,20,10,Ginger rice porridge
+Arroz Caldo (Chicken) (Spicy Variant),Breakfast/Snack,1 bowl (250g),300,42,16,8,Ginger rice porridge; spicy
+Arroz Caldo (Chicken) (Low-Sodium),Breakfast/Snack,1 bowl (250g),300,42,16,8,Ginger rice porridge; reduced salt
+Arroz Caldo (Chicken) (With Brown Rice),Breakfast/Snack,1 bowl (250g),315,50,16,8,Ginger rice porridge; whole grain option
+Arroz Caldo (Chicken) (Fiesta Portion),Breakfast/Snack,1 bowl (250g),420,58,22,11,Ginger rice porridge
+Arroz Caldo (Chicken) (Budget Bowl),Breakfast/Snack,1 bowl (250g),255,35,13,6,Ginger rice porridge
+Champorado (Small Serving),Breakfast,1 bowl (200g),187,41,4,3,Chocolate rice porridge
+Champorado (Large Serving),Breakfast,1 bowl (200g),312,68,7,5,Chocolate rice porridge
+Champorado (Spicy Variant),Breakfast,1 bowl (200g),250,55,6,4,Chocolate rice porridge; spicy
+Champorado (Low-Sodium),Breakfast,1 bowl (200g),250,55,6,4,Chocolate rice porridge; reduced salt
+Champorado (With Brown Rice),Breakfast,1 bowl (200g),262,63,6,4,Chocolate rice porridge; whole grain option
+Champorado (Fiesta Portion),Breakfast,1 bowl (200g),350,77,8,5,Chocolate rice porridge
+Champorado (Budget Bowl),Breakfast,1 bowl (200g),212,46,5,3,Chocolate rice porridge
+Pandesal (Small Serving),Breakfast,1 piece (30g),67,13,2,0,Eaten with coffee
+Pandesal (Large Serving),Breakfast,1 piece (30g),112,22,3,1,Eaten with coffee
+Pandesal (Spicy Variant),Breakfast,1 piece (30g),90,18,3,1,Eaten with coffee; spicy
+Pandesal (Low-Sodium),Breakfast,1 piece (30g),90,18,3,1,Eaten with coffee; reduced salt
+Pandesal (With Brown Rice),Breakfast,1 piece (30g),94,24,3,1,Eaten with coffee; whole grain option
+Pandesal (Fiesta Portion),Breakfast,1 piece (30g),125,25,4,1,Eaten with coffee
+Pandesal (Budget Bowl),Breakfast,1 piece (30g),76,15,2,0,Eaten with coffee
+Taho (Small Serving),Breakfast/Snack,1 cup (250ml),135,22,4,2,Soft tofu with arnibal & sago
+Taho (Large Serving),Breakfast/Snack,1 cup (250ml),225,37,7,3,Soft tofu with arnibal & sago
+Taho (Spicy Variant),Breakfast/Snack,1 cup (250ml),180,30,6,3,Soft tofu with arnibal & sago; spicy
+Taho (Low-Sodium),Breakfast/Snack,1 cup (250ml),180,30,6,3,Soft tofu with arnibal & sago; reduced salt
+Taho (With Brown Rice),Breakfast/Snack,1 cup (250ml),189,37,6,3,Soft tofu with arnibal & sago; whole grain option
+Taho (Fiesta Portion),Breakfast/Snack,1 cup (250ml),251,42,8,4,Soft tofu with arnibal & sago
+Taho (Budget Bowl),Breakfast/Snack,1 cup (250ml),153,25,5,2,Soft tofu with arnibal & sago
+Omelette w/ Tomatoes (Small Serving),Breakfast,1 serving,165,3,10,12,Simple Filipino omelette
+Omelette w/ Tomatoes (Large Serving),Breakfast,1 serving,275,6,17,20,Simple Filipino omelette
+Omelette w/ Tomatoes (Spicy Variant),Breakfast,1 serving,220,5,14,16,Simple Filipino omelette; spicy
+Omelette w/ Tomatoes (Low-Sodium),Breakfast,1 serving,220,5,14,16,Simple Filipino omelette; reduced salt
+Omelette w/ Tomatoes (With Brown Rice),Breakfast,1 serving,231,11,14,16,Simple Filipino omelette; whole grain option
+Omelette w/ Tomatoes (Fiesta Portion),Breakfast,1 serving,308,7,19,22,Simple Filipino omelette
+Omelette w/ Tomatoes (Budget Bowl),Breakfast,1 serving,187,4,11,13,Simple Filipino omelette
+Tortang Talong (Small Serving),Breakfast/Lunch,1 piece (150g),172,9,7,11,Eggplant omelette
+Tortang Talong (Large Serving),Breakfast/Lunch,1 piece (150g),287,15,12,18,Eggplant omelette
+Tortang Talong (Spicy Variant),Breakfast/Lunch,1 piece (150g),230,12,10,15,Eggplant omelette; spicy
+Tortang Talong (Low-Sodium),Breakfast/Lunch,1 piece (150g),230,12,10,15,Eggplant omelette; reduced salt
+Tortang Talong (With Brown Rice),Breakfast/Lunch,1 piece (150g),241,18,10,15,Eggplant omelette; whole grain option
+Tortang Talong (Fiesta Portion),Breakfast/Lunch,1 piece (150g),322,16,14,21,Eggplant omelette
+Tortang Talong (Budget Bowl),Breakfast/Lunch,1 piece (150g),195,10,8,12,Eggplant omelette
+Tortang Giniling (Small Serving),Breakfast/Lunch,1 slice (150g),240,7,13,16,Ground pork omelette
+Tortang Giniling (Large Serving),Breakfast/Lunch,1 slice (150g),400,12,22,27,Ground pork omelette
+Tortang Giniling (Spicy Variant),Breakfast/Lunch,1 slice (150g),320,10,18,22,Ground pork omelette; spicy
+Tortang Giniling (Low-Sodium),Breakfast/Lunch,1 slice (150g),320,10,18,22,Ground pork omelette; reduced salt
+Tortang Giniling (With Brown Rice),Breakfast/Lunch,1 slice (150g),336,16,18,23,Ground pork omelette; whole grain option
+Tortang Giniling (Fiesta Portion),Breakfast/Lunch,1 slice (150g),448,14,25,30,Ground pork omelette
+Tortang Giniling (Budget Bowl),Breakfast/Lunch,1 slice (150g),272,8,15,18,Ground pork omelette
+Pancit Canton (Small Serving),Snack/Lunch,1 plate (250g),300,41,13,9,Stir-fried egg noodles
+Pancit Canton (Large Serving),Snack/Lunch,1 plate (250g),500,68,22,15,Stir-fried egg noodles
+Pancit Canton (Spicy Variant),Snack/Lunch,1 plate (250g),400,55,18,12,Stir-fried egg noodles; spicy
+Pancit Canton (Low-Sodium),Snack/Lunch,1 plate (250g),400,55,18,12,Stir-fried egg noodles; reduced salt
+Pancit Canton (With Brown Rice),Snack/Lunch,1 plate (250g),420,63,18,12,Stir-fried egg noodles; whole grain option
+Pancit Canton (Fiesta Portion),Snack/Lunch,1 plate (250g),560,77,25,16,Stir-fried egg noodles
+Pancit Canton (Budget Bowl),Snack/Lunch,1 plate (250g),340,46,15,10,Stir-fried egg noodles
+Pancit Bihon (Small Serving),Snack/Lunch,1 plate (250g),285,43,11,7,Rice noodles with veg & meat
+Pancit Bihon (Large Serving),Snack/Lunch,1 plate (250g),475,72,18,12,Rice noodles with veg & meat
+Pancit Bihon (Spicy Variant),Snack/Lunch,1 plate (250g),380,58,15,10,Rice noodles with veg & meat; spicy
+Pancit Bihon (Low-Sodium),Snack/Lunch,1 plate (250g),380,58,15,10,Rice noodles with veg & meat; reduced salt
+Pancit Bihon (With Brown Rice),Snack/Lunch,1 plate (250g),399,66,15,10,Rice noodles with veg & meat; whole grain option
+Pancit Bihon (Fiesta Portion),Snack/Lunch,1 plate (250g),532,81,21,14,Rice noodles with veg & meat
+Pancit Bihon (Budget Bowl),Snack/Lunch,1 plate (250g),323,49,12,8,Rice noodles with veg & meat
+Pancit Malabon (Small Serving),Snack/Lunch,1 plate (250g),315,45,15,10,Seafood pancit
+Pancit Malabon (Large Serving),Snack/Lunch,1 plate (250g),525,75,25,17,Seafood pancit
+Pancit Malabon (Spicy Variant),Snack/Lunch,1 plate (250g),420,60,20,14,Seafood pancit; spicy
+Pancit Malabon (Low-Sodium),Snack/Lunch,1 plate (250g),420,60,20,14,Seafood pancit; reduced salt
+Pancit Malabon (With Brown Rice),Snack/Lunch,1 plate (250g),441,69,21,14,Seafood pancit; whole grain option
+Pancit Malabon (Fiesta Portion),Snack/Lunch,1 plate (250g),588,84,28,19,Seafood pancit
+Pancit Malabon (Budget Bowl),Snack/Lunch,1 plate (250g),357,51,17,11,Seafood pancit
+Pancit Palabok (Small Serving),Snack/Lunch,1 plate (250g),337,46,13,10,"Shrimp sauce, chicharon, egg"
+Pancit Palabok (Large Serving),Snack/Lunch,1 plate (250g),562,77,22,17,"Shrimp sauce, chicharon, egg"
+Pancit Palabok (Spicy Variant),Snack/Lunch,1 plate (250g),450,62,18,14,"Shrimp sauce, chicharon, egg; spicy"
+Pancit Palabok (Low-Sodium),Snack/Lunch,1 plate (250g),450,62,18,14,"Shrimp sauce, chicharon, egg; reduced salt"
+Pancit Palabok (With Brown Rice),Snack/Lunch,1 plate (250g),472,71,18,14,"Shrimp sauce, chicharon, egg; whole grain option"
+Pancit Palabok (Fiesta Portion),Snack/Lunch,1 plate (250g),630,86,25,19,"Shrimp sauce, chicharon, egg"
+Pancit Palabok (Budget Bowl),Snack/Lunch,1 plate (250g),382,52,15,11,"Shrimp sauce, chicharon, egg"
+Pancit Habhab (Lucban) (Small Serving),Snack/Lunch,1 plate (250g),285,42,12,7,Served on banana leaf
+Pancit Habhab (Lucban) (Large Serving),Snack/Lunch,1 plate (250g),475,70,20,12,Served on banana leaf
+Pancit Habhab (Lucban) (Spicy Variant),Snack/Lunch,1 plate (250g),380,56,16,10,Served on banana leaf; spicy
+Pancit Habhab (Lucban) (Low-Sodium),Snack/Lunch,1 plate (250g),380,56,16,10,Served on banana leaf; reduced salt
+Pancit Habhab (Lucban) (With Brown Rice),Snack/Lunch,1 plate (250g),399,64,16,10,Served on banana leaf; whole grain option
+Pancit Habhab (Lucban) (Fiesta Portion),Snack/Lunch,1 plate (250g),532,78,22,14,Served on banana leaf
+Pancit Habhab (Lucban) (Budget Bowl),Snack/Lunch,1 plate (250g),323,47,13,8,Served on banana leaf
+Sotanghon Guisado (Small Serving),Snack/Lunch,1 plate (250g),270,40,12,6,Glass noodles stir-fry
+Sotanghon Guisado (Large Serving),Snack/Lunch,1 plate (250g),450,67,20,10,Glass noodles stir-fry
+Sotanghon Guisado (Spicy Variant),Snack/Lunch,1 plate (250g),360,54,16,8,Glass noodles stir-fry; spicy
+Sotanghon Guisado (Low-Sodium),Snack/Lunch,1 plate (250g),360,54,16,8,Glass noodles stir-fry; reduced salt
+Sotanghon Guisado (With Brown Rice),Snack/Lunch,1 plate (250g),378,62,16,8,Glass noodles stir-fry; whole grain option
+Sotanghon Guisado (Fiesta Portion),Snack/Lunch,1 plate (250g),503,75,22,11,Glass noodles stir-fry
+Sotanghon Guisado (Budget Bowl),Snack/Lunch,1 plate (250g),306,45,13,6,Glass noodles stir-fry
+Lomi (Batangas) (Small Serving),Lunch/Dinner,1 bowl (300g),360,46,15,12,Thick egg noodle soup
+Lomi (Batangas) (Large Serving),Lunch/Dinner,1 bowl (300g),600,77,25,20,Thick egg noodle soup
+Lomi (Batangas) (Spicy Variant),Lunch/Dinner,1 bowl (300g),480,62,20,16,Thick egg noodle soup; spicy
+Lomi (Batangas) (Low-Sodium),Lunch/Dinner,1 bowl (300g),480,62,20,16,Thick egg noodle soup; reduced salt
+Lomi (Batangas) (With Brown Rice),Lunch/Dinner,1 bowl (300g),504,71,21,16,Thick egg noodle soup; whole grain option
+Lomi (Batangas) (Fiesta Portion),Lunch/Dinner,1 bowl (300g),672,86,28,22,Thick egg noodle soup
+Lomi (Batangas) (Budget Bowl),Lunch/Dinner,1 bowl (300g),408,52,17,13,Thick egg noodle soup
+Batchoy (La Paz) (Small Serving),Lunch/Dinner,1 bowl (300g),390,36,16,16,With pork innards & chicharon
+Batchoy (La Paz) (Large Serving),Lunch/Dinner,1 bowl (300g),650,60,27,27,With pork innards & chicharon
+Batchoy (La Paz) (Spicy Variant),Lunch/Dinner,1 bowl (300g),520,48,22,22,With pork innards & chicharon; spicy
+Batchoy (La Paz) (Low-Sodium),Lunch/Dinner,1 bowl (300g),520,48,22,22,With pork innards & chicharon; reduced salt
+Batchoy (La Paz) (With Brown Rice),Lunch/Dinner,1 bowl (300g),546,56,23,23,With pork innards & chicharon; whole grain option
+Batchoy (La Paz) (Fiesta Portion),Lunch/Dinner,1 bowl (300g),728,67,30,30,With pork innards & chicharon
+Batchoy (La Paz) (Budget Bowl),Lunch/Dinner,1 bowl (300g),442,40,18,18,With pork innards & chicharon
+Sopas (Macaroni Soup) (Small Serving),Snack/Lunch,1 bowl (300g),262,31,12,9,Creamy chicken macaroni soup
+Sopas (Macaroni Soup) (Large Serving),Snack/Lunch,1 bowl (300g),437,52,20,15,Creamy chicken macaroni soup
+Sopas (Macaroni Soup) (Spicy Variant),Snack/Lunch,1 bowl (300g),350,42,16,12,Creamy chicken macaroni soup; spicy
+Sopas (Macaroni Soup) (Low-Sodium),Snack/Lunch,1 bowl (300g),350,42,16,12,Creamy chicken macaroni soup; reduced salt
+Sopas (Macaroni Soup) (With Brown Rice),Snack/Lunch,1 bowl (300g),367,50,16,12,Creamy chicken macaroni soup; whole grain option
+Sopas (Macaroni Soup) (Fiesta Portion),Snack/Lunch,1 bowl (300g),489,58,22,16,Creamy chicken macaroni soup
+Sopas (Macaroni Soup) (Budget Bowl),Snack/Lunch,1 bowl (300g),297,35,13,10,Creamy chicken macaroni soup
+Adobo (Chicken) (Small Serving),Lunch/Dinner,1 cup (200g),187,3,18,11,Soy-vinegar stew
+Adobo (Chicken) (Large Serving),Lunch/Dinner,1 cup (200g),312,6,31,18,Soy-vinegar stew
+Adobo (Chicken) (Spicy Variant),Lunch/Dinner,1 cup (200g),250,5,25,15,Soy-vinegar stew; spicy
+Adobo (Chicken) (Low-Sodium),Lunch/Dinner,1 cup (200g),250,5,25,15,Soy-vinegar stew; reduced salt
+Adobo (Chicken) (With Brown Rice),Lunch/Dinner,1 cup (200g),262,11,26,15,Soy-vinegar stew; whole grain option
+Adobo (Chicken) (Fiesta Portion),Lunch/Dinner,1 cup (200g),350,7,35,21,Soy-vinegar stew
+Adobo (Chicken) (Budget Bowl),Lunch/Dinner,1 cup (200g),212,4,21,12,Soy-vinegar stew
+Adobo (Pork) (Small Serving),Lunch/Dinner,1 cup (200g),247,4,21,16,Classic ulam
+Adobo (Pork) (Large Serving),Lunch/Dinner,1 cup (200g),412,7,35,27,Classic ulam
+Adobo (Pork) (Spicy Variant),Lunch/Dinner,1 cup (200g),330,6,28,22,Classic ulam; spicy
+Adobo (Pork) (Low-Sodium),Lunch/Dinner,1 cup (200g),330,6,28,22,Classic ulam; reduced salt
+Adobo (Pork) (With Brown Rice),Lunch/Dinner,1 cup (200g),346,12,29,23,Classic ulam; whole grain option
+Adobo (Pork) (Fiesta Portion),Lunch/Dinner,1 cup (200g),461,8,39,30,Classic ulam
+Adobo (Pork) (Budget Bowl),Lunch/Dinner,1 cup (200g),280,5,23,18,Classic ulam
+Adobo sa Gata (Small Serving),Lunch/Dinner,1 cup (200g),285,6,19,19,Adobo with coconut milk
+Adobo sa Gata (Large Serving),Lunch/Dinner,1 cup (200g),475,10,32,32,Adobo with coconut milk
+Adobo sa Gata (Spicy Variant),Lunch/Dinner,1 cup (200g),380,8,26,26,Adobo with coconut milk; spicy
+Adobo sa Gata (Low-Sodium),Lunch/Dinner,1 cup (200g),380,8,26,26,Adobo with coconut milk; reduced salt
+Adobo sa Gata (With Brown Rice),Lunch/Dinner,1 cup (200g),399,14,27,27,Adobo with coconut milk; whole grain option
+Adobo sa Gata (Fiesta Portion),Lunch/Dinner,1 cup (200g),532,11,36,36,Adobo with coconut milk
+Adobo sa Gata (Budget Bowl),Lunch/Dinner,1 cup (200g),323,6,22,22,Adobo with coconut milk
+Adobong Puti (Small Serving),Lunch/Dinner,1 cup (200g),225,3,20,13,Adobo without soy sauce
+Adobong Puti (Large Serving),Lunch/Dinner,1 cup (200g),375,5,33,22,Adobo without soy sauce
+Adobong Puti (Spicy Variant),Lunch/Dinner,1 cup (200g),300,4,27,18,Adobo without soy sauce; spicy
+Adobong Puti (Low-Sodium),Lunch/Dinner,1 cup (200g),300,4,27,18,Adobo without soy sauce; reduced salt
+Adobong Puti (With Brown Rice),Lunch/Dinner,1 cup (200g),315,10,28,18,Adobo without soy sauce; whole grain option
+Adobong Puti (Fiesta Portion),Lunch/Dinner,1 cup (200g),420,5,37,25,Adobo without soy sauce
+Adobong Puti (Budget Bowl),Lunch/Dinner,1 cup (200g),255,3,22,15,Adobo without soy sauce
+Paksiw na Lechon (Small Serving),Lunch/Dinner,1 cup (200g),315,7,18,22,Lechon in vinegar sauce
+Paksiw na Lechon (Large Serving),Lunch/Dinner,1 cup (200g),525,12,30,37,Lechon in vinegar sauce
+Paksiw na Lechon (Spicy Variant),Lunch/Dinner,1 cup (200g),420,10,24,30,Lechon in vinegar sauce; spicy
+Paksiw na Lechon (Low-Sodium),Lunch/Dinner,1 cup (200g),420,10,24,30,Lechon in vinegar sauce; reduced salt
+Paksiw na Lechon (With Brown Rice),Lunch/Dinner,1 cup (200g),441,16,25,31,Lechon in vinegar sauce; whole grain option
+Paksiw na Lechon (Fiesta Portion),Lunch/Dinner,1 cup (200g),588,14,33,42,Lechon in vinegar sauce
+Paksiw na Lechon (Budget Bowl),Lunch/Dinner,1 cup (200g),357,8,20,25,Lechon in vinegar sauce
+Paksiw na Isda (Small Serving),Lunch/Dinner,1 cup (200g),165,3,18,9,Fish stewed in vinegar
+Paksiw na Isda (Large Serving),Lunch/Dinner,1 cup (200g),275,5,30,15,Fish stewed in vinegar
+Paksiw na Isda (Spicy Variant),Lunch/Dinner,1 cup (200g),220,4,24,12,Fish stewed in vinegar; spicy
+Paksiw na Isda (Low-Sodium),Lunch/Dinner,1 cup (200g),220,4,24,12,Fish stewed in vinegar; reduced salt
+Paksiw na Isda (With Brown Rice),Lunch/Dinner,1 cup (200g),231,10,25,12,Fish stewed in vinegar; whole grain option
+Paksiw na Isda (Fiesta Portion),Lunch/Dinner,1 cup (200g),308,5,33,16,Fish stewed in vinegar
+Paksiw na Isda (Budget Bowl),Lunch/Dinner,1 cup (200g),187,3,20,10,Fish stewed in vinegar
+Kare-Kare (Small Serving),Lunch/Dinner,1 cup stew + 1 cup rice,525,48,22,26,"Peanut stew, bagoong on side"
+Kare-Kare (Large Serving),Lunch/Dinner,1 cup stew + 1 cup rice,875,81,37,43,"Peanut stew, bagoong on side"
+Kare-Kare (Spicy Variant),Lunch/Dinner,1 cup stew + 1 cup rice,700,65,30,35,"Peanut stew, bagoong on side; spicy"
+Kare-Kare (Low-Sodium),Lunch/Dinner,1 cup stew + 1 cup rice,700,65,30,35,"Peanut stew, bagoong on side; reduced salt"
+Kare-Kare (With Brown Rice),Lunch/Dinner,1 cup stew + 1 cup rice,735,74,31,36,"Peanut stew, bagoong on side; whole grain option"
+Kare-Kare (Fiesta Portion),Lunch/Dinner,1 cup stew + 1 cup rice,979,91,42,49,"Peanut stew, bagoong on side"
+Kare-Kare (Budget Bowl),Lunch/Dinner,1 cup stew + 1 cup rice,595,55,25,29,"Peanut stew, bagoong on side"
+Caldereta (Beef) (Small Serving),Lunch/Dinner,1 cup (200g),262,13,19,15,Tomato-based beef stew
+Caldereta (Beef) (Large Serving),Lunch/Dinner,1 cup (200g),437,22,32,25,Tomato-based beef stew
+Caldereta (Beef) (Spicy Variant),Lunch/Dinner,1 cup (200g),350,18,26,20,Tomato-based beef stew; spicy
+Caldereta (Beef) (Low-Sodium),Lunch/Dinner,1 cup (200g),350,18,26,20,Tomato-based beef stew; reduced salt
+Caldereta (Beef) (With Brown Rice),Lunch/Dinner,1 cup (200g),367,24,27,21,Tomato-based beef stew; whole grain option
+Caldereta (Beef) (Fiesta Portion),Lunch/Dinner,1 cup (200g),489,25,36,28,Tomato-based beef stew
+Caldereta (Beef) (Budget Bowl),Lunch/Dinner,1 cup (200g),297,15,22,17,Tomato-based beef stew
+Menudo (Pork) (Small Serving),Lunch/Dinner,1 cup (200g),210,9,16,13,Tomato-based pork stew
+Menudo (Pork) (Large Serving),Lunch/Dinner,1 cup (200g),350,15,27,22,Tomato-based pork stew
+Menudo (Pork) (Spicy Variant),Lunch/Dinner,1 cup (200g),280,12,22,18,Tomato-based pork stew; spicy
+Menudo (Pork) (Low-Sodium),Lunch/Dinner,1 cup (200g),280,12,22,18,Tomato-based pork stew; reduced salt
+Menudo (Pork) (With Brown Rice),Lunch/Dinner,1 cup (200g),294,18,23,18,Tomato-based pork stew; whole grain option
+Menudo (Pork) (Fiesta Portion),Lunch/Dinner,1 cup (200g),392,16,30,25,Tomato-based pork stew
+Menudo (Pork) (Budget Bowl),Lunch/Dinner,1 cup (200g),238,10,18,15,Tomato-based pork stew
+Afritada (Chicken) (Small Serving),Lunch/Dinner,1 cup (200g),217,11,17,10,Chicken in tomato sauce
+Afritada (Chicken) (Large Serving),Lunch/Dinner,1 cup (200g),362,18,28,17,Chicken in tomato sauce
+Afritada (Chicken) (Spicy Variant),Lunch/Dinner,1 cup (200g),290,15,23,14,Chicken in tomato sauce; spicy
+Afritada (Chicken) (Low-Sodium),Lunch/Dinner,1 cup (200g),290,15,23,14,Chicken in tomato sauce; reduced salt
+Afritada (Chicken) (With Brown Rice),Lunch/Dinner,1 cup (200g),304,21,24,14,Chicken in tomato sauce; whole grain option
+Afritada (Chicken) (Fiesta Portion),Lunch/Dinner,1 cup (200g),406,21,32,19,Chicken in tomato sauce
+Afritada (Chicken) (Budget Bowl),Lunch/Dinner,1 cup (200g),246,12,19,11,Chicken in tomato sauce
+Mechado (Beef) (Small Serving),Lunch/Dinner,1 cup (200g),255,12,19,13,Beef stew with larded pork
+Mechado (Beef) (Large Serving),Lunch/Dinner,1 cup (200g),425,20,32,22,Beef stew with larded pork
+Mechado (Beef) (Spicy Variant),Lunch/Dinner,1 cup (200g),340,16,26,18,Beef stew with larded pork; spicy
+Mechado (Beef) (Low-Sodium),Lunch/Dinner,1 cup (200g),340,16,26,18,Beef stew with larded pork; reduced salt
+Mechado (Beef) (With Brown Rice),Lunch/Dinner,1 cup (200g),357,22,27,18,Beef stew with larded pork; whole grain option
+Mechado (Beef) (Fiesta Portion),Lunch/Dinner,1 cup (200g),475,22,36,25,Beef stew with larded pork
+Mechado (Beef) (Budget Bowl),Lunch/Dinner,1 cup (200g),289,13,22,15,Beef stew with larded pork
+Bicol Express (Small Serving),Lunch/Dinner,1 cup (150g),300,9,13,22,Spicy pork in coconut milk
+Bicol Express (Large Serving),Lunch/Dinner,1 cup (150g),500,15,22,37,Spicy pork in coconut milk
+Bicol Express (Spicy Variant),Lunch/Dinner,1 cup (150g),400,12,18,30,Spicy pork in coconut milk; spicy
+Bicol Express (Low-Sodium),Lunch/Dinner,1 cup (150g),400,12,18,30,Spicy pork in coconut milk; reduced salt
+Bicol Express (With Brown Rice),Lunch/Dinner,1 cup (150g),420,18,18,31,Spicy pork in coconut milk; whole grain option
+Bicol Express (Fiesta Portion),Lunch/Dinner,1 cup (150g),560,16,25,42,Spicy pork in coconut milk
+Bicol Express (Budget Bowl),Lunch/Dinner,1 cup (150g),340,10,15,25,Spicy pork in coconut milk
+Laing (Small Serving),Lunch/Dinner,1 cup (150g),262,15,7,21,Dried taro leaves in coconut
+Laing (Large Serving),Lunch/Dinner,1 cup (150g),437,25,12,35,Dried taro leaves in coconut
+Laing (Spicy Variant),Lunch/Dinner,1 cup (150g),350,20,10,28,Dried taro leaves in coconut; spicy
+Laing (Low-Sodium),Lunch/Dinner,1 cup (150g),350,20,10,28,Dried taro leaves in coconut; reduced salt
+Laing (With Brown Rice),Lunch/Dinner,1 cup (150g),367,27,10,29,Dried taro leaves in coconut; whole grain option
+Laing (Fiesta Portion),Lunch/Dinner,1 cup (150g),489,28,14,39,Dried taro leaves in coconut
+Laing (Budget Bowl),Lunch/Dinner,1 cup (150g),297,17,8,23,Dried taro leaves in coconut
+Pinakbet (Ilocano) (Small Serving),Lunch/Dinner,1 cup (200g),135,15,6,4,Veg stew with bagoong
+Pinakbet (Ilocano) (Large Serving),Lunch/Dinner,1 cup (200g),225,25,10,7,Veg stew with bagoong
+Pinakbet (Ilocano) (Spicy Variant),Lunch/Dinner,1 cup (200g),180,20,8,6,Veg stew with bagoong; spicy
+Pinakbet (Ilocano) (Low-Sodium),Lunch/Dinner,1 cup (200g),180,20,8,6,Veg stew with bagoong; reduced salt
+Pinakbet (Ilocano) (With Brown Rice),Lunch/Dinner,1 cup (200g),189,27,8,6,Veg stew with bagoong; whole grain option
+Pinakbet (Ilocano) (Fiesta Portion),Lunch/Dinner,1 cup (200g),251,28,11,8,Veg stew with bagoong
+Pinakbet (Ilocano) (Budget Bowl),Lunch/Dinner,1 cup (200g),153,17,6,5,Veg stew with bagoong
+Dinengdeng (Small Serving),Lunch/Dinner,1 bowl (250g),120,13,7,3,Light veg soup with grilled fish
+Dinengdeng (Large Serving),Lunch/Dinner,1 bowl (250g),200,22,12,6,Light veg soup with grilled fish
+Dinengdeng (Spicy Variant),Lunch/Dinner,1 bowl (250g),160,18,10,5,Light veg soup with grilled fish; spicy
+Dinengdeng (Low-Sodium),Lunch/Dinner,1 bowl (250g),160,18,10,5,Light veg soup with grilled fish; reduced salt
+Dinengdeng (With Brown Rice),Lunch/Dinner,1 bowl (250g),168,24,10,5,Light veg soup with grilled fish; whole grain option
+Dinengdeng (Fiesta Portion),Lunch/Dinner,1 bowl (250g),224,25,14,7,Light veg soup with grilled fish
+Dinengdeng (Budget Bowl),Lunch/Dinner,1 bowl (250g),136,15,8,4,Light veg soup with grilled fish
+Ginataang Sitaw at Kalabasa (Small Serving),Lunch/Dinner,1 cup (200g),210,16,6,13,String beans & squash in coconut
+Ginataang Sitaw at Kalabasa (Large Serving),Lunch/Dinner,1 cup (200g),350,27,10,22,String beans & squash in coconut
+Ginataang Sitaw at Kalabasa (Spicy Variant),Lunch/Dinner,1 cup (200g),280,22,8,18,String beans & squash in coconut; spicy
+Ginataang Sitaw at Kalabasa (Low-Sodium),Lunch/Dinner,1 cup (200g),280,22,8,18,String beans & squash in coconut; reduced salt
+Ginataang Sitaw at Kalabasa (With Brown Rice),Lunch/Dinner,1 cup (200g),294,29,8,18,String beans & squash in coconut; whole grain option
+Ginataang Sitaw at Kalabasa (Fiesta Portion),Lunch/Dinner,1 cup (200g),392,30,11,25,String beans & squash in coconut
+Ginataang Sitaw at Kalabasa (Budget Bowl),Lunch/Dinner,1 cup (200g),238,18,6,15,String beans & squash in coconut
+Inihaw na Liempo (Small Serving),Lunch/Dinner,150g,390,2,21,31,Grilled pork belly
+Inihaw na Liempo (Large Serving),Lunch/Dinner,150g,650,3,35,52,Grilled pork belly
+Inihaw na Liempo (Spicy Variant),Lunch/Dinner,150g,520,3,28,42,Grilled pork belly; spicy
+Inihaw na Liempo (Low-Sodium),Lunch/Dinner,150g,520,3,28,42,Grilled pork belly; reduced salt
+Inihaw na Liempo (With Brown Rice),Lunch/Dinner,150g,546,9,29,44,Grilled pork belly; whole grain option
+Inihaw na Liempo (Fiesta Portion),Lunch/Dinner,150g,728,4,39,58,Grilled pork belly
+Inihaw na Liempo (Budget Bowl),Lunch/Dinner,150g,442,2,23,35,Grilled pork belly
+Chicken Inasal (Small Serving),Lunch/Dinner,1 quarter (200g),240,3,21,15,Grilled chicken Bacolod-style
+Chicken Inasal (Large Serving),Lunch/Dinner,1 quarter (200g),400,5,35,25,Grilled chicken Bacolod-style
+Chicken Inasal (Spicy Variant),Lunch/Dinner,1 quarter (200g),320,4,28,20,Grilled chicken Bacolod-style; spicy
+Chicken Inasal (Low-Sodium),Lunch/Dinner,1 quarter (200g),320,4,28,20,Grilled chicken Bacolod-style; reduced salt
+Chicken Inasal (With Brown Rice),Lunch/Dinner,1 quarter (200g),336,10,29,21,Grilled chicken Bacolod-style; whole grain option
+Chicken Inasal (Fiesta Portion),Lunch/Dinner,1 quarter (200g),448,5,39,28,Grilled chicken Bacolod-style
+Chicken Inasal (Budget Bowl),Lunch/Dinner,1 quarter (200g),272,3,23,17,Grilled chicken Bacolod-style
+Lechon Kawali (Small Serving),Lunch/Dinner,120g,360,4,15,27,Crispy pan-fried pork belly
+Lechon Kawali (Large Serving),Lunch/Dinner,120g,600,7,25,45,Crispy pan-fried pork belly
+Lechon Kawali (Spicy Variant),Lunch/Dinner,120g,480,6,20,36,Crispy pan-fried pork belly; spicy
+Lechon Kawali (Low-Sodium),Lunch/Dinner,120g,480,6,20,36,Crispy pan-fried pork belly; reduced salt
+Lechon Kawali (With Brown Rice),Lunch/Dinner,120g,504,12,21,37,Crispy pan-fried pork belly; whole grain option
+Lechon Kawali (Fiesta Portion),Lunch/Dinner,120g,672,8,28,50,Crispy pan-fried pork belly
+Lechon Kawali (Budget Bowl),Lunch/Dinner,120g,408,5,17,30,Crispy pan-fried pork belly
+Crispy Pata (Small Serving),Lunch/Dinner,150g,487,3,22,37,Deep-fried pork knuckle
+Crispy Pata (Large Serving),Lunch/Dinner,150g,812,5,37,62,Deep-fried pork knuckle
+Crispy Pata (Spicy Variant),Lunch/Dinner,150g,650,4,30,50,Deep-fried pork knuckle; spicy
+Crispy Pata (Low-Sodium),Lunch/Dinner,150g,650,4,30,50,Deep-fried pork knuckle; reduced salt
+Crispy Pata (With Brown Rice),Lunch/Dinner,150g,682,10,31,52,Deep-fried pork knuckle; whole grain option
+Crispy Pata (Fiesta Portion),Lunch/Dinner,150g,909,5,42,70,Deep-fried pork knuckle
+Crispy Pata (Budget Bowl),Lunch/Dinner,150g,552,3,25,42,Deep-fried pork knuckle
+Bistek Tagalog (Small Serving),Lunch/Dinner,1 cup (200g),225,7,21,12,Beef steak with onions & soy
+Bistek Tagalog (Large Serving),Lunch/Dinner,1 cup (200g),375,12,35,20,Beef steak with onions & soy
+Bistek Tagalog (Spicy Variant),Lunch/Dinner,1 cup (200g),300,10,28,16,Beef steak with onions & soy; spicy
+Bistek Tagalog (Low-Sodium),Lunch/Dinner,1 cup (200g),300,10,28,16,Beef steak with onions & soy; reduced salt
+Bistek Tagalog (With Brown Rice),Lunch/Dinner,1 cup (200g),315,16,29,16,Beef steak with onions & soy; whole grain option
+Bistek Tagalog (Fiesta Portion),Lunch/Dinner,1 cup (200g),420,14,39,22,Beef steak with onions & soy
+Bistek Tagalog (Budget Bowl),Lunch/Dinner,1 cup (200g),255,8,23,13,Beef steak with onions & soy
+Giniling (Pork) (Small Serving),Lunch/Dinner,1 cup (200g),240,10,18,13,Ground pork with peas & carrots
+Giniling (Pork) (Large Serving),Lunch/Dinner,1 cup (200g),400,17,30,22,Ground pork with peas & carrots
+Giniling (Pork) (Spicy Variant),Lunch/Dinner,1 cup (200g),320,14,24,18,Ground pork with peas & carrots; spicy
+Giniling (Pork) (Low-Sodium),Lunch/Dinner,1 cup (200g),320,14,24,18,Ground pork with peas & carrots; reduced salt
+Giniling (Pork) (With Brown Rice),Lunch/Dinner,1 cup (200g),336,20,25,18,Ground pork with peas & carrots; whole grain option
+Giniling (Pork) (Fiesta Portion),Lunch/Dinner,1 cup (200g),448,19,33,25,Ground pork with peas & carrots
+Giniling (Pork) (Budget Bowl),Lunch/Dinner,1 cup (200g),272,11,20,15,Ground pork with peas & carrots
+Tokwa't Baboy (Small Serving),Snack/Lunch,1 plate (200g),240,10,16,13,Fried tofu & pork in vinegar
+Tokwa't Baboy (Large Serving),Snack/Lunch,1 plate (200g),400,17,27,22,Fried tofu & pork in vinegar
+Tokwa't Baboy (Spicy Variant),Snack/Lunch,1 plate (200g),320,14,22,18,Fried tofu & pork in vinegar; spicy
+Tokwa't Baboy (Low-Sodium),Snack/Lunch,1 plate (200g),320,14,22,18,Fried tofu & pork in vinegar; reduced salt
+Tokwa't Baboy (With Brown Rice),Snack/Lunch,1 plate (200g),336,20,23,18,Fried tofu & pork in vinegar; whole grain option
+Tokwa't Baboy (Fiesta Portion),Snack/Lunch,1 plate (200g),448,19,30,25,Fried tofu & pork in vinegar
+Tokwa't Baboy (Budget Bowl),Snack/Lunch,1 plate (200g),272,11,18,15,Fried tofu & pork in vinegar
+Sinigang na Baboy (Small Serving),Lunch/Dinner,1 bowl (250g),225,6,16,15,Sour tamarind soup
+Sinigang na Baboy (Large Serving),Lunch/Dinner,1 bowl (250g),375,10,27,25,Sour tamarind soup
+Sinigang na Baboy (Spicy Variant),Lunch/Dinner,1 bowl (250g),300,8,22,20,Sour tamarind soup; spicy
+Sinigang na Baboy (Low-Sodium),Lunch/Dinner,1 bowl (250g),300,8,22,20,Sour tamarind soup; reduced salt
+Sinigang na Baboy (With Brown Rice),Lunch/Dinner,1 bowl (250g),315,14,23,21,Sour tamarind soup; whole grain option
+Sinigang na Baboy (Fiesta Portion),Lunch/Dinner,1 bowl (250g),420,11,30,28,Sour tamarind soup
+Sinigang na Baboy (Budget Bowl),Lunch/Dinner,1 bowl (250g),255,6,18,17,Sour tamarind soup
+Sinigang na Baka (Small Serving),Lunch/Dinner,1 bowl (250g),240,6,18,16,Beef version
+Sinigang na Baka (Large Serving),Lunch/Dinner,1 bowl (250g),400,10,30,27,Beef version
+Sinigang na Baka (Spicy Variant),Lunch/Dinner,1 bowl (250g),320,8,24,22,Beef version; spicy
+Sinigang na Baka (Low-Sodium),Lunch/Dinner,1 bowl (250g),320,8,24,22,Beef version; reduced salt
+Sinigang na Baka (With Brown Rice),Lunch/Dinner,1 bowl (250g),336,14,25,23,Beef version; whole grain option
+Sinigang na Baka (Fiesta Portion),Lunch/Dinner,1 bowl (250g),448,11,33,30,Beef version
+Sinigang na Baka (Budget Bowl),Lunch/Dinner,1 bowl (250g),272,6,20,18,Beef version
+Sinigang na Hipon (Small Serving),Lunch/Dinner,1 bowl (250g),187,5,15,11,Shrimp version
+Sinigang na Hipon (Large Serving),Lunch/Dinner,1 bowl (250g),312,8,25,18,Shrimp version
+Sinigang na Hipon (Spicy Variant),Lunch/Dinner,1 bowl (250g),250,7,20,15,Shrimp version; spicy
+Sinigang na Hipon (Low-Sodium),Lunch/Dinner,1 bowl (250g),250,7,20,15,Shrimp version; reduced salt
+Sinigang na Hipon (With Brown Rice),Lunch/Dinner,1 bowl (250g),262,13,21,15,Shrimp version; whole grain option
+Sinigang na Hipon (Fiesta Portion),Lunch/Dinner,1 bowl (250g),350,9,28,21,Shrimp version
+Sinigang na Hipon (Budget Bowl),Lunch/Dinner,1 bowl (250g),212,5,17,12,Shrimp version
+Sinigang sa Miso (Bangus) (Small Serving),Lunch/Dinner,1 bowl (250g),210,6,16,12,Milkfish in miso-tamarind soup
+Sinigang sa Miso (Bangus) (Large Serving),Lunch/Dinner,1 bowl (250g),350,11,27,20,Milkfish in miso-tamarind soup
+Sinigang sa Miso (Bangus) (Spicy Variant),Lunch/Dinner,1 bowl (250g),280,9,22,16,Milkfish in miso-tamarind soup; spicy
+Sinigang sa Miso (Bangus) (Low-Sodium),Lunch/Dinner,1 bowl (250g),280,9,22,16,Milkfish in miso-tamarind soup; reduced salt
+Sinigang sa Miso (Bangus) (With Brown Rice),Lunch/Dinner,1 bowl (250g),294,15,23,16,Milkfish in miso-tamarind soup; whole grain option
+Sinigang sa Miso (Bangus) (Fiesta Portion),Lunch/Dinner,1 bowl (250g),392,12,30,22,Milkfish in miso-tamarind soup
+Sinigang sa Miso (Bangus) (Budget Bowl),Lunch/Dinner,1 bowl (250g),238,7,18,13,Milkfish in miso-tamarind soup
+Tinola (Chicken) (Small Serving),Lunch/Dinner,1 bowl (250g),157,4,18,7,Ginger broth with papaya & sayote
+Tinola (Chicken) (Large Serving),Lunch/Dinner,1 bowl (250g),262,7,31,12,Ginger broth with papaya & sayote
+Tinola (Chicken) (Spicy Variant),Lunch/Dinner,1 bowl (250g),210,6,25,10,Ginger broth with papaya & sayote; spicy
+Tinola (Chicken) (Low-Sodium),Lunch/Dinner,1 bowl (250g),210,6,25,10,Ginger broth with papaya & sayote; reduced salt
+Tinola (Chicken) (With Brown Rice),Lunch/Dinner,1 bowl (250g),220,12,26,10,Ginger broth with papaya & sayote; whole grain option
+Tinola (Chicken) (Fiesta Portion),Lunch/Dinner,1 bowl (250g),294,8,35,14,Ginger broth with papaya & sayote
+Tinola (Chicken) (Budget Bowl),Lunch/Dinner,1 bowl (250g),178,5,21,8,Ginger broth with papaya & sayote
+Nilagang Baka (Small Serving),Lunch/Dinner,1 bowl (250g),210,7,18,12,Boiled beef soup with veggies
+Nilagang Baka (Large Serving),Lunch/Dinner,1 bowl (250g),350,12,30,20,Boiled beef soup with veggies
+Nilagang Baka (Spicy Variant),Lunch/Dinner,1 bowl (250g),280,10,24,16,Boiled beef soup with veggies; spicy
+Nilagang Baka (Low-Sodium),Lunch/Dinner,1 bowl (250g),280,10,24,16,Boiled beef soup with veggies; reduced salt
+Nilagang Baka (With Brown Rice),Lunch/Dinner,1 bowl (250g),294,16,25,16,Boiled beef soup with veggies; whole grain option
+Nilagang Baka (Fiesta Portion),Lunch/Dinner,1 bowl (250g),392,14,33,22,Boiled beef soup with veggies
+Nilagang Baka (Budget Bowl),Lunch/Dinner,1 bowl (250g),238,8,20,13,Boiled beef soup with veggies
+Bulalo (Small Serving),Lunch/Dinner,1 bowl (300g),360,7,22,25,Bone marrow beef shank soup
+Bulalo (Large Serving),Lunch/Dinner,1 bowl (300g),600,12,37,42,Bone marrow beef shank soup
+Bulalo (Spicy Variant),Lunch/Dinner,1 bowl (300g),480,10,30,34,Bone marrow beef shank soup; spicy
+Bulalo (Low-Sodium),Lunch/Dinner,1 bowl (300g),480,10,30,34,Bone marrow beef shank soup; reduced salt
+Bulalo (With Brown Rice),Lunch/Dinner,1 bowl (300g),504,16,31,35,Bone marrow beef shank soup; whole grain option
+Bulalo (Fiesta Portion),Lunch/Dinner,1 bowl (300g),672,14,42,47,Bone marrow beef shank soup
+Bulalo (Budget Bowl),Lunch/Dinner,1 bowl (300g),408,8,25,28,Bone marrow beef shank soup
+Sinigang sa Bayabas (Small Serving),Lunch/Dinner,1 bowl (250g),202,7,15,10,Guava-based sour soup
+Sinigang sa Bayabas (Large Serving),Lunch/Dinner,1 bowl (250g),337,12,25,17,Guava-based sour soup
+Sinigang sa Bayabas (Spicy Variant),Lunch/Dinner,1 bowl (250g),270,10,20,14,Guava-based sour soup; spicy
+Sinigang sa Bayabas (Low-Sodium),Lunch/Dinner,1 bowl (250g),270,10,20,14,Guava-based sour soup; reduced salt
+Sinigang sa Bayabas (With Brown Rice),Lunch/Dinner,1 bowl (250g),283,16,21,14,Guava-based sour soup; whole grain option
+Sinigang sa Bayabas (Fiesta Portion),Lunch/Dinner,1 bowl (250g),378,14,28,19,Guava-based sour soup
+Sinigang sa Bayabas (Budget Bowl),Lunch/Dinner,1 bowl (250g),229,8,17,11,Guava-based sour soup
+Pininyahang Manok (Small Serving),Lunch/Dinner,1 cup (200g),240,12,16,13,Chicken with pineapple
+Pininyahang Manok (Large Serving),Lunch/Dinner,1 cup (200g),400,20,27,22,Chicken with pineapple
+Pininyahang Manok (Spicy Variant),Lunch/Dinner,1 cup (200g),320,16,22,18,Chicken with pineapple; spicy
+Pininyahang Manok (Low-Sodium),Lunch/Dinner,1 cup (200g),320,16,22,18,Chicken with pineapple; reduced salt
+Pininyahang Manok (With Brown Rice),Lunch/Dinner,1 cup (200g),336,22,23,18,Chicken with pineapple; whole grain option
+Pininyahang Manok (Fiesta Portion),Lunch/Dinner,1 cup (200g),448,22,30,25,Chicken with pineapple
+Pininyahang Manok (Budget Bowl),Lunch/Dinner,1 cup (200g),272,13,18,15,Chicken with pineapple
+Pochero (Luzon) (Small Serving),Lunch/Dinner,1 bowl (300g),285,16,18,13,Banana & tomato broth
+Pochero (Luzon) (Large Serving),Lunch/Dinner,1 bowl (300g),475,27,30,22,Banana & tomato broth
+Pochero (Luzon) (Spicy Variant),Lunch/Dinner,1 bowl (300g),380,22,24,18,Banana & tomato broth; spicy
+Pochero (Luzon) (Low-Sodium),Lunch/Dinner,1 bowl (300g),380,22,24,18,Banana & tomato broth; reduced salt
+Pochero (Luzon) (With Brown Rice),Lunch/Dinner,1 bowl (300g),399,29,25,18,Banana & tomato broth; whole grain option
+Pochero (Luzon) (Fiesta Portion),Lunch/Dinner,1 bowl (300g),532,30,33,25,Banana & tomato broth
+Pochero (Luzon) (Budget Bowl),Lunch/Dinner,1 bowl (300g),323,18,20,15,Banana & tomato broth
+Pochero (Visayas) (Small Serving),Lunch/Dinner,1 bowl (300g),315,18,19,15,With chorizo & saba
+Pochero (Visayas) (Large Serving),Lunch/Dinner,1 bowl (300g),525,30,32,25,With chorizo & saba
+Pochero (Visayas) (Spicy Variant),Lunch/Dinner,1 bowl (300g),420,24,26,20,With chorizo & saba; spicy
+Pochero (Visayas) (Low-Sodium),Lunch/Dinner,1 bowl (300g),420,24,26,20,With chorizo & saba; reduced salt
+Pochero (Visayas) (With Brown Rice),Lunch/Dinner,1 bowl (300g),441,31,27,21,With chorizo & saba; whole grain option
+Pochero (Visayas) (Fiesta Portion),Lunch/Dinner,1 bowl (300g),588,33,36,28,With chorizo & saba
+Pochero (Visayas) (Budget Bowl),Lunch/Dinner,1 bowl (300g),357,20,22,17,With chorizo & saba
+Humba (Visayas) (Small Serving),Lunch/Dinner,1 cup (200g),315,12,16,21,Braised pork with black beans
+Humba (Visayas) (Large Serving),Lunch/Dinner,1 cup (200g),525,20,27,35,Braised pork with black beans
+Humba (Visayas) (Spicy Variant),Lunch/Dinner,1 cup (200g),420,16,22,28,Braised pork with black beans; spicy
+Humba (Visayas) (Low-Sodium),Lunch/Dinner,1 cup (200g),420,16,22,28,Braised pork with black beans; reduced salt
+Humba (Visayas) (With Brown Rice),Lunch/Dinner,1 cup (200g),441,22,23,29,Braised pork with black beans; whole grain option
+Humba (Visayas) (Fiesta Portion),Lunch/Dinner,1 cup (200g),588,22,30,39,Braised pork with black beans
+Humba (Visayas) (Budget Bowl),Lunch/Dinner,1 cup (200g),357,13,18,23,Braised pork with black beans
+Igado (Ilocos) (Small Serving),Lunch/Dinner,1 cup (200g),255,7,18,16,Pork & liver stew
+Igado (Ilocos) (Large Serving),Lunch/Dinner,1 cup (200g),425,12,30,27,Pork & liver stew
+Igado (Ilocos) (Spicy Variant),Lunch/Dinner,1 cup (200g),340,10,24,22,Pork & liver stew; spicy
+Igado (Ilocos) (Low-Sodium),Lunch/Dinner,1 cup (200g),340,10,24,22,Pork & liver stew; reduced salt
+Igado (Ilocos) (With Brown Rice),Lunch/Dinner,1 cup (200g),357,16,25,23,Pork & liver stew; whole grain option
+Igado (Ilocos) (Fiesta Portion),Lunch/Dinner,1 cup (200g),475,14,33,30,Pork & liver stew
+Igado (Ilocos) (Budget Bowl),Lunch/Dinner,1 cup (200g),289,8,20,18,Pork & liver stew
+Papaitan (Ilocos) (Small Serving),Lunch/Dinner,1 bowl (250g),195,4,18,10,Bitter beef innards soup
+Papaitan (Ilocos) (Large Serving),Lunch/Dinner,1 bowl (250g),325,7,30,17,Bitter beef innards soup
+Papaitan (Ilocos) (Spicy Variant),Lunch/Dinner,1 bowl (250g),260,6,24,14,Bitter beef innards soup; spicy
+Papaitan (Ilocos) (Low-Sodium),Lunch/Dinner,1 bowl (250g),260,6,24,14,Bitter beef innards soup; reduced salt
+Papaitan (Ilocos) (With Brown Rice),Lunch/Dinner,1 bowl (250g),273,12,25,14,Bitter beef innards soup; whole grain option
+Papaitan (Ilocos) (Fiesta Portion),Lunch/Dinner,1 bowl (250g),364,8,33,19,Bitter beef innards soup
+Papaitan (Ilocos) (Budget Bowl),Lunch/Dinner,1 bowl (250g),221,5,20,11,Bitter beef innards soup
+Bagnet (Ilocos) (Small Serving),Lunch/Dinner,120g,390,2,16,30,Crispy deep-fried pork
+Bagnet (Ilocos) (Large Serving),Lunch/Dinner,120g,650,3,27,50,Crispy deep-fried pork
+Bagnet (Ilocos) (Spicy Variant),Lunch/Dinner,120g,520,3,22,40,Crispy deep-fried pork; spicy
+Bagnet (Ilocos) (Low-Sodium),Lunch/Dinner,120g,520,3,22,40,Crispy deep-fried pork; reduced salt
+Bagnet (Ilocos) (With Brown Rice),Lunch/Dinner,120g,546,9,23,42,Crispy deep-fried pork; whole grain option
+Bagnet (Ilocos) (Fiesta Portion),Lunch/Dinner,120g,728,4,30,56,Crispy deep-fried pork
+Bagnet (Ilocos) (Budget Bowl),Lunch/Dinner,120g,442,2,18,34,Crispy deep-fried pork
+Dinuguan (Small Serving),Lunch/Dinner,1 cup (200g),225,6,15,15,Pork blood stew
+Dinuguan (Large Serving),Lunch/Dinner,1 cup (200g),375,10,25,25,Pork blood stew
+Dinuguan (Spicy Variant),Lunch/Dinner,1 cup (200g),300,8,20,20,Pork blood stew; spicy
+Dinuguan (Low-Sodium),Lunch/Dinner,1 cup (200g),300,8,20,20,Pork blood stew; reduced salt
+Dinuguan (With Brown Rice),Lunch/Dinner,1 cup (200g),315,14,21,21,Pork blood stew; whole grain option
+Dinuguan (Fiesta Portion),Lunch/Dinner,1 cup (200g),420,11,28,28,Pork blood stew
+Dinuguan (Budget Bowl),Lunch/Dinner,1 cup (200g),255,6,17,17,Pork blood stew
+Pinangat (Bicol) (Small Serving),Lunch/Dinner,1 cup (200g),225,9,9,16,Taro leaves in coconut parcels
+Pinangat (Bicol) (Large Serving),Lunch/Dinner,1 cup (200g),375,15,15,27,Taro leaves in coconut parcels
+Pinangat (Bicol) (Spicy Variant),Lunch/Dinner,1 cup (200g),300,12,12,22,Taro leaves in coconut parcels; spicy
+Pinangat (Bicol) (Low-Sodium),Lunch/Dinner,1 cup (200g),300,12,12,22,Taro leaves in coconut parcels; reduced salt
+Pinangat (Bicol) (With Brown Rice),Lunch/Dinner,1 cup (200g),315,18,12,23,Taro leaves in coconut parcels; whole grain option
+Pinangat (Bicol) (Fiesta Portion),Lunch/Dinner,1 cup (200g),420,16,16,30,Taro leaves in coconut parcels
+Pinangat (Bicol) (Budget Bowl),Lunch/Dinner,1 cup (200g),255,10,10,18,Taro leaves in coconut parcels
+Relyenong Bangus (Small Serving),Lunch/Dinner,1 slice (150g),270,7,19,16,Stuffed milkfish
+Relyenong Bangus (Large Serving),Lunch/Dinner,1 slice (150g),450,12,32,27,Stuffed milkfish
+Relyenong Bangus (Spicy Variant),Lunch/Dinner,1 slice (150g),360,10,26,22,Stuffed milkfish; spicy
+Relyenong Bangus (Low-Sodium),Lunch/Dinner,1 slice (150g),360,10,26,22,Stuffed milkfish; reduced salt
+Relyenong Bangus (With Brown Rice),Lunch/Dinner,1 slice (150g),378,16,27,23,Stuffed milkfish; whole grain option
+Relyenong Bangus (Fiesta Portion),Lunch/Dinner,1 slice (150g),503,14,36,30,Stuffed milkfish
+Relyenong Bangus (Budget Bowl),Lunch/Dinner,1 slice (150g),306,8,22,18,Stuffed milkfish
+Embutido (Small Serving),Lunch/Dinner,1 slice (120g),210,12,10,12,Filipino meatloaf
+Embutido (Large Serving),Lunch/Dinner,1 slice (120g),350,20,17,20,Filipino meatloaf
+Embutido (Spicy Variant),Lunch/Dinner,1 slice (120g),280,16,14,16,Filipino meatloaf; spicy
+Embutido (Low-Sodium),Lunch/Dinner,1 slice (120g),280,16,14,16,Filipino meatloaf; reduced salt
+Embutido (With Brown Rice),Lunch/Dinner,1 slice (120g),294,22,14,16,Filipino meatloaf; whole grain option
+Embutido (Fiesta Portion),Lunch/Dinner,1 slice (120g),392,22,19,22,Filipino meatloaf
+Embutido (Budget Bowl),Lunch/Dinner,1 slice (120g),238,13,11,13,Filipino meatloaf
+Lumpiang Shanghai (Small Serving),Snack/Lunch,4 pcs (120g),240,21,10,13,Fried pork spring rolls
+Lumpiang Shanghai (Large Serving),Snack/Lunch,4 pcs (120g),400,35,17,22,Fried pork spring rolls
+Lumpiang Shanghai (Spicy Variant),Snack/Lunch,4 pcs (120g),320,28,14,18,Fried pork spring rolls; spicy
+Lumpiang Shanghai (Low-Sodium),Snack/Lunch,4 pcs (120g),320,28,14,18,Fried pork spring rolls; reduced salt
+Lumpiang Shanghai (With Brown Rice),Snack/Lunch,4 pcs (120g),336,35,14,18,Fried pork spring rolls; whole grain option
+Lumpiang Shanghai (Fiesta Portion),Snack/Lunch,4 pcs (120g),448,39,19,25,Fried pork spring rolls
+Lumpiang Shanghai (Budget Bowl),Snack/Lunch,4 pcs (120g),272,23,11,15,Fried pork spring rolls
+Lumpiang Gulay (Small Serving),Snack/Lunch,2 pcs (120g),195,22,4,7,Vegetable spring rolls
+Lumpiang Gulay (Large Serving),Snack/Lunch,2 pcs (120g),325,37,7,12,Vegetable spring rolls
+Lumpiang Gulay (Spicy Variant),Snack/Lunch,2 pcs (120g),260,30,6,10,Vegetable spring rolls; spicy
+Lumpiang Gulay (Low-Sodium),Snack/Lunch,2 pcs (120g),260,30,6,10,Vegetable spring rolls; reduced salt
+Lumpiang Gulay (With Brown Rice),Snack/Lunch,2 pcs (120g),273,37,6,10,Vegetable spring rolls; whole grain option
+Lumpiang Gulay (Fiesta Portion),Snack/Lunch,2 pcs (120g),364,42,8,14,Vegetable spring rolls
+Lumpiang Gulay (Budget Bowl),Snack/Lunch,2 pcs (120g),221,25,5,8,Vegetable spring rolls
+Fresh Lumpia (Lumpiang Sariwa) (Small Serving),Snack/Lunch,1 roll (200g),210,27,6,7,With peanut sauce
+Fresh Lumpia (Lumpiang Sariwa) (Large Serving),Snack/Lunch,1 roll (200g),350,45,10,12,With peanut sauce
+Fresh Lumpia (Lumpiang Sariwa) (Spicy Variant),Snack/Lunch,1 roll (200g),280,36,8,10,With peanut sauce; spicy
+Fresh Lumpia (Lumpiang Sariwa) (Low-Sodium),Snack/Lunch,1 roll (200g),280,36,8,10,With peanut sauce; reduced salt
+Fresh Lumpia (Lumpiang Sariwa) (With Brown Rice),Snack/Lunch,1 roll (200g),294,43,8,10,With peanut sauce; whole grain option
+Fresh Lumpia (Lumpiang Sariwa) (Fiesta Portion),Snack/Lunch,1 roll (200g),392,50,11,14,With peanut sauce
+Fresh Lumpia (Lumpiang Sariwa) (Budget Bowl),Snack/Lunch,1 roll (200g),238,30,6,8,With peanut sauce
+Ukoy (Shrimp Fritters) (Small Serving),Snack,2 pcs (120g),225,21,7,12,Crispy fritters
+Ukoy (Shrimp Fritters) (Large Serving),Snack,2 pcs (120g),375,35,12,20,Crispy fritters
+Ukoy (Shrimp Fritters) (Spicy Variant),Snack,2 pcs (120g),300,28,10,16,Crispy fritters; spicy
+Ukoy (Shrimp Fritters) (Low-Sodium),Snack,2 pcs (120g),300,28,10,16,Crispy fritters; reduced salt
+Ukoy (Shrimp Fritters) (With Brown Rice),Snack,2 pcs (120g),315,35,10,16,Crispy fritters; whole grain option
+Ukoy (Shrimp Fritters) (Fiesta Portion),Snack,2 pcs (120g),420,39,14,22,Crispy fritters
+Ukoy (Shrimp Fritters) (Budget Bowl),Snack,2 pcs (120g),255,23,8,13,Crispy fritters
+Okoy Kalabasa (Small Serving),Snack,2 pcs (120g),210,22,6,10,Squash fritters
+Okoy Kalabasa (Large Serving),Snack,2 pcs (120g),350,37,10,17,Squash fritters
+Okoy Kalabasa (Spicy Variant),Snack,2 pcs (120g),280,30,8,14,Squash fritters; spicy
+Okoy Kalabasa (Low-Sodium),Snack,2 pcs (120g),280,30,8,14,Squash fritters; reduced salt
+Okoy Kalabasa (With Brown Rice),Snack,2 pcs (120g),294,37,8,14,Squash fritters; whole grain option
+Okoy Kalabasa (Fiesta Portion),Snack,2 pcs (120g),392,42,11,19,Squash fritters
+Okoy Kalabasa (Budget Bowl),Snack,2 pcs (120g),238,25,6,11,Squash fritters
+Inihaw na Pusit (Small Serving),Lunch/Dinner,150g,165,4,21,6,Grilled squid
+Inihaw na Pusit (Large Serving),Lunch/Dinner,150g,275,7,35,10,Grilled squid
+Inihaw na Pusit (Spicy Variant),Lunch/Dinner,150g,220,6,28,8,Grilled squid; spicy
+Inihaw na Pusit (Low-Sodium),Lunch/Dinner,150g,220,6,28,8,Grilled squid; reduced salt
+Inihaw na Pusit (With Brown Rice),Lunch/Dinner,150g,231,12,29,8,Grilled squid; whole grain option
+Inihaw na Pusit (Fiesta Portion),Lunch/Dinner,150g,308,8,39,11,Grilled squid
+Inihaw na Pusit (Budget Bowl),Lunch/Dinner,150g,187,5,23,6,Grilled squid
+Inihaw na Bangus (Small Serving),Lunch/Dinner,150g,195,0,22,10,Grilled milkfish
+Inihaw na Bangus (Large Serving),Lunch/Dinner,150g,325,0,37,17,Grilled milkfish
+Inihaw na Bangus (Spicy Variant),Lunch/Dinner,150g,260,0,30,14,Grilled milkfish; spicy
+Inihaw na Bangus (Low-Sodium),Lunch/Dinner,150g,260,0,30,14,Grilled milkfish; reduced salt
+Inihaw na Bangus (With Brown Rice),Lunch/Dinner,150g,273,6,31,14,Grilled milkfish; whole grain option
+Inihaw na Bangus (Fiesta Portion),Lunch/Dinner,150g,364,0,42,19,Grilled milkfish
+Inihaw na Bangus (Budget Bowl),Lunch/Dinner,150g,221,0,25,11,Grilled milkfish
+Inihaw na Tilapia (Small Serving),Lunch/Dinner,150g,180,0,21,9,Grilled tilapia
+Inihaw na Tilapia (Large Serving),Lunch/Dinner,150g,300,0,35,15,Grilled tilapia
+Inihaw na Tilapia (Spicy Variant),Lunch/Dinner,150g,240,0,28,12,Grilled tilapia; spicy
+Inihaw na Tilapia (Low-Sodium),Lunch/Dinner,150g,240,0,28,12,Grilled tilapia; reduced salt
+Inihaw na Tilapia (With Brown Rice),Lunch/Dinner,150g,252,6,29,12,Grilled tilapia; whole grain option
+Inihaw na Tilapia (Fiesta Portion),Lunch/Dinner,150g,336,0,39,16,Grilled tilapia
+Inihaw na Tilapia (Budget Bowl),Lunch/Dinner,150g,204,0,23,10,Grilled tilapia
+Kinilaw na Tanigue (Small Serving),Lunch/Dinner,150g,165,4,19,6,Filipino ceviche
+Kinilaw na Tanigue (Large Serving),Lunch/Dinner,150g,275,7,32,10,Filipino ceviche
+Kinilaw na Tanigue (Spicy Variant),Lunch/Dinner,150g,220,6,26,8,Filipino ceviche; spicy
+Kinilaw na Tanigue (Low-Sodium),Lunch/Dinner,150g,220,6,26,8,Filipino ceviche; reduced salt
+Kinilaw na Tanigue (With Brown Rice),Lunch/Dinner,150g,231,12,27,8,Filipino ceviche; whole grain option
+Kinilaw na Tanigue (Fiesta Portion),Lunch/Dinner,150g,308,8,36,11,Filipino ceviche
+Kinilaw na Tanigue (Budget Bowl),Lunch/Dinner,150g,187,5,22,6,Filipino ceviche
+Kilawing Puso ng Saging (Small Serving),Lunch/Dinner,1 cup (200g),180,12,6,10,Banana blossom salad in vinegar
+Kilawing Puso ng Saging (Large Serving),Lunch/Dinner,1 cup (200g),300,20,10,17,Banana blossom salad in vinegar
+Kilawing Puso ng Saging (Spicy Variant),Lunch/Dinner,1 cup (200g),240,16,8,14,Banana blossom salad in vinegar; spicy
+Kilawing Puso ng Saging (Low-Sodium),Lunch/Dinner,1 cup (200g),240,16,8,14,Banana blossom salad in vinegar; reduced salt
+Kilawing Puso ng Saging (With Brown Rice),Lunch/Dinner,1 cup (200g),252,22,8,14,Banana blossom salad in vinegar; whole grain option
+Kilawing Puso ng Saging (Fiesta Portion),Lunch/Dinner,1 cup (200g),336,22,11,19,Banana blossom salad in vinegar
+Kilawing Puso ng Saging (Budget Bowl),Lunch/Dinner,1 cup (200g),204,13,6,11,Banana blossom salad in vinegar
+Ginisang Munggo (Small Serving),Lunch/Dinner,1 cup (200g),195,27,12,4,Mung bean stew
+Ginisang Munggo (Large Serving),Lunch/Dinner,1 cup (200g),325,45,20,7,Mung bean stew
+Ginisang Munggo (Spicy Variant),Lunch/Dinner,1 cup (200g),260,36,16,6,Mung bean stew; spicy
+Ginisang Munggo (Low-Sodium),Lunch/Dinner,1 cup (200g),260,36,16,6,Mung bean stew; reduced salt
+Ginisang Munggo (With Brown Rice),Lunch/Dinner,1 cup (200g),273,43,16,6,Mung bean stew; whole grain option
+Ginisang Munggo (Fiesta Portion),Lunch/Dinner,1 cup (200g),364,50,22,8,Mung bean stew
+Ginisang Munggo (Budget Bowl),Lunch/Dinner,1 cup (200g),221,30,13,5,Mung bean stew
+Munggo with Chicharon (Small Serving),Lunch/Dinner,1 cup (220g),240,27,13,7,With pork cracklings
+Munggo with Chicharon (Large Serving),Lunch/Dinner,1 cup (220g),400,45,22,12,With pork cracklings
+Munggo with Chicharon (Spicy Variant),Lunch/Dinner,1 cup (220g),320,36,18,10,With pork cracklings; spicy
+Munggo with Chicharon (Low-Sodium),Lunch/Dinner,1 cup (220g),320,36,18,10,With pork cracklings; reduced salt
+Munggo with Chicharon (With Brown Rice),Lunch/Dinner,1 cup (220g),336,43,18,10,With pork cracklings; whole grain option
+Munggo with Chicharon (Fiesta Portion),Lunch/Dinner,1 cup (220g),448,50,25,14,With pork cracklings
+Munggo with Chicharon (Budget Bowl),Lunch/Dinner,1 cup (220g),272,30,15,8,With pork cracklings
+Ginisang Ampalaya (Small Serving),Lunch/Dinner,1 cup (200g),135,10,7,6,Bitter gourd with egg
+Ginisang Ampalaya (Large Serving),Lunch/Dinner,1 cup (200g),225,17,12,10,Bitter gourd with egg
+Ginisang Ampalaya (Spicy Variant),Lunch/Dinner,1 cup (200g),180,14,10,8,Bitter gourd with egg; spicy
+Ginisang Ampalaya (Low-Sodium),Lunch/Dinner,1 cup (200g),180,14,10,8,Bitter gourd with egg; reduced salt
+Ginisang Ampalaya (With Brown Rice),Lunch/Dinner,1 cup (200g),189,20,10,8,Bitter gourd with egg; whole grain option
+Ginisang Ampalaya (Fiesta Portion),Lunch/Dinner,1 cup (200g),251,19,14,11,Bitter gourd with egg
+Ginisang Ampalaya (Budget Bowl),Lunch/Dinner,1 cup (200g),153,11,8,6,Bitter gourd with egg
+Chopsuey (Small Serving),Lunch/Dinner,1 cup (200g),165,16,7,6,Stir-fried mixed vegetables
+Chopsuey (Large Serving),Lunch/Dinner,1 cup (200g),275,27,12,10,Stir-fried mixed vegetables
+Chopsuey (Spicy Variant),Lunch/Dinner,1 cup (200g),220,22,10,8,Stir-fried mixed vegetables; spicy
+Chopsuey (Low-Sodium),Lunch/Dinner,1 cup (200g),220,22,10,8,Stir-fried mixed vegetables; reduced salt
+Chopsuey (With Brown Rice),Lunch/Dinner,1 cup (200g),231,29,10,8,Stir-fried mixed vegetables; whole grain option
+Chopsuey (Fiesta Portion),Lunch/Dinner,1 cup (200g),308,30,14,11,Stir-fried mixed vegetables
+Chopsuey (Budget Bowl),Lunch/Dinner,1 cup (200g),187,18,8,6,Stir-fried mixed vegetables
+Pakbet Tagalog (Small Serving),Lunch/Dinner,1 cup (200g),142,15,6,5,Veg medley with bagoong
+Pakbet Tagalog (Large Serving),Lunch/Dinner,1 cup (200g),237,25,10,8,Veg medley with bagoong
+Pakbet Tagalog (Spicy Variant),Lunch/Dinner,1 cup (200g),190,20,8,7,Veg medley with bagoong; spicy
+Pakbet Tagalog (Low-Sodium),Lunch/Dinner,1 cup (200g),190,20,8,7,Veg medley with bagoong; reduced salt
+Pakbet Tagalog (With Brown Rice),Lunch/Dinner,1 cup (200g),199,27,8,7,Veg medley with bagoong; whole grain option
+Pakbet Tagalog (Fiesta Portion),Lunch/Dinner,1 cup (200g),266,28,11,9,Veg medley with bagoong
+Pakbet Tagalog (Budget Bowl),Lunch/Dinner,1 cup (200g),161,17,6,5,Veg medley with bagoong
+Isaw Manok (Small Serving),Snack/Street,3 sticks (90g),180,4,13,12,Grilled chicken intestines
+Isaw Manok (Large Serving),Snack/Street,3 sticks (90g),300,7,22,20,Grilled chicken intestines
+Isaw Manok (Spicy Variant),Snack/Street,3 sticks (90g),240,6,18,16,Grilled chicken intestines; spicy
+Isaw Manok (Low-Sodium),Snack/Street,3 sticks (90g),240,6,18,16,Grilled chicken intestines; reduced salt
+Isaw Manok (With Brown Rice),Snack/Street,3 sticks (90g),252,12,18,16,Grilled chicken intestines; whole grain option
+Isaw Manok (Fiesta Portion),Snack/Street,3 sticks (90g),336,8,25,22,Grilled chicken intestines
+Isaw Manok (Budget Bowl),Snack/Street,3 sticks (90g),204,5,15,13,Grilled chicken intestines
+Isaw Baboy (Small Serving),Snack/Street,3 sticks (90g),195,4,12,13,Grilled pork intestines
+Isaw Baboy (Large Serving),Snack/Street,3 sticks (90g),325,7,20,22,Grilled pork intestines
+Isaw Baboy (Spicy Variant),Snack/Street,3 sticks (90g),260,6,16,18,Grilled pork intestines; spicy
+Isaw Baboy (Low-Sodium),Snack/Street,3 sticks (90g),260,6,16,18,Grilled pork intestines; reduced salt
+Isaw Baboy (With Brown Rice),Snack/Street,3 sticks (90g),273,12,16,18,Grilled pork intestines; whole grain option
+Isaw Baboy (Fiesta Portion),Snack/Street,3 sticks (90g),364,8,22,25,Grilled pork intestines
+Isaw Baboy (Budget Bowl),Snack/Street,3 sticks (90g),221,5,13,15,Grilled pork intestines
+Betamax (Dugo) (Small Serving),Snack/Street,3 pcs (90g),157,6,10,9,Grilled pork blood
+Betamax (Dugo) (Large Serving),Snack/Street,3 pcs (90g),262,11,17,15,Grilled pork blood
+Betamax (Dugo) (Spicy Variant),Snack/Street,3 pcs (90g),210,9,14,12,Grilled pork blood; spicy
+Betamax (Dugo) (Low-Sodium),Snack/Street,3 pcs (90g),210,9,14,12,Grilled pork blood; reduced salt
+Betamax (Dugo) (With Brown Rice),Snack/Street,3 pcs (90g),220,15,14,12,Grilled pork blood; whole grain option
+Betamax (Dugo) (Fiesta Portion),Snack/Street,3 pcs (90g),294,12,19,16,Grilled pork blood
+Betamax (Dugo) (Budget Bowl),Snack/Street,3 pcs (90g),178,7,11,10,Grilled pork blood
+Adidas (Chicken Feet) (Small Serving),Snack/Street,3 pcs (120g),165,4,12,9,Grilled chicken feet
+Adidas (Chicken Feet) (Large Serving),Snack/Street,3 pcs (120g),275,7,20,15,Grilled chicken feet
+Adidas (Chicken Feet) (Spicy Variant),Snack/Street,3 pcs (120g),220,6,16,12,Grilled chicken feet; spicy
+Adidas (Chicken Feet) (Low-Sodium),Snack/Street,3 pcs (120g),220,6,16,12,Grilled chicken feet; reduced salt
+Adidas (Chicken Feet) (With Brown Rice),Snack/Street,3 pcs (120g),231,12,16,12,Grilled chicken feet; whole grain option
+Adidas (Chicken Feet) (Fiesta Portion),Snack/Street,3 pcs (120g),308,8,22,16,Grilled chicken feet
+Adidas (Chicken Feet) (Budget Bowl),Snack/Street,3 pcs (120g),187,5,13,10,Grilled chicken feet
+Helmet (Chicken Head) (Small Serving),Snack/Street,2 pcs (120g),180,3,13,10,Grilled chicken head
+Helmet (Chicken Head) (Large Serving),Snack/Street,2 pcs (120g),300,5,22,17,Grilled chicken head
+Helmet (Chicken Head) (Spicy Variant),Snack/Street,2 pcs (120g),240,4,18,14,Grilled chicken head; spicy
+Helmet (Chicken Head) (Low-Sodium),Snack/Street,2 pcs (120g),240,4,18,14,Grilled chicken head; reduced salt
+Helmet (Chicken Head) (With Brown Rice),Snack/Street,2 pcs (120g),252,10,18,14,Grilled chicken head; whole grain option
+Helmet (Chicken Head) (Fiesta Portion),Snack/Street,2 pcs (120g),336,5,25,19,Grilled chicken head
+Helmet (Chicken Head) (Budget Bowl),Snack/Street,2 pcs (120g),204,3,15,11,Grilled chicken head
+Kwek-Kwek (Small Serving),Snack/Street,6 pcs (150g),315,31,13,15,Quail eggs in orange batter
+Kwek-Kwek (Large Serving),Snack/Street,6 pcs (150g),525,52,22,25,Quail eggs in orange batter
+Kwek-Kwek (Spicy Variant),Snack/Street,6 pcs (150g),420,42,18,20,Quail eggs in orange batter; spicy
+Kwek-Kwek (Low-Sodium),Snack/Street,6 pcs (150g),420,42,18,20,Quail eggs in orange batter; reduced salt
+Kwek-Kwek (With Brown Rice),Snack/Street,6 pcs (150g),441,50,18,21,Quail eggs in orange batter; whole grain option
+Kwek-Kwek (Fiesta Portion),Snack/Street,6 pcs (150g),588,58,25,28,Quail eggs in orange batter
+Kwek-Kwek (Budget Bowl),Snack/Street,6 pcs (150g),357,35,15,17,Quail eggs in orange batter
+Tokneneng (Small Serving),Snack/Street,3 pcs (180g),337,30,16,18,Chicken egg battered & fried
+Tokneneng (Large Serving),Snack/Street,3 pcs (180g),562,50,27,30,Chicken egg battered & fried
+Tokneneng (Spicy Variant),Snack/Street,3 pcs (180g),450,40,22,24,Chicken egg battered & fried; spicy
+Tokneneng (Low-Sodium),Snack/Street,3 pcs (180g),450,40,22,24,Chicken egg battered & fried; reduced salt
+Tokneneng (With Brown Rice),Snack/Street,3 pcs (180g),472,48,23,25,Chicken egg battered & fried; whole grain option
+Tokneneng (Fiesta Portion),Snack/Street,3 pcs (180g),630,56,30,33,Chicken egg battered & fried
+Tokneneng (Budget Bowl),Snack/Street,3 pcs (180g),382,34,18,20,Chicken egg battered & fried
+Fishball (Small Serving),Snack/Street,10 pcs (120g),195,21,6,7,With sweet or spicy sauce
+Fishball (Large Serving),Snack/Street,10 pcs (120g),325,35,10,12,With sweet or spicy sauce
+Fishball (Spicy Variant),Snack/Street,10 pcs (120g),260,28,8,10,With sweet or spicy sauce; spicy
+Fishball (Low-Sodium),Snack/Street,10 pcs (120g),260,28,8,10,With sweet or spicy sauce; reduced salt
+Fishball (With Brown Rice),Snack/Street,10 pcs (120g),273,35,8,10,With sweet or spicy sauce; whole grain option
+Fishball (Fiesta Portion),Snack/Street,10 pcs (120g),364,39,11,14,With sweet or spicy sauce
+Fishball (Budget Bowl),Snack/Street,10 pcs (120g),221,23,6,8,With sweet or spicy sauce
+Kikiam (Small Serving),Snack/Street,6 pcs (150g),240,22,9,10,Street variant
+Kikiam (Large Serving),Snack/Street,6 pcs (150g),400,37,15,17,Street variant
+Kikiam (Spicy Variant),Snack/Street,6 pcs (150g),320,30,12,14,Street variant; spicy
+Kikiam (Low-Sodium),Snack/Street,6 pcs (150g),320,30,12,14,Street variant; reduced salt
+Kikiam (With Brown Rice),Snack/Street,6 pcs (150g),336,37,12,14,Street variant; whole grain option
+Kikiam (Fiesta Portion),Snack/Street,6 pcs (150g),448,42,16,19,Street variant
+Kikiam (Budget Bowl),Snack/Street,6 pcs (150g),272,25,10,11,Street variant
+Squidball (Small Serving),Snack/Street,8 pcs (140g),225,21,7,10,Popular street snack
+Squidball (Large Serving),Snack/Street,8 pcs (140g),375,35,12,17,Popular street snack
+Squidball (Spicy Variant),Snack/Street,8 pcs (140g),300,28,10,14,Popular street snack; spicy
+Squidball (Low-Sodium),Snack/Street,8 pcs (140g),300,28,10,14,Popular street snack; reduced salt
+Squidball (With Brown Rice),Snack/Street,8 pcs (140g),315,35,10,14,Popular street snack; whole grain option
+Squidball (Fiesta Portion),Snack/Street,8 pcs (140g),420,39,14,19,Popular street snack
+Squidball (Budget Bowl),Snack/Street,8 pcs (140g),255,23,8,11,Popular street snack
+Calamares (Fried Squid) (Small Serving),Snack/Street,1 plate (180g),315,22,16,16,Fried battered squid
+Calamares (Fried Squid) (Large Serving),Snack/Street,1 plate (180g),525,37,27,27,Fried battered squid
+Calamares (Fried Squid) (Spicy Variant),Snack/Street,1 plate (180g),420,30,22,22,Fried battered squid; spicy
+Calamares (Fried Squid) (Low-Sodium),Snack/Street,1 plate (180g),420,30,22,22,Fried battered squid; reduced salt
+Calamares (Fried Squid) (With Brown Rice),Snack/Street,1 plate (180g),441,37,23,23,Fried battered squid; whole grain option
+Calamares (Fried Squid) (Fiesta Portion),Snack/Street,1 plate (180g),588,42,30,30,Fried battered squid
+Calamares (Fried Squid) (Budget Bowl),Snack/Street,1 plate (180g),357,25,18,18,Fried battered squid
+Balut (Fertilized Duck Egg) (Small Serving),Snack/Street,1 egg (70g),141,1,9,10,Street delicacy
+Balut (Fertilized Duck Egg) (Large Serving),Snack/Street,1 egg (70g),235,2,16,17,Street delicacy
+Balut (Fertilized Duck Egg) (Spicy Variant),Snack/Street,1 egg (70g),188,2,13,14,Street delicacy; spicy
+Balut (Fertilized Duck Egg) (Low-Sodium),Snack/Street,1 egg (70g),188,2,13,14,Street delicacy; reduced salt
+Balut (Fertilized Duck Egg) (With Brown Rice),Snack/Street,1 egg (70g),197,8,13,14,Street delicacy; whole grain option
+Balut (Fertilized Duck Egg) (Fiesta Portion),Snack/Street,1 egg (70g),263,2,18,19,Street delicacy
+Balut (Fertilized Duck Egg) (Budget Bowl),Snack/Street,1 egg (70g),159,1,11,11,Street delicacy
+Penoy (Unfertilized Duck Egg) (Small Serving),Snack/Street,1 egg (60g),120,1,9,9,Boiled duck egg
+Penoy (Unfertilized Duck Egg) (Large Serving),Snack/Street,1 egg (60g),200,2,15,15,Boiled duck egg
+Penoy (Unfertilized Duck Egg) (Spicy Variant),Snack/Street,1 egg (60g),160,2,12,12,Boiled duck egg; spicy
+Penoy (Unfertilized Duck Egg) (Low-Sodium),Snack/Street,1 egg (60g),160,2,12,12,Boiled duck egg; reduced salt
+Penoy (Unfertilized Duck Egg) (With Brown Rice),Snack/Street,1 egg (60g),168,8,12,12,Boiled duck egg; whole grain option
+Penoy (Unfertilized Duck Egg) (Fiesta Portion),Snack/Street,1 egg (60g),224,2,16,16,Boiled duck egg
+Penoy (Unfertilized Duck Egg) (Budget Bowl),Snack/Street,1 egg (60g),136,1,10,10,Boiled duck egg
+Ensaymada (Small Serving),Snack/Dessert,1 piece (80g),210,26,4,9,Buttery brioche with cheese
+Ensaymada (Large Serving),Snack/Dessert,1 piece (80g),350,43,7,15,Buttery brioche with cheese
+Ensaymada (Spicy Variant),Snack/Dessert,1 piece (80g),280,35,6,12,Buttery brioche with cheese; spicy
+Ensaymada (Low-Sodium),Snack/Dessert,1 piece (80g),280,35,6,12,Buttery brioche with cheese; reduced salt
+Ensaymada (With Brown Rice),Snack/Dessert,1 piece (80g),294,42,6,12,Buttery brioche with cheese; whole grain option
+Ensaymada (Fiesta Portion),Snack/Dessert,1 piece (80g),392,49,8,16,Buttery brioche with cheese
+Ensaymada (Budget Bowl),Snack/Dessert,1 piece (80g),238,29,5,10,Buttery brioche with cheese
+Spanish Bread (Small Serving),Snack,1 piece (60g),150,22,3,4,Sweet filled bread
+Spanish Bread (Large Serving),Snack,1 piece (60g),250,37,5,7,Sweet filled bread
+Spanish Bread (Spicy Variant),Snack,1 piece (60g),200,30,4,6,Sweet filled bread; spicy
+Spanish Bread (Low-Sodium),Snack,1 piece (60g),200,30,4,6,Sweet filled bread; reduced salt
+Spanish Bread (With Brown Rice),Snack,1 piece (60g),210,37,4,6,Sweet filled bread; whole grain option
+Spanish Bread (Fiesta Portion),Snack,1 piece (60g),280,42,5,8,Sweet filled bread
+Spanish Bread (Budget Bowl),Snack,1 piece (60g),170,25,3,5,Sweet filled bread
+Monay (Small Serving),Snack,1 piece (80g),165,30,4,2,Dense bread roll
+Monay (Large Serving),Snack,1 piece (80g),275,50,7,3,Dense bread roll
+Monay (Spicy Variant),Snack,1 piece (80g),220,40,6,3,Dense bread roll; spicy
+Monay (Low-Sodium),Snack,1 piece (80g),220,40,6,3,Dense bread roll; reduced salt
+Monay (With Brown Rice),Snack,1 piece (80g),231,48,6,3,Dense bread roll; whole grain option
+Monay (Fiesta Portion),Snack,1 piece (80g),308,56,8,4,Dense bread roll
+Monay (Budget Bowl),Snack,1 piece (80g),187,34,5,2,Dense bread roll
+Hopia (Mongo) (Small Serving),Snack/Dessert,1 piece (50g),157,21,3,6,Flaky pastry with mung bean
+Hopia (Mongo) (Large Serving),Snack/Dessert,1 piece (50g),262,35,5,10,Flaky pastry with mung bean
+Hopia (Mongo) (Spicy Variant),Snack/Dessert,1 piece (50g),210,28,4,8,Flaky pastry with mung bean; spicy
+Hopia (Mongo) (Low-Sodium),Snack/Dessert,1 piece (50g),210,28,4,8,Flaky pastry with mung bean; reduced salt
+Hopia (Mongo) (With Brown Rice),Snack/Dessert,1 piece (50g),220,35,4,8,Flaky pastry with mung bean; whole grain option
+Hopia (Mongo) (Fiesta Portion),Snack/Dessert,1 piece (50g),294,39,5,11,Flaky pastry with mung bean
+Hopia (Mongo) (Budget Bowl),Snack/Dessert,1 piece (50g),178,23,3,6,Flaky pastry with mung bean
+Bibingka (Small Serving),Snack/Dessert,1 slice (100g),165,33,3,2,Rice cake
+Bibingka (Large Serving),Snack/Dessert,1 slice (100g),275,56,5,3,Rice cake
+Bibingka (Spicy Variant),Snack/Dessert,1 slice (100g),220,45,4,3,Rice cake; spicy
+Bibingka (Low-Sodium),Snack/Dessert,1 slice (100g),220,45,4,3,Rice cake; reduced salt
+Bibingka (With Brown Rice),Snack/Dessert,1 slice (100g),231,53,4,3,Rice cake; whole grain option
+Bibingka (Fiesta Portion),Snack/Dessert,1 slice (100g),308,62,5,4,Rice cake
+Bibingka (Budget Bowl),Snack/Dessert,1 slice (100g),187,38,3,2,Rice cake
+Puto (Small Serving),Snack/Dessert,1 piece (40g),67,15,1,0,Steamed rice cake
+Puto (Large Serving),Snack/Dessert,1 piece (40g),112,25,2,1,Steamed rice cake
+Puto (Spicy Variant),Snack/Dessert,1 piece (40g),90,20,2,1,Steamed rice cake; spicy
+Puto (Low-Sodium),Snack/Dessert,1 piece (40g),90,20,2,1,Steamed rice cake; reduced salt
+Puto (With Brown Rice),Snack/Dessert,1 piece (40g),94,27,2,1,Steamed rice cake; whole grain option
+Puto (Fiesta Portion),Snack/Dessert,1 piece (40g),125,28,2,1,Steamed rice cake
+Puto (Budget Bowl),Snack/Dessert,1 piece (40g),76,17,1,0,Steamed rice cake
+Kutsinta (Small Serving),Snack/Dessert,1 piece (40g),60,11,0,0,Sticky rice cake
+Kutsinta (Large Serving),Snack/Dessert,1 piece (40g),87,18,1,0,Sticky rice cake
+Kutsinta (Spicy Variant),Snack/Dessert,1 piece (40g),70,15,1,0,Sticky rice cake; spicy
+Kutsinta (Low-Sodium),Snack/Dessert,1 piece (40g),70,15,1,0,Sticky rice cake; reduced salt
+Kutsinta (With Brown Rice),Snack/Dessert,1 piece (40g),73,21,1,0,Sticky rice cake; whole grain option
+Kutsinta (Fiesta Portion),Snack/Dessert,1 piece (40g),98,21,1,0,Sticky rice cake
+Kutsinta (Budget Bowl),Snack/Dessert,1 piece (40g),60,12,0,0,Sticky rice cake
+Biko (Small Serving),Snack/Dessert,1 slice (120g),240,45,3,6,Sticky rice with coconut & sugar
+Biko (Large Serving),Snack/Dessert,1 slice (120g),400,75,5,10,Sticky rice with coconut & sugar
+Biko (Spicy Variant),Snack/Dessert,1 slice (120g),320,60,4,8,Sticky rice with coconut & sugar; spicy
+Biko (Low-Sodium),Snack/Dessert,1 slice (120g),320,60,4,8,Sticky rice with coconut & sugar; reduced salt
+Biko (With Brown Rice),Snack/Dessert,1 slice (120g),336,69,4,8,Sticky rice with coconut & sugar; whole grain option
+Biko (Fiesta Portion),Snack/Dessert,1 slice (120g),448,84,5,11,Sticky rice with coconut & sugar
+Biko (Budget Bowl),Snack/Dessert,1 slice (120g),272,51,3,6,Sticky rice with coconut & sugar
+Sapin-Sapin (Small Serving),Snack/Dessert,1 slice (100g),187,41,2,3,Layered sticky rice dessert
+Sapin-Sapin (Large Serving),Snack/Dessert,1 slice (100g),312,68,3,6,Layered sticky rice dessert
+Sapin-Sapin (Spicy Variant),Snack/Dessert,1 slice (100g),250,55,3,5,Layered sticky rice dessert; spicy
+Sapin-Sapin (Low-Sodium),Snack/Dessert,1 slice (100g),250,55,3,5,Layered sticky rice dessert; reduced salt
+Sapin-Sapin (With Brown Rice),Snack/Dessert,1 slice (100g),262,63,3,5,Layered sticky rice dessert; whole grain option
+Sapin-Sapin (Fiesta Portion),Snack/Dessert,1 slice (100g),350,77,4,7,Layered sticky rice dessert
+Sapin-Sapin (Budget Bowl),Snack/Dessert,1 slice (100g),212,46,2,4,Layered sticky rice dessert
+Maja Blanca (Small Serving),Snack/Dessert,1 slice (120g),210,30,3,7,Coconut milk pudding
+Maja Blanca (Large Serving),Snack/Dessert,1 slice (120g),350,50,5,12,Coconut milk pudding
+Maja Blanca (Spicy Variant),Snack/Dessert,1 slice (120g),280,40,4,10,Coconut milk pudding; spicy
+Maja Blanca (Low-Sodium),Snack/Dessert,1 slice (120g),280,40,4,10,Coconut milk pudding; reduced salt
+Maja Blanca (With Brown Rice),Snack/Dessert,1 slice (120g),294,48,4,10,Coconut milk pudding; whole grain option
+Maja Blanca (Fiesta Portion),Snack/Dessert,1 slice (120g),392,56,5,14,Coconut milk pudding
+Maja Blanca (Budget Bowl),Snack/Dessert,1 slice (120g),238,34,3,8,Coconut milk pudding
+Palitaw (Small Serving),Snack/Dessert,1 piece (50g),90,18,1,1,Coated with sugar & coconut
+Palitaw (Large Serving),Snack/Dessert,1 piece (50g),150,31,2,2,Coated with sugar & coconut
+Palitaw (Spicy Variant),Snack/Dessert,1 piece (50g),120,25,2,2,Coated with sugar & coconut; spicy
+Palitaw (Low-Sodium),Snack/Dessert,1 piece (50g),120,25,2,2,Coated with sugar & coconut; reduced salt
+Palitaw (With Brown Rice),Snack/Dessert,1 piece (50g),126,32,2,2,Coated with sugar & coconut; whole grain option
+Palitaw (Fiesta Portion),Snack/Dessert,1 piece (50g),168,35,2,2,Coated with sugar & coconut
+Palitaw (Budget Bowl),Snack/Dessert,1 piece (50g),102,21,1,1,Coated with sugar & coconut
+Suman Malagkit (Small Serving),Snack/Dessert,1 piece (80g),150,31,2,1,Sticky rice roll
+Suman Malagkit (Large Serving),Snack/Dessert,1 piece (80g),250,52,3,2,Sticky rice roll
+Suman Malagkit (Spicy Variant),Snack/Dessert,1 piece (80g),200,42,3,2,Sticky rice roll; spicy
+Suman Malagkit (Low-Sodium),Snack/Dessert,1 piece (80g),200,42,3,2,Sticky rice roll; reduced salt
+Suman Malagkit (With Brown Rice),Snack/Dessert,1 piece (80g),210,50,3,2,Sticky rice roll; whole grain option
+Suman Malagkit (Fiesta Portion),Snack/Dessert,1 piece (80g),280,58,4,2,Sticky rice roll
+Suman Malagkit (Budget Bowl),Snack/Dessert,1 piece (80g),170,35,2,1,Sticky rice roll
+Cassava Cake (Small Serving),Snack/Dessert,1 slice (120g),240,37,3,7,Baked cassava dessert
+Cassava Cake (Large Serving),Snack/Dessert,1 slice (120g),400,62,5,12,Baked cassava dessert
+Cassava Cake (Spicy Variant),Snack/Dessert,1 slice (120g),320,50,4,10,Baked cassava dessert; spicy
+Cassava Cake (Low-Sodium),Snack/Dessert,1 slice (120g),320,50,4,10,Baked cassava dessert; reduced salt
+Cassava Cake (With Brown Rice),Snack/Dessert,1 slice (120g),336,58,4,10,Baked cassava dessert; whole grain option
+Cassava Cake (Fiesta Portion),Snack/Dessert,1 slice (120g),448,70,5,14,Baked cassava dessert
+Cassava Cake (Budget Bowl),Snack/Dessert,1 slice (120g),272,42,3,8,Baked cassava dessert
+Ube Halaya (Small Serving),Dessert,1 slice (100g),195,37,2,3,Purple yam jam
+Ube Halaya (Large Serving),Dessert,1 slice (100g),325,62,3,6,Purple yam jam
+Ube Halaya (Spicy Variant),Dessert,1 slice (100g),260,50,3,5,Purple yam jam; spicy
+Ube Halaya (Low-Sodium),Dessert,1 slice (100g),260,50,3,5,Purple yam jam; reduced salt
+Ube Halaya (With Brown Rice),Dessert,1 slice (100g),273,58,3,5,Purple yam jam; whole grain option
+Ube Halaya (Fiesta Portion),Dessert,1 slice (100g),364,70,4,7,Purple yam jam
+Ube Halaya (Budget Bowl),Dessert,1 slice (100g),221,42,2,4,Purple yam jam
+Leche Flan (Small Serving),Dessert,1 slice (80g),225,37,5,7,Rich custard dessert
+Leche Flan (Large Serving),Dessert,1 slice (80g),375,62,8,12,Rich custard dessert
+Leche Flan (Spicy Variant),Dessert,1 slice (80g),300,50,7,10,Rich custard dessert; spicy
+Leche Flan (Low-Sodium),Dessert,1 slice (80g),300,50,7,10,Rich custard dessert; reduced salt
+Leche Flan (With Brown Rice),Dessert,1 slice (80g),315,58,7,10,Rich custard dessert; whole grain option
+Leche Flan (Fiesta Portion),Dessert,1 slice (80g),420,70,9,14,Rich custard dessert
+Leche Flan (Budget Bowl),Dessert,1 slice (80g),255,42,5,8,Rich custard dessert
+Halo-Halo (Small Serving),Dessert,1 glass,262,56,4,3,Shaved ice dessert
+Halo-Halo (Large Serving),Dessert,1 glass,437,93,7,6,Shaved ice dessert
+Halo-Halo (Spicy Variant),Dessert,1 glass,350,75,6,5,Shaved ice dessert; spicy
+Halo-Halo (Low-Sodium),Dessert,1 glass,350,75,6,5,Shaved ice dessert; reduced salt
+Halo-Halo (With Brown Rice),Dessert,1 glass,367,84,6,5,Shaved ice dessert; whole grain option
+Halo-Halo (Fiesta Portion),Dessert,1 glass,489,105,8,7,Shaved ice dessert
+Halo-Halo (Budget Bowl),Dessert,1 glass,297,63,5,4,Shaved ice dessert
+Mais con Yelo (Small Serving),Dessert,1 glass,210,46,3,2,Sweet corn with milk & ice
+Mais con Yelo (Large Serving),Dessert,1 glass,350,77,5,3,Sweet corn with milk & ice
+Mais con Yelo (Spicy Variant),Dessert,1 glass,280,62,4,3,Sweet corn with milk & ice; spicy
+Mais con Yelo (Low-Sodium),Dessert,1 glass,280,62,4,3,Sweet corn with milk & ice; reduced salt
+Mais con Yelo (With Brown Rice),Dessert,1 glass,294,71,4,3,Sweet corn with milk & ice; whole grain option
+Mais con Yelo (Fiesta Portion),Dessert,1 glass,392,86,5,4,Sweet corn with milk & ice
+Mais con Yelo (Budget Bowl),Dessert,1 glass,238,52,3,2,Sweet corn with milk & ice
+Saba con Yelo (Small Serving),Dessert,1 glass,225,48,2,2,Caramelized banana with milk & ice
+Saba con Yelo (Large Serving),Dessert,1 glass,375,81,3,3,Caramelized banana with milk & ice
+Saba con Yelo (Spicy Variant),Dessert,1 glass,300,65,3,3,Caramelized banana with milk & ice; spicy
+Saba con Yelo (Low-Sodium),Dessert,1 glass,300,65,3,3,Caramelized banana with milk & ice; reduced salt
+Saba con Yelo (With Brown Rice),Dessert,1 glass,315,74,3,3,Caramelized banana with milk & ice; whole grain option
+Saba con Yelo (Fiesta Portion),Dessert,1 glass,420,91,4,4,Caramelized banana with milk & ice
+Saba con Yelo (Budget Bowl),Dessert,1 glass,255,55,2,2,Caramelized banana with milk & ice
+Turon (Small Serving),Snack/Dessert,1 piece (80g),112,22,1,3,Banana spring roll
+Turon (Large Serving),Snack/Dessert,1 piece (80g),187,37,2,6,Banana spring roll
+Turon (Spicy Variant),Snack/Dessert,1 piece (80g),150,30,2,5,Banana spring roll; spicy
+Turon (Low-Sodium),Snack/Dessert,1 piece (80g),150,30,2,5,Banana spring roll; reduced salt
+Turon (With Brown Rice),Snack/Dessert,1 piece (80g),157,37,2,5,Banana spring roll; whole grain option
+Turon (Fiesta Portion),Snack/Dessert,1 piece (80g),210,42,2,7,Banana spring roll
+Turon (Budget Bowl),Snack/Dessert,1 piece (80g),127,25,1,4,Banana spring roll
+Banana Cue (Small Serving),Snack/Dessert,1 stick (100g),150,33,1,4,Caramelized saba banana
+Banana Cue (Large Serving),Snack/Dessert,1 stick (100g),250,56,2,7,Caramelized saba banana
+Banana Cue (Spicy Variant),Snack/Dessert,1 stick (100g),200,45,2,6,Caramelized saba banana; spicy
+Banana Cue (Low-Sodium),Snack/Dessert,1 stick (100g),200,45,2,6,Caramelized saba banana; reduced salt
+Banana Cue (With Brown Rice),Snack/Dessert,1 stick (100g),210,53,2,6,Caramelized saba banana; whole grain option
+Banana Cue (Fiesta Portion),Snack/Dessert,1 stick (100g),280,62,2,8,Caramelized saba banana
+Banana Cue (Budget Bowl),Snack/Dessert,1 stick (100g),170,38,1,5,Caramelized saba banana
+Camote Cue (Small Serving),Snack/Dessert,1 stick (120g),165,36,1,3,Caramelized sweet potato
+Camote Cue (Large Serving),Snack/Dessert,1 stick (120g),275,60,2,6,Caramelized sweet potato
+Camote Cue (Spicy Variant),Snack/Dessert,1 stick (120g),220,48,2,5,Caramelized sweet potato; spicy
+Camote Cue (Low-Sodium),Snack/Dessert,1 stick (120g),220,48,2,5,Caramelized sweet potato; reduced salt
+Camote Cue (With Brown Rice),Snack/Dessert,1 stick (120g),231,56,2,5,Caramelized sweet potato; whole grain option
+Camote Cue (Fiesta Portion),Snack/Dessert,1 stick (120g),308,67,2,7,Caramelized sweet potato
+Camote Cue (Budget Bowl),Snack/Dessert,1 stick (120g),187,40,1,4,Caramelized sweet potato
+Kansi (Bacolod) (Small Serving),Lunch/Dinner,1 bowl (300g),315,7,21,22,Sour beef marrow soup
+Kansi (Bacolod) (Large Serving),Lunch/Dinner,1 bowl (300g),525,12,35,37,Sour beef marrow soup
+Kansi (Bacolod) (Spicy Variant),Lunch/Dinner,1 bowl (300g),420,10,28,30,Sour beef marrow soup; spicy
+Kansi (Bacolod) (Low-Sodium),Lunch/Dinner,1 bowl (300g),420,10,28,30,Sour beef marrow soup; reduced salt
+Kansi (Bacolod) (With Brown Rice),Lunch/Dinner,1 bowl (300g),441,16,29,31,Sour beef marrow soup; whole grain option
+Kansi (Bacolod) (Fiesta Portion),Lunch/Dinner,1 bowl (300g),588,14,39,42,Sour beef marrow soup
+Kansi (Bacolod) (Budget Bowl),Lunch/Dinner,1 bowl (300g),357,8,23,25,Sour beef marrow soup
+"KBL (Kadios, Baboy, Langka) (Small Serving)",Lunch/Dinner,1 bowl (300g),285,15,19,15,Ilonggo sour stew
+"KBL (Kadios, Baboy, Langka) (Large Serving)",Lunch/Dinner,1 bowl (300g),475,25,32,25,Ilonggo sour stew
+"KBL (Kadios, Baboy, Langka) (Spicy Variant)",Lunch/Dinner,1 bowl (300g),380,20,26,20,Ilonggo sour stew; spicy
+"KBL (Kadios, Baboy, Langka) (Low-Sodium)",Lunch/Dinner,1 bowl (300g),380,20,26,20,Ilonggo sour stew; reduced salt
+"KBL (Kadios, Baboy, Langka) (With Brown Rice)",Lunch/Dinner,1 bowl (300g),399,27,27,21,Ilonggo sour stew; whole grain option
+"KBL (Kadios, Baboy, Langka) (Fiesta Portion)",Lunch/Dinner,1 bowl (300g),532,28,36,28,Ilonggo sour stew
+"KBL (Kadios, Baboy, Langka) (Budget Bowl)",Lunch/Dinner,1 bowl (300g),323,17,22,17,Ilonggo sour stew
+Laswa (Iloilo) (Small Serving),Lunch/Dinner,1 bowl (250g),135,13,6,4,Light vegetable soup
+Laswa (Iloilo) (Large Serving),Lunch/Dinner,1 bowl (250g),225,22,10,7,Light vegetable soup
+Laswa (Iloilo) (Spicy Variant),Lunch/Dinner,1 bowl (250g),180,18,8,6,Light vegetable soup; spicy
+Laswa (Iloilo) (Low-Sodium),Lunch/Dinner,1 bowl (250g),180,18,8,6,Light vegetable soup; reduced salt
+Laswa (Iloilo) (With Brown Rice),Lunch/Dinner,1 bowl (250g),189,24,8,6,Light vegetable soup; whole grain option
+Laswa (Iloilo) (Fiesta Portion),Lunch/Dinner,1 bowl (250g),251,25,11,8,Light vegetable soup
+Laswa (Iloilo) (Budget Bowl),Lunch/Dinner,1 bowl (250g),153,15,6,5,Light vegetable soup
+Piyanggang Manok (Tausug) (Small Serving),Lunch/Dinner,1 cup (200g),255,6,19,16,Chicken with burnt coconut
+Piyanggang Manok (Tausug) (Large Serving),Lunch/Dinner,1 cup (200g),425,10,32,27,Chicken with burnt coconut
+Piyanggang Manok (Tausug) (Spicy Variant),Lunch/Dinner,1 cup (200g),340,8,26,22,Chicken with burnt coconut; spicy
+Piyanggang Manok (Tausug) (Low-Sodium),Lunch/Dinner,1 cup (200g),340,8,26,22,Chicken with burnt coconut; reduced salt
+Piyanggang Manok (Tausug) (With Brown Rice),Lunch/Dinner,1 cup (200g),357,14,27,23,Chicken with burnt coconut; whole grain option
+Piyanggang Manok (Tausug) (Fiesta Portion),Lunch/Dinner,1 cup (200g),475,11,36,30,Chicken with burnt coconut
+Piyanggang Manok (Tausug) (Budget Bowl),Lunch/Dinner,1 cup (200g),289,6,22,18,Chicken with burnt coconut
+Tiyula Itum (Tausug) (Small Serving),Lunch/Dinner,1 bowl (300g),270,9,21,16,Black soup with burnt coconut
+Tiyula Itum (Tausug) (Large Serving),Lunch/Dinner,1 bowl (300g),450,15,35,27,Black soup with burnt coconut
+Tiyula Itum (Tausug) (Spicy Variant),Lunch/Dinner,1 bowl (300g),360,12,28,22,Black soup with burnt coconut; spicy
+Tiyula Itum (Tausug) (Low-Sodium),Lunch/Dinner,1 bowl (300g),360,12,28,22,Black soup with burnt coconut; reduced salt
+Tiyula Itum (Tausug) (With Brown Rice),Lunch/Dinner,1 bowl (300g),378,18,29,23,Black soup with burnt coconut; whole grain option
+Tiyula Itum (Tausug) (Fiesta Portion),Lunch/Dinner,1 bowl (300g),503,16,39,30,Black soup with burnt coconut
+Tiyula Itum (Tausug) (Budget Bowl),Lunch/Dinner,1 bowl (300g),306,10,23,18,Black soup with burnt coconut
+Piaparan (Maranao) (Small Serving),Lunch/Dinner,1 cup (200g),270,10,18,16,Coconut & turmeric
+Piaparan (Maranao) (Large Serving),Lunch/Dinner,1 cup (200g),450,17,30,27,Coconut & turmeric
+Piaparan (Maranao) (Spicy Variant),Lunch/Dinner,1 cup (200g),360,14,24,22,Coconut & turmeric; spicy
+Piaparan (Maranao) (Low-Sodium),Lunch/Dinner,1 cup (200g),360,14,24,22,Coconut & turmeric; reduced salt
+Piaparan (Maranao) (With Brown Rice),Lunch/Dinner,1 cup (200g),378,20,25,23,Coconut & turmeric; whole grain option
+Piaparan (Maranao) (Fiesta Portion),Lunch/Dinner,1 cup (200g),503,19,33,30,Coconut & turmeric
+Piaparan (Maranao) (Budget Bowl),Lunch/Dinner,1 cup (200g),306,11,20,18,Coconut & turmeric
+Pastil (Maguindanao) (Small Serving),Snack/Lunch,1 pack (180g),315,45,12,7,Rice with shredded chicken
+Pastil (Maguindanao) (Large Serving),Snack/Lunch,1 pack (180g),525,75,20,12,Rice with shredded chicken
+Pastil (Maguindanao) (Spicy Variant),Snack/Lunch,1 pack (180g),420,60,16,10,Rice with shredded chicken; spicy
+Pastil (Maguindanao) (Low-Sodium),Snack/Lunch,1 pack (180g),420,60,16,10,Rice with shredded chicken; reduced salt
+Pastil (Maguindanao) (With Brown Rice),Snack/Lunch,1 pack (180g),441,69,16,10,Rice with shredded chicken; whole grain option
+Pastil (Maguindanao) (Fiesta Portion),Snack/Lunch,1 pack (180g),588,84,22,14,Rice with shredded chicken
+Pastil (Maguindanao) (Budget Bowl),Snack/Lunch,1 pack (180g),357,51,13,8,Rice with shredded chicken
+Tinowa (Cebu) (Small Serving),Lunch/Dinner,1 bowl (250g),180,4,19,7,Clear fish soup
+Tinowa (Cebu) (Large Serving),Lunch/Dinner,1 bowl (250g),300,7,32,12,Clear fish soup
+Tinowa (Cebu) (Spicy Variant),Lunch/Dinner,1 bowl (250g),240,6,26,10,Clear fish soup; spicy
+Tinowa (Cebu) (Low-Sodium),Lunch/Dinner,1 bowl (250g),240,6,26,10,Clear fish soup; reduced salt
+Tinowa (Cebu) (With Brown Rice),Lunch/Dinner,1 bowl (250g),252,12,27,10,Clear fish soup; whole grain option
+Tinowa (Cebu) (Fiesta Portion),Lunch/Dinner,1 bowl (250g),336,8,36,14,Clear fish soup
+Tinowa (Cebu) (Budget Bowl),Lunch/Dinner,1 bowl (250g),204,5,22,8,Clear fish soup
+Linarang (Cebu) (Small Serving),Lunch/Dinner,1 bowl (250g),225,7,18,12,Sour-savory fish stew
+Linarang (Cebu) (Large Serving),Lunch/Dinner,1 bowl (250g),375,12,30,20,Sour-savory fish stew
+Linarang (Cebu) (Spicy Variant),Lunch/Dinner,1 bowl (250g),300,10,24,16,Sour-savory fish stew; spicy
+Linarang (Cebu) (Low-Sodium),Lunch/Dinner,1 bowl (250g),300,10,24,16,Sour-savory fish stew; reduced salt
+Linarang (Cebu) (With Brown Rice),Lunch/Dinner,1 bowl (250g),315,16,25,16,Sour-savory fish stew; whole grain option
+Linarang (Cebu) (Fiesta Portion),Lunch/Dinner,1 bowl (250g),420,14,33,22,Sour-savory fish stew
+Linarang (Cebu) (Budget Bowl),Lunch/Dinner,1 bowl (250g),255,8,20,13,Sour-savory fish stew
+Kinilaw na Lato (Small Serving),Snack/Lunch,1 cup (150g),90,7,3,3,Seaweed salad
+Kinilaw na Lato (Large Serving),Snack/Lunch,1 cup (150g),150,12,5,5,Seaweed salad
+Kinilaw na Lato (Spicy Variant),Snack/Lunch,1 cup (150g),120,10,4,4,Seaweed salad; spicy
+Kinilaw na Lato (Low-Sodium),Snack/Lunch,1 cup (150g),120,10,4,4,Seaweed salad; reduced salt
+Kinilaw na Lato (With Brown Rice),Snack/Lunch,1 cup (150g),126,16,4,4,Seaweed salad; whole grain option
+Kinilaw na Lato (Fiesta Portion),Snack/Lunch,1 cup (150g),168,14,5,5,Seaweed salad
+Kinilaw na Lato (Budget Bowl),Snack/Lunch,1 cup (150g),102,8,3,3,Seaweed salad
+Bringhe (Kapampangan Paella) (Small Serving),Lunch/Dinner,1 plate (300g),390,58,13,9,Sticky rice paella
+Bringhe (Kapampangan Paella) (Large Serving),Lunch/Dinner,1 plate (300g),650,97,22,15,Sticky rice paella
+Bringhe (Kapampangan Paella) (Spicy Variant),Lunch/Dinner,1 plate (300g),520,78,18,12,Sticky rice paella; spicy
+Bringhe (Kapampangan Paella) (Low-Sodium),Lunch/Dinner,1 plate (300g),520,78,18,12,Sticky rice paella; reduced salt
+Bringhe (Kapampangan Paella) (With Brown Rice),Lunch/Dinner,1 plate (300g),546,87,18,12,Sticky rice paella; whole grain option
+Bringhe (Kapampangan Paella) (Fiesta Portion),Lunch/Dinner,1 plate (300g),728,109,25,16,Sticky rice paella
+Bringhe (Kapampangan Paella) (Budget Bowl),Lunch/Dinner,1 plate (300g),442,66,15,10,Sticky rice paella
+Morcon (Small Serving),Lunch/Dinner,1 slice (150g),270,9,18,16,Stuffed beef roulade
+Morcon (Large Serving),Lunch/Dinner,1 slice (150g),450,15,30,27,Stuffed beef roulade
+Morcon (Spicy Variant),Lunch/Dinner,1 slice (150g),360,12,24,22,Stuffed beef roulade; spicy
+Morcon (Low-Sodium),Lunch/Dinner,1 slice (150g),360,12,24,22,Stuffed beef roulade; reduced salt
+Morcon (With Brown Rice),Lunch/Dinner,1 slice (150g),378,18,25,23,Stuffed beef roulade; whole grain option
+Morcon (Fiesta Portion),Lunch/Dinner,1 slice (150g),503,16,33,30,Stuffed beef roulade
+Morcon (Budget Bowl),Lunch/Dinner,1 slice (150g),306,10,20,18,Stuffed beef roulade
+Callos (Filipino) (Small Serving),Lunch/Dinner,1 cup (200g),240,12,18,13,Tripe stew
+Callos (Filipino) (Large Serving),Lunch/Dinner,1 cup (200g),400,20,30,22,Tripe stew
+Callos (Filipino) (Spicy Variant),Lunch/Dinner,1 cup (200g),320,16,24,18,Tripe stew; spicy
+Callos (Filipino) (Low-Sodium),Lunch/Dinner,1 cup (200g),320,16,24,18,Tripe stew; reduced salt
+Callos (Filipino) (With Brown Rice),Lunch/Dinner,1 cup (200g),336,22,25,18,Tripe stew; whole grain option
+Callos (Filipino) (Fiesta Portion),Lunch/Dinner,1 cup (200g),448,22,33,25,Tripe stew
+Callos (Filipino) (Budget Bowl),Lunch/Dinner,1 cup (200g),272,13,20,15,Tripe stew
+Tinapa Fried Rice (Small Serving),Breakfast/Lunch,1 cup (200g),240,37,7,6,Smoked fish fried rice
+Tinapa Fried Rice (Large Serving),Breakfast/Lunch,1 cup (200g),400,62,12,10,Smoked fish fried rice
+Tinapa Fried Rice (Spicy Variant),Breakfast/Lunch,1 cup (200g),320,50,10,8,Smoked fish fried rice; spicy
+Tinapa Fried Rice (Low-Sodium),Breakfast/Lunch,1 cup (200g),320,50,10,8,Smoked fish fried rice; reduced salt
+Tinapa Fried Rice (With Brown Rice),Breakfast/Lunch,1 cup (200g),336,58,10,8,Smoked fish fried rice; whole grain option
+Tinapa Fried Rice (Fiesta Portion),Breakfast/Lunch,1 cup (200g),448,70,14,11,Smoked fish fried rice
+Tinapa Fried Rice (Budget Bowl),Breakfast/Lunch,1 cup (200g),272,42,8,6,Smoked fish fried rice
+Gising-Gising (Small Serving),Lunch/Dinner,1 cup (200g),225,10,10,15,Spicy coconut green beans
+Gising-Gising (Large Serving),Lunch/Dinner,1 cup (200g),375,17,17,25,Spicy coconut green beans
+Gising-Gising (Spicy Variant),Lunch/Dinner,1 cup (200g),300,14,14,20,Spicy coconut green beans; spicy
+Gising-Gising (Low-Sodium),Lunch/Dinner,1 cup (200g),300,14,14,20,Spicy coconut green beans; reduced salt
+Gising-Gising (With Brown Rice),Lunch/Dinner,1 cup (200g),315,20,14,21,Spicy coconut green beans; whole grain option
+Gising-Gising (Fiesta Portion),Lunch/Dinner,1 cup (200g),420,19,19,28,Spicy coconut green beans
+Gising-Gising (Budget Bowl),Lunch/Dinner,1 cup (200g),255,11,11,17,Spicy coconut green beans
+Pritong Tilapia (Small Serving),Lunch/Dinner,150g,210,0,21,12,Fried tilapia
+Pritong Tilapia (Large Serving),Lunch/Dinner,150g,350,0,35,20,Fried tilapia
+Pritong Tilapia (Spicy Variant),Lunch/Dinner,150g,280,0,28,16,Fried tilapia; spicy
+Pritong Tilapia (Low-Sodium),Lunch/Dinner,150g,280,0,28,16,Fried tilapia; reduced salt
+Pritong Tilapia (With Brown Rice),Lunch/Dinner,150g,294,6,29,16,Fried tilapia; whole grain option
+Pritong Tilapia (Fiesta Portion),Lunch/Dinner,150g,392,0,39,22,Fried tilapia
+Pritong Tilapia (Budget Bowl),Lunch/Dinner,150g,238,0,23,13,Fried tilapia
+Pritong Bangus (Small Serving),Lunch/Dinner,150g,225,0,22,13,Fried milkfish
+Pritong Bangus (Large Serving),Lunch/Dinner,150g,375,0,37,22,Fried milkfish
+Pritong Bangus (Spicy Variant),Lunch/Dinner,150g,300,0,30,18,Fried milkfish; spicy
+Pritong Bangus (Low-Sodium),Lunch/Dinner,150g,300,0,30,18,Fried milkfish; reduced salt
+Pritong Bangus (With Brown Rice),Lunch/Dinner,150g,315,6,31,18,Fried milkfish; whole grain option
+Pritong Bangus (Fiesta Portion),Lunch/Dinner,150g,420,0,42,25,Fried milkfish
+Pritong Bangus (Budget Bowl),Lunch/Dinner,150g,255,0,25,15,Fried milkfish
+Inasal na Baboy (Small Serving),Lunch/Dinner,150g,315,4,21,22,Grilled pork inasal
+Inasal na Baboy (Large Serving),Lunch/Dinner,150g,525,7,35,37,Grilled pork inasal
+Inasal na Baboy (Spicy Variant),Lunch/Dinner,150g,420,6,28,30,Grilled pork inasal; spicy
+Inasal na Baboy (Low-Sodium),Lunch/Dinner,150g,420,6,28,30,Grilled pork inasal; reduced salt
+Inasal na Baboy (With Brown Rice),Lunch/Dinner,150g,441,12,29,31,Grilled pork inasal; whole grain option
+Inasal na Baboy (Fiesta Portion),Lunch/Dinner,150g,588,8,39,42,Grilled pork inasal
+Inasal na Baboy (Budget Bowl),Lunch/Dinner,150g,357,5,23,25,Grilled pork inasal
+Tinapang Galunggong (Small Serving),Lunch/Dinner,120g,180,0,18,10,Smoked round scad
+Tinapang Galunggong (Large Serving),Lunch/Dinner,120g,300,0,30,17,Smoked round scad
+Tinapang Galunggong (Spicy Variant),Lunch/Dinner,120g,240,0,24,14,Smoked round scad; spicy
+Tinapang Galunggong (Low-Sodium),Lunch/Dinner,120g,240,0,24,14,Smoked round scad; reduced salt
+Tinapang Galunggong (With Brown Rice),Lunch/Dinner,120g,252,6,25,14,Smoked round scad; whole grain option
+Tinapang Galunggong (Fiesta Portion),Lunch/Dinner,120g,336,0,33,19,Smoked round scad
+Tinapang Galunggong (Budget Bowl),Lunch/Dinner,120g,204,0,20,11,Smoked round scad
+Lumpiang Togue (Small Serving),Snack,2 pcs (120g),180,21,4,7,Bean sprout lumpia
+Lumpiang Togue (Large Serving),Snack,2 pcs (120g),300,35,7,12,Bean sprout lumpia
+Lumpiang Togue (Spicy Variant),Snack,2 pcs (120g),240,28,6,10,Bean sprout lumpia; spicy
+Lumpiang Togue (Low-Sodium),Snack,2 pcs (120g),240,28,6,10,Bean sprout lumpia; reduced salt
+Lumpiang Togue (With Brown Rice),Snack,2 pcs (120g),252,35,6,10,Bean sprout lumpia; whole grain option
+Lumpiang Togue (Fiesta Portion),Snack,2 pcs (120g),336,39,8,14,Bean sprout lumpia
+Lumpiang Togue (Budget Bowl),Snack,2 pcs (120g),204,23,5,8,Bean sprout lumpia
+Binagoongan (Pork) (Small Serving),Lunch/Dinner,1 cup (200g),270,9,18,18,Pork in shrimp paste
+Binagoongan (Pork) (Large Serving),Lunch/Dinner,1 cup (200g),450,15,30,30,Pork in shrimp paste
+Binagoongan (Pork) (Spicy Variant),Lunch/Dinner,1 cup (200g),360,12,24,24,Pork in shrimp paste; spicy
+Binagoongan (Pork) (Low-Sodium),Lunch/Dinner,1 cup (200g),360,12,24,24,Pork in shrimp paste; reduced salt
+Binagoongan (Pork) (With Brown Rice),Lunch/Dinner,1 cup (200g),378,18,25,25,Pork in shrimp paste; whole grain option
+Binagoongan (Pork) (Fiesta Portion),Lunch/Dinner,1 cup (200g),503,16,33,33,Pork in shrimp paste
+Binagoongan (Pork) (Budget Bowl),Lunch/Dinner,1 cup (200g),306,10,20,20,Pork in shrimp paste
+Ginataang Hipon (Small Serving),Lunch/Dinner,1 cup (200g),255,9,18,16,Shrimp in coconut milk
+Ginataang Hipon (Large Serving),Lunch/Dinner,1 cup (200g),425,15,30,27,Shrimp in coconut milk
+Ginataang Hipon (Spicy Variant),Lunch/Dinner,1 cup (200g),340,12,24,22,Shrimp in coconut milk; spicy
+Ginataang Hipon (Low-Sodium),Lunch/Dinner,1 cup (200g),340,12,24,22,Shrimp in coconut milk; reduced salt
+Ginataang Hipon (With Brown Rice),Lunch/Dinner,1 cup (200g),357,18,25,23,Shrimp in coconut milk; whole grain option
+Ginataang Hipon (Fiesta Portion),Lunch/Dinner,1 cup (200g),475,16,33,30,Shrimp in coconut milk
+Ginataang Hipon (Budget Bowl),Lunch/Dinner,1 cup (200g),289,10,20,18,Shrimp in coconut milk
+Ginataang Gulay (Mixed) (Small Serving),Lunch/Dinner,1 cup (200g),210,16,6,13,Mixed veggies in coconut milk
+Ginataang Gulay (Mixed) (Large Serving),Lunch/Dinner,1 cup (200g),350,27,10,22,Mixed veggies in coconut milk
+Ginataang Gulay (Mixed) (Spicy Variant),Lunch/Dinner,1 cup (200g),280,22,8,18,Mixed veggies in coconut milk; spicy
+Ginataang Gulay (Mixed) (Low-Sodium),Lunch/Dinner,1 cup (200g),280,22,8,18,Mixed veggies in coconut milk; reduced salt
+Ginataang Gulay (Mixed) (With Brown Rice),Lunch/Dinner,1 cup (200g),294,29,8,18,Mixed veggies in coconut milk; whole grain option
+Ginataang Gulay (Mixed) (Fiesta Portion),Lunch/Dinner,1 cup (200g),392,30,11,25,Mixed veggies in coconut milk
+Ginataang Gulay (Mixed) (Budget Bowl),Lunch/Dinner,1 cup (200g),238,18,6,15,Mixed veggies in coconut milk
+Tinapa at Kamatis (Small Serving),Breakfast/Lunch,1 plate (150g),165,6,12,9,Smoked fish with tomato
+Tinapa at Kamatis (Large Serving),Breakfast/Lunch,1 plate (150g),275,10,20,15,Smoked fish with tomato
+Tinapa at Kamatis (Spicy Variant),Breakfast/Lunch,1 plate (150g),220,8,16,12,Smoked fish with tomato; spicy
+Tinapa at Kamatis (Low-Sodium),Breakfast/Lunch,1 plate (150g),220,8,16,12,Smoked fish with tomato; reduced salt
+Tinapa at Kamatis (With Brown Rice),Breakfast/Lunch,1 plate (150g),231,14,16,12,Smoked fish with tomato; whole grain option
+Tinapa at Kamatis (Fiesta Portion),Breakfast/Lunch,1 plate (150g),308,11,22,16,Smoked fish with tomato
+Tinapa at Kamatis (Budget Bowl),Breakfast/Lunch,1 plate (150g),187,6,13,10,Smoked fish with tomato
+Arroz Valenciana (Small Serving),Lunch/Dinner,1 plate (300g),405,60,13,9,Fiesta rice dish
+Arroz Valenciana (Large Serving),Lunch/Dinner,1 plate (300g),675,100,22,15,Fiesta rice dish
+Arroz Valenciana (Spicy Variant),Lunch/Dinner,1 plate (300g),540,80,18,12,Fiesta rice dish; spicy
+Arroz Valenciana (Low-Sodium),Lunch/Dinner,1 plate (300g),540,80,18,12,Fiesta rice dish; reduced salt
+Arroz Valenciana (With Brown Rice),Lunch/Dinner,1 plate (300g),567,90,18,12,Fiesta rice dish; whole grain option
+Arroz Valenciana (Fiesta Portion),Lunch/Dinner,1 plate (300g),756,112,25,16,Fiesta rice dish
+Arroz Valenciana (Budget Bowl),Lunch/Dinner,1 plate (300g),459,68,15,10,Fiesta rice dish
+Pritong Manok (Small Serving),Lunch/Dinner,150g,270,4,21,16,Fried chicken
+Pritong Manok (Large Serving),Lunch/Dinner,150g,450,7,35,27,Fried chicken
+Pritong Manok (Spicy Variant),Lunch/Dinner,150g,360,6,28,22,Fried chicken; spicy
+Pritong Manok (Low-Sodium),Lunch/Dinner,150g,360,6,28,22,Fried chicken; reduced salt
+Pritong Manok (With Brown Rice),Lunch/Dinner,150g,378,12,29,23,Fried chicken; whole grain option
+Pritong Manok (Fiesta Portion),Lunch/Dinner,150g,503,8,39,30,Fried chicken
+Pritong Manok (Budget Bowl),Lunch/Dinner,150g,306,5,23,18,Fried chicken
+Inihaw na Manok (Small Serving),Lunch/Dinner,150g,240,3,21,15,Grilled chicken
+Inihaw na Manok (Large Serving),Lunch/Dinner,150g,400,5,35,25,Grilled chicken
+Inihaw na Manok (Spicy Variant),Lunch/Dinner,150g,320,4,28,20,Grilled chicken; spicy
+Inihaw na Manok (Low-Sodium),Lunch/Dinner,150g,320,4,28,20,Grilled chicken; reduced salt
+Inihaw na Manok (With Brown Rice),Lunch/Dinner,150g,336,10,29,21,Grilled chicken; whole grain option
+Inihaw na Manok (Fiesta Portion),Lunch/Dinner,150g,448,5,39,28,Grilled chicken
+Inihaw na Manok (Budget Bowl),Lunch/Dinner,150g,272,3,23,17,Grilled chicken
+Skinless Longganisa (Small Serving),Breakfast,2 links (80g),210,4,9,16,Homemade style
+Skinless Longganisa (Large Serving),Breakfast,2 links (80g),350,7,15,27,Homemade style
+Skinless Longganisa (Spicy Variant),Breakfast,2 links (80g),280,6,12,22,Homemade style; spicy
+Skinless Longganisa (Low-Sodium),Breakfast,2 links (80g),280,6,12,22,Homemade style; reduced salt
+Skinless Longganisa (With Brown Rice),Breakfast,2 links (80g),294,12,12,23,Homemade style; whole grain option
+Skinless Longganisa (Fiesta Portion),Breakfast,2 links (80g),392,8,16,30,Homemade style
+Skinless Longganisa (Budget Bowl),Breakfast,2 links (80g),238,5,10,18,Homemade style
+Pork Tocino (Small Serving),Breakfast/Lunch,100g,217,15,9,13,Sweet cured pork
+Pork Tocino (Large Serving),Breakfast/Lunch,100g,362,25,15,22,Sweet cured pork
+Pork Tocino (Spicy Variant),Breakfast/Lunch,100g,290,20,12,18,Sweet cured pork; spicy
+Pork Tocino (Low-Sodium),Breakfast/Lunch,100g,290,20,12,18,Sweet cured pork; reduced salt
+Pork Tocino (With Brown Rice),Breakfast/Lunch,100g,304,27,12,18,Sweet cured pork; whole grain option
+Pork Tocino (Fiesta Portion),Breakfast/Lunch,100g,406,28,16,25,Sweet cured pork
+Pork Tocino (Budget Bowl),Breakfast/Lunch,100g,246,17,10,15,Sweet cured pork
+Beef Tapa (Small Serving),Breakfast/Lunch,100g,195,4,15,12,Cured beef strips
+Beef Tapa (Large Serving),Breakfast/Lunch,100g,325,7,25,20,Cured beef strips
+Beef Tapa (Spicy Variant),Breakfast/Lunch,100g,260,6,20,16,Cured beef strips; spicy
+Beef Tapa (Low-Sodium),Breakfast/Lunch,100g,260,6,20,16,Cured beef strips; reduced salt
+Beef Tapa (With Brown Rice),Breakfast/Lunch,100g,273,12,21,16,Cured beef strips; whole grain option
+Beef Tapa (Fiesta Portion),Breakfast/Lunch,100g,364,8,28,22,Cured beef strips
+Beef Tapa (Budget Bowl),Breakfast/Lunch,100g,221,5,17,13,Cured beef strips
+Batangas Lomi Special,Lunch/Dinner,1 bowl (350g),560,65,22,20,"With liver, kikiam, chicharon"
+Pares w/ Garlic Rice,Lunch/Dinner,1 set,780,85,35,28,Beef pares with rice & soup
+Goto Special (With Tokwa't Baboy),Breakfast/Snack,1 bowl + side,520,60,26,18,Hearty combo
+Arroz Caldo w/ Egg,Breakfast/Snack,1 bowl (280g),360,48,18,10,With boiled egg
+Tinapa Omelette,Breakfast,1 serving,280,6,16,20,Eggs with smoked fish
+Sardinas with Misua,Lunch/Dinner,1 bowl (250g),320,46,14,8,Budget-friendly soup
+Ginataang Langka,Lunch/Dinner,1 cup (200g),300,20,8,20,Young jackfruit in coconut milk
+Binignit (Visayan Ginataan),Snack/Dessert,1 bowl (250g),360,68,4,8,Root crops in coconut milk
+Chicken Curry (Filipino),Lunch/Dinner,1 cup (200g),340,18,24,18,Mild coconut curry
+Beef Kare-Kare,Lunch/Dinner,1 cup (200g),520,20,28,34,Beef shank & tripe
+Piniritong Lumpiang Shanghai Rice Bowl,Lunch,1 bowl,620,72,20,24,Bowl combo
+Sisig w/ Rice,Lunch/Dinner,1 plate,780,60,28,42,Sizzling chopped pork face
+Chicharon Bulaklak,Snack,100g,540,4,12,50,Deep-fried pork mesentery
+Pritong Isda w/ Escabeche,Lunch/Dinner,1 plate (220g),360,28,24,14,Sweet-sour sauce
+Bangus Sisig,Lunch/Dinner,1 plate,520,24,28,28,Milkfish sisig
+Tinapa Pasta,Snack/Lunch,1 plate (250g),520,62,22,18,Filipino-style pasta
+Filipino-Style Spaghetti,Snack/Lunch,1 plate (300g),620,90,20,16,Sweet-style with hotdogs
+Carbonara (Pinoy),Snack/Lunch,1 plate (300g),650,70,22,24,Creamy style
+Liver Steak (Bistek Atay),Lunch/Dinner,1 cup (200g),320,10,26,16,Liver with onions
+Taho,Breakfast,Per 1 cup (250g),180,3,1,40,"Rich in protein, calcium; affordable street food."
+Champorado,Breakfast,Per bowl (200g),250,5,3,55,Good source of energy; often paired with tuyo.
+Arroz Caldo,Breakfast,Per bowl (250g),280,9,7,48,High in protein and comfort food; budget-friendly.
+Goto,Breakfast,Per bowl (250g),260,8,6,47,Hearty rice porridge; filling and low cost.
+Pandesal with Peanut Butter,Breakfast,2 pcs (80g),210,6,8,28,"Affordable bread staple, versatile filling."
+Pandesal with Cheese,Breakfast,2 pcs (80g),230,8,9,27,"Protein and calcium-rich, very affordable."
+Tapsilog,Breakfast,1 serving (300g),520,28,18,60,"Classic silog meal, protein-packed."
+Longsilog,Breakfast,1 serving (300g),540,22,25,58,Savory and filling breakfast option.
+Tosilog,Breakfast,1 serving (300g),500,26,20,55,Popular breakfast meal; protein-rich.
+Corned Beef with Rice,Breakfast,1 cup rice + 85g corned beef,430,14,20,46,"Easy to prepare, affordable canned option."
+Fried Egg with Rice,Breakfast,1 cup rice + 1 egg,320,10,9,45,"Very budget-friendly, protein-rich."
+Hotdog with Rice,Breakfast,1 cup rice + 2 hotdogs,420,12,25,40,"Affordable, popular breakfast for kids."
+Sopas,Breakfast,Per bowl (250g),290,12,8,45,Affordable creamy pasta soup; hearty.
+Pancit Canton (Instant),Breakfast,1 pack cooked (100g),350,9,14,48,Budget quick breakfast option.
+Binatog,Breakfast,1 cup (200g),280,7,8,46,"Affordable street food, high in carbs."
+Banana Cue,Breakfast,1 stick (150g),200,2,6,38,Sweet and filling; cheap street snack.
+Camote Cue,Breakfast,1 stick (150g),210,2,7,40,Affordable street food snack.
+Turon,Breakfast,1 pc (100g),180,3,6,32,Banana spring roll; sweet breakfast/snack.
+Puto with Cheese,Breakfast,2 pcs (80g),220,5,5,42,"Steamed rice cake, filling and affordable."
+Kutsinta,Breakfast,3 pcs (90g),190,2,4,40,Sticky rice cake; often paired with puto.
+Palitaw,Breakfast,2 pcs (100g),210,4,5,42,"Rice-based sweet, affordable option."
+Bibingka,Breakfast,1 pc (120g),250,5,9,40,Holiday treat but affordable version exists.
+Biko,Breakfast,1 slice (100g),230,4,7,46,Sticky rice delicacy; budget-friendly.
+Pandesal with Coffee,Breakfast,2 pcs (80g),180,6,4,30,Classic Filipino breakfast pairing.
+Banana with Rice,Breakfast,1 cup rice + 1 banana,280,5,1,62,Cheap but filling combo.
+Daing na Bangus with Rice,Breakfast,1 serving (200g),400,30,18,32,"Protein-rich, affordable local fish."
+Fried Galunggong with Rice,Breakfast,1 serving (200g),370,28,15,36,Budget-friendly fish meal.
+Lugaw,Breakfast,Per bowl (200g),180,6,3,35,Simple porridge; highly affordable.
+Instant Noodles with Rice,Breakfast,1 pack + 1 cup rice,460,10,16,65,"Cheap combo, common in low-income homes."
+Salted Egg with Tomato & Rice,Breakfast,1 egg + 1 cup rice,340,10,16,38,Very budget-friendly classic meal.
+Peanut Butter Sandwich,Breakfast,2 slices bread,290,8,12,35,Affordable and filling.
+Egg Sandwich,Breakfast,2 slices bread + egg,300,12,10,36,"Protein-rich, low-cost sandwich."
+Adobong Sitaw,Lunch,Per serving (200g),280,12,15,25,"Vegetable-based adobo, budget-friendly."
+Adobong Kangkong,Lunch,Per serving (200g),240,8,12,30,Nutritious and affordable veggie dish.
+Ginataang Kalabasa at Sitaw,Lunch,Per serving (250g),320,10,18,35,"Budget-friendly, healthy dish."
+Pinakbet,Lunch,Per serving (250g),300,12,14,35,Ilocano vegetable dish; affordable.
+Laing,Lunch,Per serving (200g),310,8,20,30,"Bicol dish, taro leaves in coconut milk."
+Pritong Tilapia,Lunch,1 pc (200g),370,32,18,30,Common affordable fish meal.
+Fried Galunggong,Lunch,1 pc (200g),360,28,15,28,Budget staple for many families.
+Adobong Pusit,Lunch,Per serving (200g),340,22,16,25,Affordable seafood dish.
+Pork Giniling,Lunch,Per serving (200g),400,18,22,32,Budget ground pork dish.
+Chicken Afritada,Lunch,Per serving (250g),420,20,24,35,Tomato-based chicken stew.
+Ginisang Monggo,Lunch,Per serving (200g),290,15,10,35,"Protein-rich mung beans, affordable."
+Tinolang Manok,Lunch,Per serving (250g),380,25,14,28,Nutritious soup dish.
+Sinigang na Baboy,Lunch,Per serving (250g),450,28,24,30,"Popular sour soup, affordable version."
+Sinigang na Isda,Lunch,Per serving (250g),390,30,14,25,"Sour fish soup, very budget-friendly."
+Adobong Manok,Lunch,Per serving (250g),420,28,22,30,"Staple Filipino dish, affordable meat."
+Adobong Baboy,Lunch,Per serving (250g),460,26,28,20,"Pork adobo, common household dish."
+Menudo,Lunch,Per serving (250g),430,20,26,30,Tomato-based pork stew.
+Mechado,Lunch,Per serving (250g),440,22,28,28,Budget-friendly tomato-based dish.
+Nilagang Baboy,Lunch,Per serving (250g),400,22,18,30,Simple boiled pork dish.
+Nilagang Manok,Lunch,Per serving (250g),380,24,16,28,Boiled chicken with vegetables.
+Fried Bangus,Lunch,1 pc (200g),390,32,18,20,"Milkfish, common affordable protein."
+Inihaw na Tilapia,Lunch,1 pc (200g),350,30,12,18,Grilled affordable fish.
+Inihaw na Baboy,Lunch,Per serving (200g),450,28,25,20,Budget grilled pork meal.
+Chopsuey,Lunch,Per serving (250g),300,12,10,35,"Vegetable stir fry, affordable."
+Tortang Talong,Lunch,Per serving (200g),280,10,16,24,"Eggplant omelet, budget-friendly."
+Tortang Giniling,Lunch,Per serving (200g),330,14,18,28,"Ground pork omelet, low-cost meal."
+Ginisang Ampalaya,Lunch,Per serving (200g),240,8,12,20,Nutritious bitter gourd dish.
+Ginisang Upo,Lunch,Per serving (200g),230,6,10,25,"Bottle gourd sauté, affordable veggie."
+Ginisang Sayote,Lunch,Per serving (200g),220,6,8,25,Cheap and nutritious gourd dish.
+Ginisang Pechay,Lunch,Per serving (200g),210,5,8,20,Nutritious leafy green sauté.
+Ginataang Langka,Lunch,Per serving (200g),310,8,18,28,Young jackfruit in coconut milk.
+Tokwat Baboy,Lunch,Per serving (200g),350,20,22,15,Affordable mix of tofu and pork.
+Paksiw na Bangus,Lunch,Per serving (200g),340,28,14,12,"Sour milkfish stew, very affordable."
+Adobong Sitaw at Kalabasa,Dinner,Per serving (200g),300,12,16,25,Hearty vegetable adobo.
+Sinigang na Manok,Dinner,Per serving (250g),390,26,14,25,"Sour chicken soup, budget-friendly."
+Tinolang Isda,Dinner,Per serving (250g),360,28,12,20,Nutritious and affordable fish soup.
+Tinolang Tahong,Dinner,Per serving (250g),340,24,8,22,Mussel soup; high in protein.
+Inihaw na Manok,Dinner,Per serving (250g),420,30,18,20,"Grilled chicken, affordable protein."
+Inihaw na Isda,Dinner,Per serving (250g),360,30,14,18,"Grilled fish, common household dish."
+Fried Tilapia,Dinner,1 pc (200g),370,32,16,18,Budget-friendly fish dinner.
+Pork BBQ with Rice,Dinner,2 sticks + rice (200g),430,20,24,35,Affordable street-style dinner.
+Chicken BBQ with Rice,Dinner,2 sticks + rice (200g),410,22,20,32,Affordable grilled option.
+Lumpiang Shanghai with Rice,Dinner,5 pcs + rice (250g),460,20,26,40,Budget-friendly party staple.
+Pork Sinigang,Dinner,Per serving (250g),450,28,22,30,"Sour pork soup, filling dinner."
+Beef Nilaga,Dinner,Per serving (250g),470,28,28,25,Hearty boiled beef dish.
+Bulalo (Budget Cut),Dinner,Per serving (250g),480,30,30,20,Affordable beef soup using shank.
+Batchoy,Dinner,Per bowl (250g),400,20,18,50,"Noodle soup, very filling."
+Mami,Dinner,Per bowl (250g),380,18,12,48,Affordable noodle soup.
+Pork Caldereta,Dinner,Per serving (250g),460,26,28,30,Tomato-based pork stew.
+Chicken Caldereta,Dinner,Per serving (250g),440,24,22,32,Budget-friendly chicken stew.
+Vegetable Caldereta,Dinner,Per serving (250g),360,10,14,45,Affordable veggie stew.
+Dinengdeng,Dinner,Per serving (200g),280,8,12,30,"Ilocano dish, veggies with bagoong."
+Ensaladang Talong,Dinner,Per serving (200g),220,6,8,20,Grilled eggplant salad.
+Ensaladang Mangga,Dinner,Per serving (200g),210,4,6,25,"Green mango salad, cheap option."
+Laoya,Dinner,Per serving (250g),450,28,26,30,Mindanao beef soup.
+Kinilaw na Isda,Dinner,Per serving (200g),320,26,10,18,"Filipino ceviche, budget version."
+Paksiw na Isda,Dinner,Per serving (200g),330,28,12,15,"Sour fish stew, affordable dish."
+Paklay,Dinner,Per serving (250g),420,22,20,30,Mindanao dish of innards.
+Balbacua,Dinner,Per serving (250g),470,30,28,25,"Beef stew with tendons, affordable."
+Kinunot na Pagi,Dinner,Per serving (200g),350,20,16,22,"Bicol stingray dish, local specialty."
+Pangat na Isda,Dinner,Per serving (200g),340,28,14,15,Boiled fish in tomatoes.
+Tinapang Galunggong,Dinner,1 pc (200g),360,30,15,12,"Smoked fish dinner, cheap protein."
+Utang Bisaya (Vegetable Soup),Dinner,Per serving (250g),260,8,6,40,Cebuano veggie soup.
+Bicol Express,Dinner,Per serving (200g),380,14,24,22,Spicy pork with coconut milk.
+Ginataang Puso ng Saging,Dinner,Per serving (200g),310,10,18,20,Banana blossom in coconut milk.
+Ginisang Repolyo,Dinner,Per serving (200g),230,6,8,28,"Sauted cabbage, affordable dish."
+Ginataang Malunggay,Dinner,Per serving (200g),280,8,12,30,Highly nutritious leaf dish.
