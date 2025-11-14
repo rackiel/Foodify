@@ -31,14 +31,19 @@
         <li><a href="admin-expired-posts.php"><i class="bi bi-circle"></i><span>Expired/Flagged</span></a></li>
       </ul>
     </li>
-    <!-- Announcements & Guidelines removed -->
+    <!-- Announcements & Guidelines -->
+    <li class="nav-item">
+      <a class="nav-link" href="admin-announcement.php">
+        <i class="bi bi-megaphone"></i>
+        <span>Announcement & Guidelines</span>
+      </a>
+    </li>
     <!-- Community Management -->
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-target="#community-nav" data-bs-toggle="collapse" href="#">
         <i class="bi bi-people-fill"></i><span>Community</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="community-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
-        <li><a href="admin-challenges.php"><i class="bi bi-circle"></i><span>Challenges</span></a></li>
         <li><a href="user-challenges-progress.php"><i class="bi bi-circle"></i><span>User Challenges Progress</span></a></li>
         <li><a href="admin-newsfeeds.php"><i class="bi bi-circle"></i><span>Newsfeeds</span></a></li>
       </ul>
