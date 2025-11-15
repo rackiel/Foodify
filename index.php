@@ -35,14 +35,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_username'], $_P
     if ($result && $result->num_rows === 1) {
         $user = $result->fetch_assoc();
         $stored_hash = $user['password_hash'];
-        
+
         // Check password - support both new secure hashes and legacy MD5
         $password_valid = false;
-        
+
         // First, try modern password_verify (for new secure hashes)
         if (password_verify($password_input, $stored_hash)) {
             $password_valid = true;
-            
+
             // If this was an old MD5 hash that we migrated, update it to proper hash
             if (strlen($stored_hash) == 32 && ctype_xdigit($stored_hash)) {
                 // This is an old MD5 hash, re-hash it properly
@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_username'], $_P
         // Fallback: check legacy MD5 hash (for accounts not yet migrated)
         elseif (strlen($stored_hash) == 32 && md5($password_input) === $stored_hash) {
             $password_valid = true;
-            
+
             // Migrate this MD5 hash to secure hash
             $new_hash = password_hash($password_input, PASSWORD_DEFAULT);
             $update_stmt = $conn->prepare("UPDATE user_accounts SET password_hash = ? WHERE user_id = ?");
@@ -64,7 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_username'], $_P
             $update_stmt->execute();
             $update_stmt->close();
         }
-        
+
         if ($password_valid) {
             // Check email verification and admin approval
             if ($user['is_verified'] == 1 && $user['is_approved'] == 1) {
@@ -201,6 +201,7 @@ if (
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -217,17 +218,21 @@ if (
             background-size: 200% 200%;
             animation: gradientBG 8s ease-in-out infinite;
         }
+
         @keyframes gradientBG {
             0% {
                 background-position: 0% 50%;
             }
+
             50% {
                 background-position: 100% 50%;
             }
+
             100% {
                 background-position: 0% 50%;
             }
         }
+
         .auth-container {
             max-width: 420px;
             margin: 60px auto;
@@ -237,23 +242,35 @@ if (
             overflow: hidden;
             animation: fadeIn 1s;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .auth-logo {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 32px 0 12px 0;
         }
+
         .auth-logo img {
             height: 230px;
         }
+
         .tab-slider {
             display: flex;
             border-bottom: 2px solid #e0f7ef;
         }
+
         .tab-slider button {
             flex: 1;
             background: none;
@@ -264,35 +281,54 @@ if (
             color: #43e97b;
             transition: background 0.2s, color 0.2s;
         }
+
         .tab-slider button.active {
             color: #fff;
             background: #43e97b;
             border-bottom: 2px solid #43e97b;
         }
+
         .tab-content {
             padding: 32px 24px 24px 24px;
             animation: slideIn 0.5s;
         }
+
         @keyframes slideIn {
-            from { opacity: 0; transform: translateX(40px); }
-            to { opacity: 1; transform: translateX(0); }
+            from {
+                opacity: 0;
+                transform: translateX(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
+
         .form-check-label {
             font-size: 0.95rem;
         }
+
         .forgot-link {
             float: right;
             font-size: 0.95rem;
         }
+
         .btn-primary {
             background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
             border: none;
         }
+
         .btn-primary:hover {
             background: #43e97b;
         }
+
+        .form-control:hover {
+            cursor: pointer;
+        }
     </style>
 </head>
+
 <body>
     <div class="auth-container">
         <div class="auth-logo">
@@ -346,7 +382,30 @@ if (
                 </div>
                 <div class="mb-3">
                     <label for="address" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="address" name="address" maxlength="255">
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="bi bi-geo-alt-fill"></i></span>
+                        <select class="form-control" id="address" name="address" required>
+                            <option value="">Select your address</option>
+                            <option value="Purok 1 - Tibanga, Iligan City">Purok 1 - Tibanga, Iligan City</option>
+                            <option value="Purok 2 - Tibanga, Iligan City">Purok 2 - Tibanga, Iligan City</option>
+                            <option value="Purok 3 - Tibanga, Iligan City">Purok 3 - Tibanga, Iligan City</option>
+                            <option value="Purok 4 - Tibanga, Iligan City">Purok 4 - Tibanga, Iligan City</option>
+                            <option value="Purok 5 - Tibanga, Iligan City">Purok 5 - Tibanga, Iligan City</option>
+                            <option value="Purok 6 - Tibanga, Iligan City">Purok 6 - Tibanga, Iligan City</option>
+                            <option value="Purok 7 - Tibanga, Iligan City">Purok 7 - Tibanga, Iligan City</option>
+                            <option value="Purok 8 - Tibanga, Iligan City">Purok 8 - Tibanga, Iligan City</option>
+                            <option value="Purok 9 - Tibanga, Iligan City">Purok 9 - Tibanga, Iligan City</option>
+                            <option value="Purok 10 - Tibanga, Iligan City">Purok 10 - Tibanga, Iligan City</option>
+                            <option value="Purok 11A - Tibanga, Iligan City">Purok 11A - Tibanga, Iligan City</option>
+                            <option value="Purok 11B - Tibanga, Iligan City">Purok 11B - Tibanga, Iligan City</option>
+                            <option value="Purok 12 - Tibanga, Iligan City">Purok 12 - Tibanga, Iligan City</option>
+                            <option value="Purok 13 - Tibanga, Iligan City">Purok 13 - Tibanga, Iligan City</option>
+                            <option value="Purok 14 - Tibanga, Iligan City">Purok 14 - Tibanga, Iligan City</option>
+                            <option value="Purok 15 - Tibanga, Iligan City">Purok 15 - Tibanga, Iligan City</option>
+                            <option value="Purok 16 - Tibanga, Iligan City">Purok 16 - Tibanga, Iligan City</option>
+                            <option value="Purok 17 - Tibanga, Iligan City">Purok 17 - Tibanga, Iligan City</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="id_document" class="form-label">Valid ID or Certification of Residency</label>
@@ -362,53 +421,53 @@ if (
         </div>
     </div>
     <?php if (isset($register_success)): ?>
-<div class="modal fade" id="registerSuccessModal" tabindex="-1" aria-labelledby="registerSuccessModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header bg-success text-white">
-        <h5 class="modal-title" id="registerSuccessModalLabel">Registration Successful!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <?php echo $register_success; ?>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var registerModal = new bootstrap.Modal(document.getElementById('registerSuccessModal'));
-    registerModal.show();
-  });
-</script>
-<?php endif; ?>
-<?php if (isset($login_pending_modal) && $login_pending_modal): ?>
-<div class="modal fade" id="loginPendingModal" tabindex="-1" aria-labelledby="loginPendingModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header bg-warning text-dark">
-        <h5 class="modal-title" id="loginPendingModalLabel">Verification/Approval Pending</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        The verification or approval process is not yet complete. Please wait patiently. Thank you.
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">OK</button>
-      </div>
-    </div>
-  </div>
-</div>
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var pendingModal = new bootstrap.Modal(document.getElementById('loginPendingModal'));
-    pendingModal.show();
-  });
-</script>
-<?php endif; ?>
+        <div class="modal fade" id="registerSuccessModal" tabindex="-1" aria-labelledby="registerSuccessModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-success text-white">
+                        <h5 class="modal-title" id="registerSuccessModalLabel">Registration Successful!</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <?php echo $register_success; ?>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-success" data-bs-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var registerModal = new bootstrap.Modal(document.getElementById('registerSuccessModal'));
+                registerModal.show();
+            });
+        </script>
+    <?php endif; ?>
+    <?php if (isset($login_pending_modal) && $login_pending_modal): ?>
+        <div class="modal fade" id="loginPendingModal" tabindex="-1" aria-labelledby="loginPendingModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header bg-warning text-dark">
+                        <h5 class="modal-title" id="loginPendingModalLabel">Verification/Approval Pending</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        The verification or approval process is not yet complete. Please wait patiently. Thank you.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var pendingModal = new bootstrap.Modal(document.getElementById('loginPendingModal'));
+                pendingModal.show();
+            });
+        </script>
+    <?php endif; ?>
     <script src="bootstrap/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
         function showTab(tab) {
@@ -425,4 +484,5 @@ if (
         });
     </script>
 </body>
+
 </html>

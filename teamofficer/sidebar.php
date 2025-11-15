@@ -33,6 +33,7 @@
         <i class="bi bi-people-fill"></i><span>Community</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="community-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+        <li><a href="residents.php"><i class="bi bi-circle"></i><span>Residents</span></a></li>
         <li><a href="user-reports.php"><i class="bi bi-circle"></i><span>User Reports</span></a></li>
         <li><a href="community-feedback.php"><i class="bi bi-circle"></i><span>Community Feedback</span></a></li>
       </ul>
