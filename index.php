@@ -67,7 +67,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['login_username'], $_P
 
         if ($password_valid) {
             // Check email verification and admin approval
-            if ($user['is_verified'] == 1 && $user['is_approved'] == 1) {
+            // For admins and team officers created by admins: is_verified and is_approved should be 1
+            // For residents: is_verified must be 1 (email verified) and is_approved should be 1 (admin approved)
+            $is_verified = intval($user['is_verified'] ?? 0);
+            $is_approved = intval($user['is_approved'] ?? 0);
+
+            if ($is_verified == 1 && $is_approved == 1) {
                 // Set session variables
                 $_SESSION['user_id'] = $user['user_id'];
                 $_SESSION['username'] = $user['username'];

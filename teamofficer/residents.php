@@ -12,6 +12,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'team officer') {
     exit;
 }
 
+$user_id = $_SESSION['user_id'];
 $residents = [];
 $total_residents = 0;
 $search_query = '';
@@ -205,10 +206,6 @@ include 'sidebar.php';
                                                 </td>
                                                 <td>
                                                     <div class="btn-group" role="group">
-                                                        <a href="resident-profile.php?id=<?= $resident['user_id'] ?>"
-                                                            class="btn btn-sm btn-info" title="View Profile">
-                                                            <i class="bi bi-eye"></i>
-                                                        </a>
                                                         <button type="button" class="btn btn-sm btn-warning"
                                                             data-bs-toggle="modal" data-bs-target="#detailsModal"
                                                             onclick="showDetails(<?= htmlspecialchars(json_encode($resident)) ?>)"

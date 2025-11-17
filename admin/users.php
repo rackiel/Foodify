@@ -73,11 +73,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             } else {
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
+                // For team officers created by admin, auto-approve and verify
+                $is_verified = 1;
+                $is_approved = 1;
+                $verification_token = bin2hex(random_bytes(16));
+
                 $stmt = $conn->prepare("
-                    INSERT INTO user_accounts (full_name, username, email, password_hash, role, phone_number, address, status)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, 'approved')
+                    INSERT INTO user_accounts (full_name, username, email, password_hash, role, phone_number, address, status, is_verified, is_approved, verification_token)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, 'approved', ?, ?, ?)
                 ");
-                $stmt->bind_param('sssssss', $full_name, $username, $email, $hashed_password, $role, $phone, $address);
+                $stmt->bind_param('sssssssiss', $full_name, $username, $email, $hashed_password, $role, $phone, $address, $is_verified, $is_approved, $verification_token);
 
                 if ($stmt->execute()) {
                     $response['success'] = true;
