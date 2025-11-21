@@ -454,7 +454,7 @@ include 'header.php';
                                                             <i class="bi bi-people"></i>
                                                         </button>
                                                     <?php endif; ?>
-                                                    
+
                                                     <?php if ($user['status'] === 'inactive'): ?>
                                                         <!-- Archived User Actions -->
                                                         <?php if ($user['user_id'] !== $_SESSION['user_id']): ?>
@@ -956,7 +956,7 @@ include 'header.php';
                 .then(data => {
                     if (data.success) {
                         showNotification(data.message, 'success');
-                        
+
                         // If residents modal is open, reload the residents list
                         const residentsModal = document.getElementById('residentsModal');
                         if (residentsModal && bootstrap.Modal.getInstance(residentsModal)) {
@@ -983,7 +983,7 @@ include 'header.php';
             const formData = new FormData();
             formData.append('action', 'archive_user');
             formData.append('user_id', userId);
-            
+
             // Change to unarchive by updating status to approved
             const unarchiveData = new FormData();
             unarchiveData.append('action', 'update_status');
