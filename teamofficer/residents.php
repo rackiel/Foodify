@@ -179,20 +179,7 @@ include 'sidebar.php';
                                                 </td>
                                                 <td style="padding: 14px 16px; color: #555;">
                                                     <small><?= date('M d, Y', strtotime($resident['created_at'])) ?></small>
-<<<<<<< HEAD
-=======
-                                                    <br><small class="text-muted"><?= date('g:i A', strtotime($resident['created_at'])) ?></small>
-                                                </td>
-                                                <td>
-                                                    <div class="btn-group" role="group">
-                                                        <button type="button" class="btn btn-sm btn-warning"
-                                                            data-bs-toggle="modal" data-bs-target="#detailsModal"
-                                                            onclick="showDetails(<?= htmlspecialchars(json_encode($resident)) ?>)"
-                                                            title="View Details">
-                                                            <i class="bi bi-info-circle"></i>
-                                                        </button>
-                                                    </div>
->>>>>>> a84f9142c6b8fa2117303e3297602873b1854c66
+                                                    <br><small class="text-muted"></small>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
@@ -213,26 +200,6 @@ include 'sidebar.php';
         </div>
     </section>
 </main>
-
-<!-- Details Modal -->
-<div class="modal fade" id="detailsModal" tabindex="-1">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content border-0 shadow-lg" style="border-radius: 12px;">
-            <div class="modal-header border-0" style="background-color: #f8f9fa; border-radius: 12px 12px 0 0;">
-                <h5 class="modal-title" style="font-weight: 600; color: #2c3e50;">Resident Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body p-4">
-                <div id="detailsContent">
-                    <!-- Details will be populated by JavaScript -->
-                </div>
-            </div>
-            <div class="modal-footer border-0 d-none">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 6px;">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
 
 <script>
     function showDetails(resident) {
