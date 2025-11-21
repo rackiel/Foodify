@@ -12,6 +12,7 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'team officer') {
     exit;
 }
 
+$user_id = $_SESSION['user_id'];
 $residents = [];
 $total_residents = 0;
 $search_query = '';
@@ -178,6 +179,20 @@ include 'sidebar.php';
                                                 </td>
                                                 <td style="padding: 14px 16px; color: #555;">
                                                     <small><?= date('M d, Y', strtotime($resident['created_at'])) ?></small>
+<<<<<<< HEAD
+=======
+                                                    <br><small class="text-muted"><?= date('g:i A', strtotime($resident['created_at'])) ?></small>
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group" role="group">
+                                                        <button type="button" class="btn btn-sm btn-warning"
+                                                            data-bs-toggle="modal" data-bs-target="#detailsModal"
+                                                            onclick="showDetails(<?= htmlspecialchars(json_encode($resident)) ?>)"
+                                                            title="View Details">
+                                                            <i class="bi bi-info-circle"></i>
+                                                        </button>
+                                                    </div>
+>>>>>>> a84f9142c6b8fa2117303e3297602873b1854c66
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
