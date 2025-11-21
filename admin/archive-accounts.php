@@ -11,7 +11,7 @@ include '../config/db.php';
 // Handle AJAX unarchive request
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['unarchive_user_ajax'])) {
     $user_id = $_POST['user_id'];
-    $stmt = $conn->prepare("UPDATE user_accounts SET status='active' WHERE user_id=?");
+    $stmt = $conn->prepare("UPDATE user_accounts SET status='active', is_approved=1, is_verified=1 WHERE user_id=?");
     $stmt->bind_param('i', $user_id);
     if ($stmt->execute()) {
         echo json_encode(['success' => true]);
