@@ -157,7 +157,7 @@ if (
 
         // Insert user
         $stmt = $conn->prepare("INSERT INTO user_accounts (full_name, email, username, password_hash, phone_number, address, role, id_document, is_verified, verification_token, is_approved, status) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'pending')");
-        $stmt->bind_param('ssssssssssi', $full_name, $email, $username, $password_hash, $phone_number, $address, $role, $id_document, $is_verified, $verification_token, $is_approved);
+        $stmt->bind_param('sssssssssisi', $full_name, $email, $username, $password_hash, $phone_number, $address, $role, $id_document, $is_verified, $verification_token, $is_approved);
         if ($stmt->execute()) {
             // Send verification email using PHPMailer
             $verify_link = "http://localhost/foodify/verify.php?token=$verification_token";
@@ -209,6 +209,7 @@ if (
     <link href="bootstrap/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootstrap/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="bootstrap/assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/password-toggle.css" rel="stylesheet">
     <link rel="icon" href="uploads/images/foodify_icon.png">
     <link rel="apple-touch-icon" href="uploads/images/foodify_icon.png">
     <style>
@@ -346,7 +347,9 @@ if (
                 </div>
                 <div class="mb-3">
                     <label for="login-password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="login-password" name="login_password" required>
+                    <div class="password-input-wrapper">
+                        <input type="password" class="form-control" id="login-password" name="login_password" required>
+                    </div>
                 </div>
                 <div class="mb-3 d-flex justify-content-between align-items-center">
                     <div class="form-check">
@@ -374,7 +377,9 @@ if (
                 </div>
                 <div class="mb-3">
                     <label for="register-password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="register-password" name="password" required>
+                    <div class="password-input-wrapper">
+                        <input type="password" class="form-control" id="register-password" name="password" required>
+                    </div>
                 </div>
                 <div class="mb-3">
                     <label for="phone_number" class="form-label">Phone Number</label>
@@ -483,6 +488,7 @@ if (
             showTab(lastTab);
         });
     </script>
+    <script src="assets/js/password-toggle.js"></script>
 </body>
 
 </html>

@@ -11,7 +11,7 @@ include '../config/db.php';
 // Handle AJAX unarchive request
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['unarchive_user_ajax'])) {
     $user_id = $_POST['user_id'];
-    $stmt = $conn->prepare("UPDATE user_accounts SET status='active' WHERE user_id=?");
+    $stmt = $conn->prepare("UPDATE user_accounts SET status='approved', is_approved=1, is_verified=1 WHERE user_id=?");
     $stmt->bind_param('i', $user_id);
     if ($stmt->execute()) {
         echo json_encode(['success' => true]);
@@ -92,20 +92,24 @@ if ($role_filter && in_array($role_filter, ['admin', 'resident', 'team officer']
                     <?php
                     if ($result && $result->num_rows > 0) {
                         while ($row = $result->fetch_assoc()) {
-                            echo '<tr>';
-                            echo '<td>' . htmlspecialchars($row['full_name']) . '</td>';
-                            echo '<td>' . htmlspecialchars($row['username']) . '</td>';
-                            echo '<td>' . htmlspecialchars($row['email']) . '</td>';
-                            echo '<td>' . htmlspecialchars($row['role']) . '</td>';
-                            echo '<td>' . htmlspecialchars($row['phone_number']) . '</td>';
-                            echo '<td>' . htmlspecialchars($row['address']) . '</td>';
-                            echo '<td class="text-center">';
-                            echo '<div class="d-flex justify-content-center gap-2">';
-                            echo '<a href="#" class="btn btn-sm btn-success unarchive-btn" data-user_id="' . htmlspecialchars($row['user_id']) . '" data-bs-toggle="tooltip" data-bs-placement="top" title="Unarchive User"><i class="bi bi-arrow-up-circle"></i></a>';
-                            echo '<a href="#" class="btn btn-sm btn-danger delete-btn" data-user_id="' . htmlspecialchars($row['user_id']) . '" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete User"><i class="bi bi-trash"></i></a>';
-                            echo '</div>';
-                            echo '</td>';
-                            echo '</tr>';
+                            ?>
+                            <tr>
+                                <td><?php echo htmlspecialchars($row['full_name']); ?></td>
+                                <td><?php echo htmlspecialchars($row['username']); ?></td>
+                                <td><?php echo htmlspecialchars($row['email']); ?></td>
+                                <td><?php echo htmlspecialchars($row['role']); ?></td>
+                                <td><?php echo htmlspecialchars($row['phone_number']); ?></td>
+                                <td><?php echo htmlspecialchars($row['address']); ?></td>
+                                <td class="text-center">
+                                    <button type="button" class="btn btn-sm btn-success unarchive-btn" data-user_id="<?php echo $row['user_id']; ?>">
+                                        <i class="bi bi-arrow-up-circle"></i> Unarchive
+                                    </button>
+                                    <button type="button" class="btn btn-sm btn-danger delete-btn" data-user_id="<?php echo $row['user_id']; ?>">
+                                        <i class="bi bi-trash"></i> Delete
+                                    </button>
+                                </td>
+                            </tr>
+                            <?php
                         }
                     } else {
                         echo '<tr><td colspan="7" class="text-center">No archived users found.</td></tr>';
@@ -121,21 +125,52 @@ if ($role_filter && in_array($role_filter, ['admin', 'resident', 'team officer']
 <?php include 'footer.php'; ?>
 <script src="../bootstrap/assets/vendor/simple-datatables/simple-datatables.js"></script>
 <script>
-  const dataTable = new simpleDatatables.DataTable("#archiveTable");
+  // Initialize DataTable - disable if causing issues with buttons
+  // const dataTable = new simpleDatatables.DataTable("#archiveTable");
+  
   // Enable Bootstrap tooltips
   var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
   var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
     return new bootstrap.Tooltip(tooltipTriggerEl);
   });
-  // Handle unarchive button click via AJAX
-  document.querySelectorAll('.unarchive-btn').forEach(function(btn) {
-    btn.addEventListener('click', function(e) {
+  
+  // Notification System
+  function showNotification(message, type = 'info') {
+    const alertClass = type === 'success' ? 'alert-success' :
+      type === 'error' ? 'alert-danger' :
+      type === 'warning' ? 'alert-warning' : 'alert-info';
+
+    const notification = document.createElement('div');
+    notification.className = `alert ${alertClass} alert-dismissible fade show position-fixed`;
+    notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+    notification.innerHTML = `
+      <i class="bi bi-${type === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i>
+      ${message}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+
+    document.body.appendChild(notification);
+
+    setTimeout(() => {
+      if (notification.parentNode) {
+        notification.remove();
+      }
+    }, 3000);
+  }
+
+  // Event delegation for unarchive button
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.unarchive-btn')) {
       e.preventDefault();
+      e.stopPropagation();
+      const btn = e.target.closest('.unarchive-btn');
       if (confirm('Are you sure you want to unarchive this user?')) {
-        var userId = this.getAttribute('data-user_id');
+        var userId = btn.getAttribute('data-user_id');
+        var row = btn.closest('tr');
         var formData = new FormData();
         formData.append('unarchive_user_ajax', '1');
         formData.append('user_id', userId);
+        
         fetch('archive-accounts.php', {
           method: 'POST',
           body: formData
@@ -143,25 +178,41 @@ if ($role_filter && in_array($role_filter, ['admin', 'resident', 'team officer']
         .then(response => response.json())
         .then(data => {
           if (data.success) {
-            alert('User unarchived successfully!');
-            location.reload();
+            // Remove the row from the table with animation
+            row.style.opacity = '0';
+            row.style.transition = 'opacity 0.3s ease-out';
+            setTimeout(() => {
+              row.remove();
+              // Show success notification
+              showNotification('User unarchived successfully!', 'success');
+              // Reload page to update counts and show in active users
+              setTimeout(() => location.reload(), 1000);
+            }, 300);
           } else {
-            alert('Error unarchiving user: ' + (data.error || 'Unknown error'));
+            showNotification('Error unarchiving user: ' + (data.error || 'Unknown error'), 'error');
           }
         })
-        .catch(() => alert('AJAX error.'));
+        .catch(error => {
+          console.error('Error:', error);
+          showNotification('AJAX error.', 'error');
+        });
       }
-    });
-  });
-  // Handle delete button click via AJAX
-  document.querySelectorAll('.delete-btn').forEach(function(btn) {
-    btn.addEventListener('click', function(e) {
+    }
+  }, true);
+
+  // Event delegation for delete button
+  document.addEventListener('click', function(e) {
+    if (e.target.closest('.delete-btn')) {
       e.preventDefault();
+      e.stopPropagation();
+      const btn = e.target.closest('.delete-btn');
       if (confirm('Are you sure you want to permanently delete this user? This action cannot be undone.')) {
-        var userId = this.getAttribute('data-user_id');
+        var userId = btn.getAttribute('data-user_id');
+        var row = btn.closest('tr');
         var formData = new FormData();
         formData.append('delete_user_ajax', '1');
         formData.append('user_id', userId);
+        
         fetch('archive-accounts.php', {
           method: 'POST',
           body: formData
@@ -169,16 +220,27 @@ if ($role_filter && in_array($role_filter, ['admin', 'resident', 'team officer']
         .then(response => response.json())
         .then(data => {
           if (data.success) {
-            alert('User deleted successfully!');
-            location.reload();
+            // Remove the row from the table with animation
+            row.style.opacity = '0';
+            row.style.transition = 'opacity 0.3s ease-out';
+            setTimeout(() => {
+              row.remove();
+              // Show success notification
+              showNotification('User deleted successfully!', 'success');
+              // Reload page to update counts
+              setTimeout(() => location.reload(), 1000);
+            }, 300);
           } else {
-            alert('Error deleting user: ' + (data.error || 'Unknown error'));
+            showNotification('Error deleting user: ' + (data.error || 'Unknown error'), 'error');
           }
         })
-        .catch(() => alert('AJAX error.'));
+        .catch(error => {
+          console.error('Error:', error);
+          showNotification('AJAX error.', 'error');
+        });
       }
-    });
-  });
+    }
+  }, true);
 </script>
 </body>
 </html>

@@ -19,6 +19,8 @@
 
   <!-- Template Main JS File -->
   <script src="../bootstrap/assets/js/main.js"></script>
+  <script src="../assets/js/password-toggle.js"></script>
 
-</body>
-</html>
+  </body>
+
+  </html>

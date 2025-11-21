@@ -15,13 +15,12 @@ if (!isset($_SESSION['user_id']) || $_SESSION['user_type'] !== 'team officer') {
 $residents = [];
 $total_residents = 0;
 $search_query = '';
-$filter_status = isset($_GET['status']) ? $_GET['status'] : '';
 $team_officer_address = '';
 
 try {
     // Get the logged-in team officer's address
     $stmt = $conn->prepare("SELECT address FROM user_accounts WHERE user_id = ?");
-    $stmt->bind_param('i', $user_id);
+    $stmt->bind_param('i', $_SESSION['user_id']);
     $stmt->execute();
     $result = $stmt->get_result();
     $officer_data = $result->fetch_assoc();
@@ -47,13 +46,6 @@ try {
             $params[] = $search_param;
             $params[] = $search_param;
             $types .= 'sss';
-        }
-
-        // Add status filter
-        if (!empty($filter_status)) {
-            $query .= " AND status = ?";
-            $params[] = $filter_status;
-            $types .= 's';
         }
 
         $query .= " ORDER BY created_at DESC";
@@ -116,113 +108,84 @@ include 'sidebar.php';
     <section class="section">
         <div class="row">
             <div class="col-lg-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center mb-4">
-                            <h5 class="card-title mb-0">Total Residents: <strong><?= number_format($total_residents) ?></strong></h5>
+                <div class="card border-0 shadow-sm" style="border-radius: 12px;">
+                    <div class="card-body p-4">
+                        <!-- Header Section -->
+                        <div class="d-flex justify-content-between align-items-center mb-5">
+                            <div>
+                                <p class="mb-0 text-muted">
+                                    <i class="bi bi-people"></i>
+                                    <strong><?= number_format($total_residents) ?></strong>
+                                    <?= $total_residents === 1 ? 'resident' : 'residents' ?> in your area
+                                </p>
+                            </div>
                             <?php if (!empty($team_officer_address)): ?>
-                                <span class="badge bg-info">
+                                <span class="badge bg-primary px-3 py-2" style="font-size: 0.9rem; border-radius: 20px;">
                                     <i class="bi bi-geo-alt"></i> <?= htmlspecialchars($team_officer_address) ?>
                                 </span>
                             <?php endif; ?>
                         </div>
 
-                        <!-- Search and Filter Section -->
-                        <div class="row mb-4">
-                            <div class="col-md-6">
-                                <form method="GET" class="d-flex gap-2">
-                                    <input type="text" name="search" class="form-control" placeholder="Search by name, email, or phone..."
-                                        value="<?= htmlspecialchars($search_query) ?>">
-                                    <button type="submit" class="btn btn-primary">
-                                        <i class="bi bi-search"></i> Search
-                                    </button>
-                                    <?php if ($search_query || $filter_status): ?>
-                                        <a href="residents.php" class="btn btn-secondary">
-                                            <i class="bi bi-arrow-counterclockwise"></i> Reset
-                                        </a>
-                                    <?php endif; ?>
-                                </form>
-                            </div>
-                            <div class="col-md-6">
-                                <form method="GET" class="d-flex gap-2">
-                                    <select name="status" class="form-select" onchange="this.form.submit()">
-                                        <option value="">All Status</option>
-                                        <option value="active" <?= $filter_status === 'active' ? 'selected' : '' ?>>Active</option>
-                                        <option value="pending" <?= $filter_status === 'pending' ? 'selected' : '' ?>>Pending</option>
-                                        <option value="inactive" <?= $filter_status === 'inactive' ? 'selected' : '' ?>>Inactive</option>
-                                    </select>
-                                    <?php if (!empty($_GET['search'])): ?>
-                                        <input type="hidden" name="search" value="<?= htmlspecialchars($search_query) ?>">
-                                    <?php endif; ?>
-                                </form>
-                            </div>
+                        <!-- Search Section -->
+                        <div class="mb-4">
+                            <form method="GET" class="d-flex gap-2">
+                                <div class="input-group" style="border-radius: 8px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.08);">
+                                    <span class="input-group-text bg-white border-0" style="padding-left: 16px;">
+                                        <i class="bi bi-search" style="color: #0d6efd; font-size: 1.1rem;"></i>
+                                    </span>
+                                    <input type="text" name="search" class="form-control border-0" style="padding: 12px 16px; font-size: 0.95rem;"
+                                        placeholder="Search by name, email, or phone..." value="<?= htmlspecialchars($search_query) ?>">
+                                </div>
+                                <?php if ($search_query): ?>
+                                    <a href="residents.php" class="btn btn-outline-secondary">
+                                        <i class="bi bi-arrow-counterclockwise"></i>
+                                    </a>
+                                <?php endif; ?>
+                            </form>
                         </div>
 
                         <!-- Residents Table -->
                         <div class="table-responsive">
-                            <table class="table table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>User</th>
-                                        <th>Email</th>
-                                        <th>Phone</th>
-                                        <th>Address</th>
-                                        <th>Role</th>
-                                        <th>Status</th>
-                                        <th>Registered</th>
-                                        <th>Action</th>
+                            <table class="table align-middle text-center" style="border: none;">
+                                <thead style="background-color: #f8f9fa; border-bottom: 2px solid #e9ecef;">
+                                    <tr style="text-align: center;">
+                                        <th style="font-weight: 600; color: #2c3e50; padding: 16px; text-align: center;">User</th>
+                                        <th style="font-weight: 600; color: #2c3e50; padding: 16px; text-align: center;">Email</th>
+                                        <th style="font-weight: 600; color: #2c3e50; padding: 16px; text-align: center;">Phone</th>
+                                        <th style="font-weight: 600; color: #2c3e50; padding: 16px; text-align: center;">Address</th>
+                                        <th style="font-weight: 600; color: #2c3e50; padding: 16px; text-align: center;">Role</th>
+                                        <th style="font-weight: 600; color: #2c3e50; padding: 16px; text-align: center;">Registered</th>
                                     </tr>
                                 </thead>
-                                <tbody>
+                                <tbody style="border-top: none;">
                                     <?php if (!empty($residents)): ?>
                                         <?php foreach ($residents as $resident): ?>
-                                            <tr>
-                                                <td>
-                                                    <div class="d-flex align-items-center">
+                                            <tr style="border-bottom: 1px solid #e9ecef; transition: background-color 0.2s; text-align: center;">
+                                                <td style="padding: 14px 16px; text-align: center;">
+                                                    <div class="d-flex align-items-center gap-2">
                                                         <img src="<?= !empty($resident['profile_img']) ? '../uploads/profile_picture/' . htmlspecialchars($resident['profile_img']) : '../uploads/profile_picture/no_image.png' ?>"
-                                                            class="rounded-circle me-2" width="32" height="32" alt="Profile">
-                                                        <span><?= htmlspecialchars($resident['full_name']) ?></span>
+                                                            class="rounded-circle" width="40" height="40" alt="Profile" style="object-fit: cover; border: 2px solid #e9ecef;">
+                                                        <span style="font-weight: 500; color: #2c3e50;"><?= htmlspecialchars($resident['full_name']) ?></span>
                                                     </div>
                                                 </td>
-                                                <td><?= htmlspecialchars($resident['email']) ?></td>
-                                                <td><?= htmlspecialchars($resident['phone_number'] ?? 'N/A') ?></td>
-                                                <td>
+                                                <td style="padding: 14px 16px; color: #555;"><?= htmlspecialchars($resident['email']) ?></td>
+                                                <td style="padding: 14px 16px; color: #555;"><?= htmlspecialchars($resident['phone_number'] ?? 'N/A') ?></td>
+                                                <td style="padding: 14px 16px; color: #555;">
                                                     <small><?= htmlspecialchars($resident['address'] ?? 'N/A') ?></small>
                                                 </td>
-                                                <td>
-                                                    <span class="badge bg-info"><?= ucfirst($resident['role']) ?></span>
+                                                <td style="padding: 14px 16px;">
+                                                    <span class="badge bg-primary" style="border-radius: 20px; padding: 6px 12px; font-size: 0.85rem;"><?= ucfirst($resident['role']) ?></span>
                                                 </td>
-                                                <td>
-                                                    <span class="badge bg-<?=
-                                                                            $resident['status'] === 'active' ? 'success' : ($resident['status'] === 'pending' ? 'warning' : 'secondary')
-                                                                            ?>">
-                                                        <?= ucfirst($resident['status']) ?>
-                                                    </span>
-                                                </td>
-                                                <td>
+                                                <td style="padding: 14px 16px; color: #555;">
                                                     <small><?= date('M d, Y', strtotime($resident['created_at'])) ?></small>
-                                                    <br><small class="text-muted"><?= date('g:i A', strtotime($resident['created_at'])) ?></small>
-                                                </td>
-                                                <td>
-                                                    <div class="btn-group" role="group">
-                                                        <a href="resident-profile.php?id=<?= $resident['user_id'] ?>"
-                                                            class="btn btn-sm btn-info" title="View Profile">
-                                                            <i class="bi bi-eye"></i>
-                                                        </a>
-                                                        <button type="button" class="btn btn-sm btn-warning"
-                                                            data-bs-toggle="modal" data-bs-target="#detailsModal"
-                                                            onclick="showDetails(<?= htmlspecialchars(json_encode($resident)) ?>)"
-                                                            title="View Details">
-                                                            <i class="bi bi-info-circle"></i>
-                                                        </button>
-                                                    </div>
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
                                     <?php else: ?>
                                         <tr>
-                                            <td colspan="8" class="text-center text-muted py-4">
-                                                <i class="bi bi-inbox"></i> No residents found
+                                            <td colspan="6" class="text-center text-muted py-5">
+                                                <i class="bi bi-inbox" style="font-size: 2rem; margin-bottom: 10px; display: block; opacity: 0.5;"></i>
+                                                No residents found
                                             </td>
                                         </tr>
                                     <?php endif; ?>
@@ -238,19 +201,19 @@ include 'sidebar.php';
 
 <!-- Details Modal -->
 <div class="modal fade" id="detailsModal" tabindex="-1">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Resident Details</h5>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: 12px;">
+            <div class="modal-header border-0" style="background-color: #f8f9fa; border-radius: 12px 12px 0 0;">
+                <h5 class="modal-title" style="font-weight: 600; color: #2c3e50;">Resident Details</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body p-4">
                 <div id="detailsContent">
                     <!-- Details will be populated by JavaScript -->
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <div class="modal-footer border-0 d-none">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 6px;">Close</button>
             </div>
         </div>
     </div>
@@ -259,34 +222,24 @@ include 'sidebar.php';
 <script>
     function showDetails(resident) {
         const detailsHtml = `
-        <dl class="row">
-            <dt class="col-sm-4">Full Name:</dt>
-            <dd class="col-sm-8">${escapeHtml(resident.full_name)}</dd>
+        <dl class="row g-4">
+            <dt class="col-sm-5" style="font-weight: 600; color: #2c3e50;">Full Name:</dt>
+            <dd class="col-sm-7" style="color: #555;">${escapeHtml(resident.full_name)}</dd>
             
-            <dt class="col-sm-4">Email:</dt>
-            <dd class="col-sm-8">${escapeHtml(resident.email)}</dd>
+            <dt class="col-sm-5" style="font-weight: 600; color: #2c3e50;">Email:</dt>
+            <dd class="col-sm-7" style="color: #555;">${escapeHtml(resident.email)}</dd>
             
-            <dt class="col-sm-4">Phone:</dt>
-            <dd class="col-sm-8">${escapeHtml(resident.phone_number || 'N/A')}</dd>
+            <dt class="col-sm-5" style="font-weight: 600; color: #2c3e50;">Phone:</dt>
+            <dd class="col-sm-7" style="color: #555;">${escapeHtml(resident.phone_number || 'N/A')}</dd>
             
-            <dt class="col-sm-4">Address:</dt>
-            <dd class="col-sm-8">${escapeHtml(resident.address || 'N/A')}</dd>
+            <dt class="col-sm-5" style="font-weight: 600; color: #2c3e50;">Address:</dt>
+            <dd class="col-sm-7" style="color: #555;">${escapeHtml(resident.address || 'N/A')}</dd>
             
-            <dt class="col-sm-4">Role:</dt>
-            <dd class="col-sm-8"><span class="badge bg-info">${resident.role}</span></dd>
+            <dt class="col-sm-5" style="font-weight: 600; color: #2c3e50;">Role:</dt>
+            <dd class="col-sm-7"><span class="badge bg-primary" style="border-radius: 20px; padding: 6px 12px;">${resident.role}</span></dd>
             
-            <dt class="col-sm-4">Status:</dt>
-            <dd class="col-sm-8">
-                <span class="badge bg-${
-                    resident.status === 'active' ? 'success' : 
-                    (resident.status === 'pending' ? 'warning' : 'secondary')
-                }">
-                    ${resident.status.charAt(0).toUpperCase() + resident.status.slice(1)}
-                </span>
-            </dd>
-            
-            <dt class="col-sm-4">Registered:</dt>
-            <dd class="col-sm-8">${new Date(resident.created_at).toLocaleString()}</dd>
+            <dt class="col-sm-5" style="font-weight: 600; color: #2c3e50;">Registered:</dt>
+            <dd class="col-sm-7" style="color: #555;">${new Date(resident.created_at).toLocaleString()}</dd>
         </dl>
     `;
         document.getElementById('detailsContent').innerHTML = detailsHtml;

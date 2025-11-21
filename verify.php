@@ -2,7 +2,17 @@
 include 'config/db.php';
 $token = $_GET['token'] ?? '';
 $verified = false;
+$debug_mode = isset($_GET['debug']); // Add debug parameter if needed
+
 if ($token) {
+    // First, check if token exists in database
+    if ($debug_mode) {
+        $check_stmt = $conn->prepare("SELECT user_id, full_name, email, is_verified FROM user_accounts WHERE verification_token=?");
+        $check_stmt->bind_param('s', $token);
+        $check_stmt->execute();
+        $check_result = $check_stmt->get_result();
+    }
+
     $stmt = $conn->prepare("UPDATE user_accounts SET is_verified=1 WHERE verification_token=? AND is_verified=0");
     $stmt->bind_param('s', $token);
     $stmt->execute();
@@ -14,6 +24,7 @@ if ($token) {
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,6 +32,7 @@ if ($token) {
     <link href="bootstrap/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootstrap/assets/css/style.css" rel="stylesheet">
 </head>
+
 <body style="background: #f9f9f9;">
     <div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 100vh;">
         <div class="card shadow p-4" style="max-width: 420px; width: 100%; border-radius: 18px;">
@@ -43,4 +55,5 @@ if ($token) {
         </div>
     </div>
 </body>
+
 </html>

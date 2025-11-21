@@ -4,7 +4,7 @@ include_once '../config/db.php';
 
 // Start session and check authentication FIRST
 if (session_status() === PHP_SESSION_NONE) {
-    session_start();
+  session_start();
 }
 
 // Set cache control headers
@@ -15,10 +15,11 @@ header("Expires: 0");
 
 // Check authentication
 if (!isset($_SESSION['user_id'])) {
-    header('Location: ../index.php');
-    exit();
+  header('Location: ../index.php');
+  exit();
 }
 ?>
+
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
@@ -46,5 +47,7 @@ if (!isset($_SESSION['user_id'])) {
 
   <!-- Template Main CSS File -->
   <link href="../bootstrap/assets/css/style.css" rel="stylesheet">
+  <link href="../assets/css/password-toggle.css" rel="stylesheet">
 </head>
+
 <body>

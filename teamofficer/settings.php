@@ -285,18 +285,24 @@ include 'sidebar.php';
                                     <div class="row">
                                         <div class="col-md-12 mb-3">
                                             <label class="form-label">Current Password <span class="text-danger">*</span></label>
-                                            <input type="password" class="form-control" name="current_password" required>
+                                            <div class="password-input-wrapper">
+                                                <input type="password" class="form-control" name="current_password" required>
+                                            </div>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label">New Password <span class="text-danger">*</span></label>
-                                            <input type="password" class="form-control" name="new_password"
-                                                id="newPassword" minlength="6" required>
+                                            <div class="password-input-wrapper">
+                                                <input type="password" class="form-control" name="new_password"
+                                                    id="newPassword" minlength="6" required>
+                                            </div>
                                             <small class="form-text text-muted">Minimum 6 characters</small>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label class="form-label">Confirm New Password <span class="text-danger">*</span></label>
-                                            <input type="password" class="form-control" name="confirm_password"
-                                                id="confirmPassword" minlength="6" required>
+                                            <div class="password-input-wrapper">
+                                                <input type="password" class="form-control" name="confirm_password"
+                                                    id="confirmPassword" minlength="6" required>
+                                            </div>
                                         </div>
                                         <div class="col-12">
                                             <button type="submit" name="update_password" class="btn btn-primary">

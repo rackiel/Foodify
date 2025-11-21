@@ -13,7 +13,7 @@ $user_id = null;
 // Check if token is provided and valid
 if (isset($_GET['token']) && !empty($_GET['token'])) {
     $token = $_GET['token'];
-    
+
     // Check if token exists and is not expired
     $current_time = date('Y-m-d H:i:s');
     $stmt = $conn->prepare("SELECT prt.user_id, prt.expires_at, ua.full_name, ua.email 
@@ -23,7 +23,7 @@ if (isset($_GET['token']) && !empty($_GET['token'])) {
     $stmt->bind_param('ss', $token, $current_time);
     $stmt->execute();
     $result = $stmt->get_result();
-    
+
     if ($result && $result->num_rows === 1) {
         $token_data = $result->fetch_assoc();
         $valid_token = true;
@@ -42,7 +42,7 @@ if (isset($_GET['token']) && !empty($_GET['token'])) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_password'], $_POST['confirm_password']) && $valid_token) {
     $new_password = $_POST['new_password'];
     $confirm_password = $_POST['confirm_password'];
-    
+
     // Validate passwords
     if ($new_password !== $confirm_password) {
         $message = "Passwords do not match.";
@@ -55,14 +55,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_password'], $_POS
         $password_hash = password_hash($new_password, PASSWORD_DEFAULT);
         $update_stmt = $conn->prepare("UPDATE user_accounts SET password_hash = ? WHERE user_id = ?");
         $update_stmt->bind_param('si', $password_hash, $user_id);
-        
+
         if ($update_stmt->execute()) {
             // Mark token as used
             $mark_used_stmt = $conn->prepare("UPDATE password_reset_tokens SET used = 1 WHERE token = ?");
             $mark_used_stmt->bind_param('s', $token);
             $mark_used_stmt->execute();
             $mark_used_stmt->close();
-            
+
             $message = "Password has been reset successfully. You can now login with your new password.";
             $message_type = "success";
             $valid_token = false; // Hide the form after successful reset
@@ -76,6 +76,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_password'], $_POS
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,6 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_password'], $_POS
     <link href="bootstrap/assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="bootstrap/assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
     <link href="bootstrap/assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/password-toggle.css" rel="stylesheet">
     <link rel="icon" href="uploads/images/foodify_icon.png">
     <link rel="apple-touch-icon" href="uploads/images/foodify_icon.png">
     <style>
@@ -92,11 +94,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_password'], $_POS
             background-size: 200% 200%;
             animation: gradientBG 8s ease-in-out infinite;
         }
+
         @keyframes gradientBG {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
+
         .auth-container {
             max-width: 420px;
             margin: 60px auto;
@@ -106,41 +118,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_password'], $_POS
             overflow: hidden;
             animation: fadeIn 1s;
         }
+
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .auth-logo {
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 32px 0 12px 0;
         }
+
         .auth-logo img {
             height: 180px;
         }
+
         .form-content {
             padding: 32px 24px 24px 24px;
         }
+
         .btn-primary {
             background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
             border: none;
         }
+
         .btn-primary:hover {
             background: #43e97b;
         }
+
         .back-to-login {
             text-align: center;
             margin-top: 20px;
         }
+
         .back-to-login a {
             color: #43e97b;
             text-decoration: none;
             font-weight: 500;
         }
+
         .back-to-login a:hover {
             text-decoration: underline;
         }
+
         .password-requirements {
             font-size: 0.9em;
             color: #666;
@@ -148,6 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_password'], $_POS
         }
     </style>
 </head>
+
 <body>
     <div class="auth-container">
         <div class="auth-logo">
@@ -155,28 +185,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_password'], $_POS
         </div>
         <div class="form-content">
             <h4 class="text-center mb-4" style="color: #43e97b;">Reset Your Password</h4>
-            
+
             <?php if ($message): ?>
                 <div class="alert alert-<?php echo $message_type === 'success' ? 'success' : 'danger'; ?> alert-dismissible fade show" role="alert">
                     <?php echo htmlspecialchars($message); ?>
                     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             <?php endif; ?>
-            
+
             <?php if ($valid_token): ?>
                 <p class="text-center text-muted mb-4">Please enter your new password below.</p>
-                
+
                 <form action="#" method="post" autocomplete="off" id="resetForm">
                     <div class="mb-3">
                         <label for="new_password" class="form-label">New Password</label>
-                        <input type="password" class="form-control" id="new_password" name="new_password" required 
-                               placeholder="Enter your new password" minlength="6">
+                        <div class="password-input-wrapper">
+                            <input type="password" class="form-control" id="new_password" name="new_password" required
+                                placeholder="Enter your new password" minlength="6">
+                        </div>
                         <div class="password-requirements">Password must be at least 6 characters long.</div>
                     </div>
                     <div class="mb-4">
                         <label for="confirm_password" class="form-label">Confirm New Password</label>
-                        <input type="password" class="form-control" id="confirm_password" name="confirm_password" required 
-                               placeholder="Confirm your new password" minlength="6">
+                        <div class="password-input-wrapper">
+                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" required
+                                placeholder="Confirm your new password" minlength="6">
+                        </div>
                     </div>
                     <button type="submit" class="btn btn-primary w-100 mb-3">Reset Password</button>
                 </form>
@@ -187,7 +221,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_password'], $_POS
                     <a href="forgot-password.php" class="btn btn-primary">Request New Reset Link</a>
                 </div>
             <?php endif; ?>
-            
+
             <div class="back-to-login">
                 <a href="index.php">
                     <i class="bi bi-arrow-left"></i> Back to Login
@@ -195,26 +229,26 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_password'], $_POS
             </div>
         </div>
     </div>
-    
+
     <script src="bootstrap/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script>
         // Password confirmation validation
         document.getElementById('resetForm')?.addEventListener('submit', function(e) {
             const password = document.getElementById('new_password').value;
             const confirmPassword = document.getElementById('confirm_password').value;
-            
+
             if (password !== confirmPassword) {
                 e.preventDefault();
                 alert('Passwords do not match. Please try again.');
                 return false;
             }
         });
-        
+
         // Real-time password matching
         document.getElementById('confirm_password')?.addEventListener('input', function() {
             const password = document.getElementById('new_password').value;
             const confirmPassword = this.value;
-            
+
             if (confirmPassword && password !== confirmPassword) {
                 this.setCustomValidity('Passwords do not match');
             } else {
@@ -222,5 +256,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['new_password'], $_POS
             }
         });
     </script>
+    <script src="assets/js/password-toggle.js"></script>
 </body>
+
 </html>

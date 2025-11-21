@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             $stmt = $conn->prepare("
                 SELECT user_id, full_name, username, email, phone_number, profile_img, status, address, created_at
                 FROM user_accounts 
-                WHERE address = ? AND role = 'resident'
+                WHERE address = ? AND role = 'resident' AND status != 'inactive'
                 ORDER BY created_at DESC
             ");
             $stmt->bind_param('s', $purok);
@@ -74,8 +74,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
                 $stmt = $conn->prepare("
-                    INSERT INTO user_accounts (full_name, username, email, password_hash, role, phone_number, address, status)
-                    VALUES (?, ?, ?, ?, ?, ?, ?, 'approved')
+                    INSERT INTO user_accounts (full_name, username, email, password_hash, role, phone_number, address, status, is_approved, is_verified)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, 'active', 1, 1)
                 ");
                 $stmt->bind_param('sssssss', $full_name, $username, $email, $hashed_password, $role, $phone, $address);
 
@@ -185,10 +185,10 @@ try {
     // Count by role
     $result = $conn->query("
         SELECT 
-            COUNT(*) as total,
-            COUNT(CASE WHEN role = 'admin' THEN 1 END) as admins,
-            COUNT(CASE WHEN role = 'resident' THEN 1 END) as residents,
-            COUNT(CASE WHEN role = 'team officer' THEN 1 END) as officers,
+            COUNT(CASE WHEN status != 'inactive' THEN 1 END) as total,
+            COUNT(CASE WHEN role = 'admin' AND status != 'inactive' THEN 1 END) as admins,
+            COUNT(CASE WHEN role = 'resident' AND status != 'inactive' THEN 1 END) as residents,
+            COUNT(CASE WHEN role = 'team officer' AND status != 'inactive' THEN 1 END) as officers,
             COUNT(CASE WHEN status = 'approved' THEN 1 END) as active,
             COUNT(CASE WHEN status = 'pending' THEN 1 END) as pending,
             COUNT(CASE WHEN status = 'inactive' THEN 1 END) as archived
@@ -208,6 +208,11 @@ try {
     // Exclude admins unless specifically filtering for admins
     if ($role_filter !== 'admin') {
         $where_conditions[] = "role != 'admin'";
+    }
+
+    // Exclude archived users unless specifically filtering for archived
+    if ($status_filter !== 'inactive') {
+        $where_conditions[] = "status != 'inactive'";
     }
 
     // If team officer, filter residents by their purok
@@ -449,17 +454,31 @@ include 'header.php';
                                                             <i class="bi bi-people"></i>
                                                         </button>
                                                     <?php endif; ?>
-                                                    <button class="btn btn-sm btn-primary"
-                                                        onclick='editUser(<?= json_encode($user, JSON_HEX_APOS | JSON_HEX_QUOT) ?>)'
-                                                        title="Edit User">
-                                                        <i class="bi bi-pencil"></i>
-                                                    </button>
-                                                    <?php if ($user['user_id'] !== $_SESSION['user_id']): ?>
-                                                        <button class="btn btn-sm btn-danger"
-                                                            onclick="deleteUser(<?= $user['user_id'] ?>)"
-                                                            title="Delete User">
-                                                            <i class="bi bi-trash"></i>
+                                                    
+                                                    <?php if ($user['status'] === 'inactive'): ?>
+                                                        <!-- Archived User Actions -->
+                                                        <?php if ($user['user_id'] !== $_SESSION['user_id']): ?>
+                                                            <button class="btn btn-sm btn-success unarchive-btn" onclick="unarchiveUser(<?= $user['user_id'] ?>)" title="Unarchive User">
+                                                                <i class="bi bi-arrow-up-circle"></i>
+                                                            </button>
+                                                            <button class="btn btn-sm btn-danger delete-btn" onclick="deleteUser(<?= $user['user_id'] ?>)" title="Delete User">
+                                                                <i class="bi bi-trash"></i>
+                                                            </button>
+                                                        <?php endif; ?>
+                                                    <?php else: ?>
+                                                        <!-- Active User Actions -->
+                                                        <button class="btn btn-sm btn-primary"
+                                                            onclick='editUser(<?= json_encode($user, JSON_HEX_APOS | JSON_HEX_QUOT) ?>)'
+                                                            title="Edit User">
+                                                            <i class="bi bi-pencil"></i>
                                                         </button>
+                                                        <?php if ($user['user_id'] !== $_SESSION['user_id']): ?>
+                                                            <button class="btn btn-sm btn-warning"
+                                                                onclick="archiveUser(<?= $user['user_id'] ?>)"
+                                                                title="Archive User">
+                                                                <i class="bi bi-archive"></i>
+                                                            </button>
+                                                        <?php endif; ?>
                                                     <?php endif; ?>
                                                 </div>
                                             </td>
@@ -917,6 +936,71 @@ include 'header.php';
                     } else {
                         showNotification(data.message || 'Failed to update status', 'error');
                         setTimeout(() => window.location.reload(), 1000);
+                    }
+                });
+        }
+
+        // Archive User
+        function archiveUser(userId) {
+            if (!confirm('Are you sure you want to archive this user?')) return;
+
+            const formData = new FormData();
+            formData.append('action', 'archive_user');
+            formData.append('user_id', userId);
+
+            fetch('users.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showNotification(data.message, 'success');
+                        
+                        // If residents modal is open, reload the residents list
+                        const residentsModal = document.getElementById('residentsModal');
+                        if (residentsModal && bootstrap.Modal.getInstance(residentsModal)) {
+                            const leaderNameSpan = document.getElementById('modalLeaderName');
+                            const leaderText = leaderNameSpan.textContent;
+                            const purok = leaderText.substring(leaderText.lastIndexOf('(') + 1, leaderText.lastIndexOf(')'));
+                            if (purok) {
+                                loadResidents(purok);
+                            }
+                        } else {
+                            // Otherwise reload the page
+                            setTimeout(() => window.location.reload(), 1500);
+                        }
+                    } else {
+                        showNotification(data.message || 'Failed to archive user', 'error');
+                    }
+                });
+        }
+
+        // Unarchive User
+        function unarchiveUser(userId) {
+            if (!confirm('Are you sure you want to unarchive this user?')) return;
+
+            const formData = new FormData();
+            formData.append('action', 'archive_user');
+            formData.append('user_id', userId);
+            
+            // Change to unarchive by updating status to approved
+            const unarchiveData = new FormData();
+            unarchiveData.append('action', 'update_status');
+            unarchiveData.append('user_id', userId);
+            unarchiveData.append('status', 'approved');
+
+            fetch('users.php', {
+                    method: 'POST',
+                    body: unarchiveData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        showNotification('User unarchived successfully!', 'success');
+                        setTimeout(() => window.location.reload(), 1500);
+                    } else {
+                        showNotification(data.message || 'Failed to unarchive user', 'error');
                     }
                 });
         }
