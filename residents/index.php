@@ -39,6 +39,31 @@ try {
 } catch (Exception $e) {
     // If challenges table doesn't exist or query fails, keep empty array
 }
+
+// User Logs - Residents can only see their own logs
+$user_logs = [];
+try {
+    $check_logs_table = $conn->query("SHOW TABLES LIKE 'user_logs'");
+    if ($check_logs_table && $check_logs_table->num_rows > 0) {
+        $stmt = $conn->prepare("
+            SELECT ul.*, ua.full_name, ua.email, ua.role
+            FROM user_logs ul
+            JOIN user_accounts ua ON ul.user_id = ua.user_id
+            WHERE ul.user_id = ?
+            ORDER BY ul.created_at DESC
+            LIMIT 30
+        ");
+        $stmt->bind_param("i", $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        if ($result) {
+            $user_logs = $result->fetch_all(MYSQLI_ASSOC);
+        }
+        $stmt->close();
+    }
+} catch (Exception $e) {
+    // If logs table doesn't exist, keep empty array
+}
 ?>
 
 <main id="main" class="main">
@@ -257,6 +282,55 @@ try {
                         <ul class="list-group list-group-flush" id="community-updates">
                             <!-- Dynamic updates will be loaded here -->
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- User Activity Logs -->
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card shadow-sm animate__animated animate__fadeInUp">
+                    <div class="card-body">
+                        <h5 class="card-title mb-0"><i class="bi bi-clock-history"></i> My Activity Logs</h5>
+                        <p class="text-muted small mb-3">View your recent activity on the platform</p>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>Action</th>
+                                        <th>Module</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if (!empty($user_logs)): ?>
+                                        <?php foreach ($user_logs as $log): ?>
+                                            <tr>
+                                                <td>
+                                                    <small><?= date('M d, Y', strtotime($log['created_at'])) ?></small>
+                                                    <br><small class="text-muted"><?= date('g:i A', strtotime($log['created_at'])) ?></small>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-info"><?= htmlspecialchars($log['action_type']) ?></span>
+                                                </td>
+                                                <td><?= htmlspecialchars($log['module']) ?></td>
+                                                <td>
+                                                    <small><?= htmlspecialchars($log['action_description']) ?></small>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <tr>
+                                            <td colspan="4" class="text-center text-muted py-4">
+                                                <i class="bi bi-info-circle"></i> No activity logs available yet
+                                            </td>
+                                        </tr>
+                                    <?php endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -229,6 +229,44 @@ include 'sidebar.php';
       transform: none;
     }
   }
+
+  /* Button container styles to prevent overlap */
+  .ingredient-card-animate .d-flex.flex-wrap {
+    gap: 0.5rem !important;
+  }
+
+  .ingredient-card-animate .btn {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 0.875rem;
+    padding: 0.375rem 0.5rem;
+  }
+
+  /* Responsive button sizing */
+  @media (max-width: 576px) {
+    .ingredient-card-animate .btn {
+      font-size: 0.75rem;
+      padding: 0.25rem 0.4rem;
+      min-width: 60px !important;
+    }
+    
+    .ingredient-card-animate .btn i {
+      margin-right: 0;
+    }
+    
+    .ingredient-card-animate .btn span {
+      display: none;
+    }
+  }
+
+  @media (min-width: 577px) and (max-width: 768px) {
+    .ingredient-card-animate .btn {
+      min-width: 70px !important;
+      font-size: 0.8rem;
+    }
+  }
+
 </style>
 <main id="main" class="main">
   <div class="container py-5">
@@ -437,11 +475,12 @@ include 'sidebar.php';
           echo '      <div class="d-flex justify-content-between align-items-center mt-3">';
           echo '        <small class="text-muted">Posted on ' . date('M d, Y', strtotime($row['created_at'])) . '</small>';
           echo '      </div>';
-          echo '      <div class="d-flex gap-2 mt-3">';
-          echo '        <button class="btn btn-primary btn-sm" onclick="openUpdateModal(' . $ingredient_id . ')"><i class="bi bi-pencil"></i> Edit</button>';
-          echo '        <button class="btn btn-success btn-sm use-btn" data-id="' . $ingredient_id . '"><i class="bi bi-check-circle"></i> Use</button>';
-          echo '        <button class="btn btn-warning btn-sm donate-btn" data-id="' . $ingredient_id . '"><i class="bi bi-gift"></i> Donate</button>';
-          echo '        <button class="btn btn-danger btn-sm delete-btn" data-id="' . $ingredient_id . '"><i class="bi bi-trash"></i> Delete</button>';
+          echo '      <div class="d-flex flex-wrap gap-2 mt-3">';
+          echo '        <button class="btn btn-info btn-sm suggest-recipes-btn" data-id="' . $ingredient_id . '" data-name="' . htmlspecialchars($row['ingredient_name']) . '" style="flex: 1 1 auto; min-width: 120px;"><i class="bi bi-lightbulb"></i> <span class="d-none d-md-inline">Suggest Recipes</span><span class="d-md-none">Recipes</span></button>';
+          echo '        <button class="btn btn-primary btn-sm" onclick="openUpdateModal(' . $ingredient_id . ')" style="flex: 1 1 auto; min-width: 80px;"><i class="bi bi-pencil"></i> Edit</button>';
+          echo '        <button class="btn btn-success btn-sm use-btn" data-id="' . $ingredient_id . '" style="flex: 1 1 auto; min-width: 80px;"><i class="bi bi-check-circle"></i> Use</button>';
+          echo '        <button class="btn btn-warning btn-sm donate-btn" data-id="' . $ingredient_id . '" style="flex: 1 1 auto; min-width: 90px;"><i class="bi bi-gift"></i> Donate</button>';
+          echo '        <button class="btn btn-danger btn-sm delete-btn" data-id="' . $ingredient_id . '" style="flex: 1 1 auto; min-width: 80px;"><i class="bi bi-trash"></i> Delete</button>';
           echo '      </div>';
           echo '    </div>';
           echo '  </div>';
@@ -455,6 +494,8 @@ include 'sidebar.php';
     </div>
   </div>
 </main>
+
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
 
@@ -609,6 +650,17 @@ include 'sidebar.php';
           .catch(() => alert('AJAX error.'));
       });
     });
+
+    // Suggest Recipes for Specific Ingredient - Redirect to suggested_recipes.php
+    document.querySelectorAll('.suggest-recipes-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const ingredientId = this.getAttribute('data-id');
+        const ingredientName = this.getAttribute('data-name');
+        
+        // Redirect to suggested_recipes.php with ingredient parameter
+        window.location.href = 'suggested_recipes.php?ingredient=' + encodeURIComponent(ingredientName);
+      });
+    });
   });
 
   // Open Update Modal with data
@@ -633,5 +685,6 @@ include 'sidebar.php';
       })
       .catch(() => alert('AJAX error.'));
   }
+
 </script>
 <?php include 'footer.php'; ?>

@@ -101,6 +101,23 @@ include 'sidebar.php';
   <div class="container py-5">
     <h2>Used Ingredients</h2>
     <p class="text-muted">Ingredients that have been marked as used. You can restore them back to the ingredients feed.</p>
+    
+    <!-- Meal Suggestions Section -->
+    <div class="card mb-4 border-warning" style="background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);">
+      <div class="card-body">
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h5 class="card-title mb-1"><i class="bi bi-lightbulb text-warning"></i> Prevent Food Waste</h5>
+            <p class="card-text mb-0 text-muted">Get meal suggestions from your expiring ingredients to prevent spoilage</p>
+          </div>
+          <button class="btn btn-warning btn-lg" id="getMealSuggestionsBtn">
+            <i class="bi bi-egg-fried"></i> Get Meal Suggestions
+          </button>
+        </div>
+        <div id="expiringIngredientsList" class="mt-3"></div>
+      </div>
+    </div>
+    
     <div class="mb-4">
       <input type="text" id="ingredientSearch" class="form-control form-control-lg" placeholder="Search used ingredients..." autocomplete="off">
     </div>
@@ -160,8 +177,35 @@ include 'sidebar.php';
     </div>
   </div>
 </main>
+
+<!-- Meal Suggestions Modal -->
+<div class="modal fade" id="mealSuggestionsModal" tabindex="-1">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content">
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title"><i class="bi bi-egg-fried"></i> Meal Suggestions to Prevent Spoilage</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="mealSuggestionsContent">
+        <div class="text-center py-4">
+          <div class="spinner-border text-warning" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <p class="mt-2">Generating meal suggestions...</p>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
+    // Load expiring ingredients on page load
+    loadExpiringIngredients();
+    
     const searchInput = document.getElementById('ingredientSearch');
     const cardCols = document.querySelectorAll('.ingredient-card-col');
 
@@ -206,7 +250,7 @@ include 'sidebar.php';
           .then(response => response.json())
           .then(data => {
             if (data.success) {
-              location.reload();
+              window.location.href = 'input_ingredients.php';
             } else {
               alert('Error: ' + (data.error || 'Unknown error'));
             }
@@ -238,6 +282,192 @@ include 'sidebar.php';
           .catch(() => alert('AJAX error.'));
       });
     });
+
+    // Load expiring ingredients
+    function loadExpiringIngredients() {
+      fetch('get_expiring_ingredients.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'action=get_expiring'
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success && data.ingredients && data.ingredients.length > 0) {
+          const listDiv = document.getElementById('expiringIngredientsList');
+          let html = '<div class="row g-2">';
+          data.ingredients.forEach(ing => {
+            const daysLeft = ing.days_until;
+            const badgeClass = daysLeft <= 2 ? 'bg-danger' : daysLeft <= 4 ? 'bg-warning' : 'bg-info';
+            html += `
+              <div class="col-auto">
+                <span class="badge ${badgeClass}">${ing.ingredient_name} (${daysLeft} day${daysLeft !== 1 ? 's' : ''} left)</span>
+              </div>
+            `;
+          });
+          html += '</div>';
+          listDiv.innerHTML = html;
+        } else {
+          document.getElementById('expiringIngredientsList').innerHTML = 
+            '<p class="text-muted mb-0"><i class="bi bi-check-circle"></i> No ingredients expiring soon!</p>';
+        }
+      })
+      .catch(() => {
+        // Silently fail if endpoint doesn't exist yet
+      });
+    }
+
+    // Get meal suggestions
+    document.getElementById('getMealSuggestionsBtn').addEventListener('click', function() {
+      const btn = this;
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Loading...';
+      btn.disabled = true;
+
+      // Show modal
+      const modal = new bootstrap.Modal(document.getElementById('mealSuggestionsModal'));
+      modal.show();
+
+      // Get expiring ingredients
+      fetch('get_expiring_ingredients.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'action=get_expiring'
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (!data.success || !data.ingredients || data.ingredients.length === 0) {
+          document.getElementById('mealSuggestionsContent').innerHTML = `
+            <div class="text-center py-4">
+              <i class="bi bi-check-circle text-success" style="font-size: 3rem;"></i>
+              <h5 class="mt-3">No Expiring Ingredients</h5>
+              <p class="text-muted">You don't have any ingredients expiring soon. Great job managing your food!</p>
+            </div>
+          `;
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+          return;
+        }
+
+        // Get ingredient names
+        const ingredientNames = data.ingredients.map(ing => ing.ingredient_name);
+        
+        // Get meal suggestions from suggested_recipes.php
+        const formData = new FormData();
+        formData.append('action', 'get_suggested_recipes');
+        formData.append('ingredients', JSON.stringify(ingredientNames));
+        formData.append('dietary_preferences', '');
+        formData.append('cooking_time', '');
+        formData.append('difficulty', '');
+
+        fetch('suggested_recipes.php', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(suggestions => {
+          if (suggestions.success && suggestions.recipes && suggestions.recipes.length > 0) {
+            displayMealSuggestions(suggestions.recipes, data.ingredients);
+          } else {
+            document.getElementById('mealSuggestionsContent').innerHTML = `
+              <div class="text-center py-4">
+                <i class="bi bi-exclamation-triangle text-warning" style="font-size: 3rem;"></i>
+                <h5 class="mt-3">Unable to Generate Suggestions</h5>
+                <p class="text-muted">${suggestions.message || 'Please try again later.'}</p>
+              </div>
+            `;
+          }
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        })
+        .catch(error => {
+          document.getElementById('mealSuggestionsContent').innerHTML = `
+            <div class="text-center py-4">
+              <i class="bi bi-exclamation-triangle text-danger" style="font-size: 3rem;"></i>
+              <h5 class="mt-3">Error</h5>
+              <p class="text-muted">An error occurred while generating suggestions. Please try again.</p>
+            </div>
+          `;
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        });
+      })
+      .catch(error => {
+        document.getElementById('mealSuggestionsContent').innerHTML = `
+          <div class="text-center py-4">
+            <i class="bi bi-exclamation-triangle text-danger" style="font-size: 3rem;"></i>
+            <h5 class="mt-3">Error</h5>
+            <p class="text-muted">Unable to load expiring ingredients. Please try again.</p>
+          </div>
+        `;
+        btn.innerHTML = originalText;
+        btn.disabled = false;
+      });
+    });
+
+    function displayMealSuggestions(recipes, expiringIngredients) {
+      const expiringNames = expiringIngredients.map(ing => ing.ingredient_name.toLowerCase());
+      
+      let html = `
+        <div class="alert alert-warning">
+          <strong><i class="bi bi-info-circle"></i> Using these expiring ingredients:</strong>
+          ${expiringIngredients.map(ing => {
+            const daysLeft = ing.days_until;
+            const badgeClass = daysLeft <= 2 ? 'bg-danger' : daysLeft <= 4 ? 'bg-warning' : 'bg-info';
+            return `<span class="badge ${badgeClass} ms-1">${ing.ingredient_name} (${daysLeft} day${daysLeft !== 1 ? 's' : ''})</span>`;
+          }).join('')}
+        </div>
+        <div class="row g-4">
+      `;
+
+      recipes.forEach((recipe, index) => {
+        const difficultyBadge = recipe.difficulty_level === 'Easy' ? 'success' : 
+                               recipe.difficulty_level === 'Medium' ? 'warning' : 'danger';
+        
+        html += `
+          <div class="col-md-6">
+            <div class="card h-100 shadow-sm">
+              <div class="card-body">
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <h5 class="card-title">${recipe.title || 'Suggested Recipe'}</h5>
+                  <span class="badge bg-${difficultyBadge}">${recipe.difficulty_level || 'Easy'}</span>
+                </div>
+                <p class="card-text text-muted">${recipe.content || recipe.description || 'A delicious recipe suggestion'}</p>
+                
+                <div class="mb-3">
+                  <strong><i class="bi bi-clock"></i> Cooking Time:</strong> ${recipe.cooking_time || 30} minutes<br>
+                  <strong><i class="bi bi-people"></i> Servings:</strong> ${recipe.servings || 4}
+                </div>
+                
+                <div class="mb-3">
+                  <strong><i class="bi bi-list-ul"></i> Ingredients:</strong>
+                  <p class="small mb-0">${recipe.ingredients || recipe.recipe_ingredients || 'See recipe details'}</p>
+                </div>
+                
+                ${recipe.instructions ? `
+                  <div class="mb-3">
+                    <strong><i class="bi bi-book"></i> Instructions:</strong>
+                    <p class="small mb-0">${recipe.instructions}</p>
+                  </div>
+                ` : ''}
+                
+                <div class="d-flex gap-2 mt-3">
+                  <a href="suggested_recipes.php" class="btn btn-primary btn-sm">
+                    <i class="bi bi-arrow-right"></i> View Full Recipe
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+
+      html += '</div>';
+      document.getElementById('mealSuggestionsContent').innerHTML = html;
+    }
   });
 </script>
 <?php include 'footer.php'; ?>

@@ -80,68 +80,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                 $stmt->close();
                 break;
                 
-            case 'get_requests':
-                $stmt = $conn->prepare("
-                    SELECT fdr.*, ua.full_name as requester_name, ua.email as requester_email
-                    FROM food_donation_reservations fdr
-                    JOIN user_accounts ua ON fdr.requester_id = ua.user_id
-                    WHERE fdr.donation_id = ?
-                    ORDER BY fdr.reserved_at DESC
-                ");
-                $stmt->bind_param('i', $donation_id);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                $requests = $result->fetch_all(MYSQLI_ASSOC);
-                $stmt->close();
-                
-                echo json_encode(['success' => true, 'requests' => $requests]);
-                break;
-                
-            case 'update_request_status':
-                $request_id = intval($_POST['request_id']);
-                $new_status = $_POST['status'];
-                
-                // Validate status
-                $valid_statuses = ['approved', 'rejected', 'completed'];
-                if (!in_array($new_status, $valid_statuses)) {
-                    echo json_encode(['success' => false, 'message' => 'Invalid status.']);
-                    exit;
-                }
-                
-                // Check if request belongs to user's donation
-                $stmt = $conn->prepare("
-                    SELECT fdr.id, fd.user_id 
-                    FROM food_donation_reservations fdr
-                    JOIN food_donations fd ON fdr.donation_id = fd.id
-                    WHERE fdr.id = ? AND fd.user_id = ?
-                ");
-                $stmt->bind_param('ii', $request_id, $_SESSION['user_id']);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                $request = $result->fetch_assoc();
-                $stmt->close();
-                
-                if (!$request) {
-                    echo json_encode(['success' => false, 'message' => 'Request not found.']);
-                    exit;
-                }
-                
-                // Update request status
-                $stmt = $conn->prepare("
-                    UPDATE food_donation_reservations 
-                    SET status = ?, responded_at = NOW() 
-                    WHERE id = ?
-                ");
-                $stmt->bind_param('si', $new_status, $request_id);
-                
-                if ($stmt->execute()) {
-                    echo json_encode(['success' => true, 'message' => 'Request status updated successfully!']);
-                } else {
-                    echo json_encode(['success' => false, 'message' => 'Failed to update request status.']);
-                }
-                $stmt->close();
-                break;
-                
             default:
                 echo json_encode(['success' => false, 'message' => 'Invalid action.']);
         }
@@ -173,8 +111,7 @@ $stats_stmt = $conn->prepare("
         COUNT(*) as total_donations,
         SUM(CASE WHEN approval_status = 'approved' THEN 1 ELSE 0 END) as approved_donations,
         SUM(CASE WHEN approval_status = 'pending' THEN 1 ELSE 0 END) as pending_donations,
-        SUM(CASE WHEN approval_status = 'rejected' THEN 1 ELSE 0 END) as rejected_donations,
-        SUM(views_count) as total_views
+        SUM(CASE WHEN approval_status = 'rejected' THEN 1 ELSE 0 END) as rejected_donations
     FROM food_donations 
     WHERE user_id = ?
 ");
@@ -248,21 +185,6 @@ include 'sidebar.php';
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-6">
-                <div class="card info-card">
-                    <div class="card-body">
-                        <h5 class="card-title">Total Views</h5>
-                        <div class="d-flex align-items-center">
-                            <div class="card-icon rounded-circle d-flex align-items-center justify-content-center bg-info">
-                                <i class="bi bi-eye"></i>
-                            </div>
-                            <div class="ps-3">
-                                <h6><?php echo $stats['total_views']; ?></h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Donations List -->
@@ -294,7 +216,6 @@ include 'sidebar.php';
                                         <tr>
                                             <th>Donation Details</th>
                                             <th>Status</th>
-                                            <th>Views</th>
                                             <th>Posted</th>
                                             <th>Actions</th>
                                         </tr>
@@ -358,11 +279,6 @@ include 'sidebar.php';
                                                     <?php endif; ?>
                                                 </td>
                                                 <td>
-                                                    <span class="badge bg-info">
-                                                        <i class="bi bi-eye"></i> <?php echo $donation['views_count']; ?>
-                                                    </span>
-                                                </td>
-                                                <td>
                                                     <small class="text-muted">
                                                         <?php echo date('M d, Y', strtotime($donation['created_at'])); ?><br>
                                                         <?php echo date('h:i A', strtotime($donation['created_at'])); ?>
@@ -374,12 +290,6 @@ include 'sidebar.php';
                                                                 onclick="viewDonationDetails(<?php echo $donation['id']; ?>)">
                                                             <i class="bi bi-eye"></i>
                                                         </button>
-                                                        <?php if ($donation['approval_status'] === 'approved'): ?>
-                                                            <button type="button" class="btn btn-primary btn-sm" 
-                                                                    onclick="viewRequests(<?php echo $donation['id']; ?>)">
-                                                                <i class="bi bi-hand-thumbs-up"></i>
-                                                            </button>
-                                                        <?php endif; ?>
                                                         <?php if ($donation['approval_status'] === 'pending'): ?>
                                                             <button type="button" class="btn btn-danger btn-sm" 
                                                                     onclick="deleteDonation(<?php echo $donation['id']; ?>)">
@@ -411,24 +321,6 @@ include 'sidebar.php';
             </div>
             <div class="modal-body" id="donationDetails">
                 <!-- Details will be loaded here -->
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Requests Modal -->
-<div class="modal fade" id="requestsModal" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">Food Requests</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body" id="requestsContent">
-                <!-- Requests will be loaded here -->
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -550,7 +442,6 @@ function displayDonationDetails(donation) {
                 <h6>Status Information</h6>
                 <p><strong>Status:</strong> <span class="badge bg-${statusClass}"><i class="bi bi-${statusIcon}"></i> ${donation.approval_status.charAt(0).toUpperCase() + donation.approval_status.slice(1)}</span></p>
                 <p><strong>Posted:</strong> ${new Date(donation.created_at).toLocaleString()}</p>
-                <p><strong>Views:</strong> ${donation.views_count}</p>
                 ${donation.approved_by_name ? `<p><strong>Approved by:</strong> ${donation.approved_by_name}</p>` : ''}
                 ${donation.rejection_reason ? `<p><strong>Rejection Reason:</strong> ${donation.rejection_reason}</p>` : ''}
             </div>
@@ -581,162 +472,6 @@ function deleteDonation(donationId) {
         })
         .catch(error => {
             showNotification('An error occurred while deleting the donation.', 'error');
-        });
-    }
-}
-
-function viewRequests(donationId) {
-    // Show loading state
-    document.getElementById('requestsContent').innerHTML = `
-        <div class="text-center py-4">
-            <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
-            </div>
-            <p class="mt-2">Loading requests...</p>
-        </div>
-    `;
-    
-    // Show modal first
-    new bootstrap.Modal(document.getElementById('requestsModal')).show();
-    
-    // Fetch requests
-    const formData = new FormData();
-    formData.append('action', 'get_requests');
-    formData.append('donation_id', donationId);
-    
-    fetch(window.location.href, {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            displayRequests(data.requests);
-        } else {
-            showNotification(data.message, 'error');
-            document.getElementById('requestsContent').innerHTML = `
-                <div class="text-center py-4">
-                    <i class="bi bi-exclamation-triangle text-danger" style="font-size: 3rem;"></i>
-                    <h5 class="mt-3">Error Loading Requests</h5>
-                    <p class="text-muted">${data.message}</p>
-                </div>
-            `;
-        }
-    })
-    .catch(error => {
-        showNotification('An error occurred while loading requests.', 'error');
-        document.getElementById('requestsContent').innerHTML = `
-            <div class="text-center py-4">
-                <i class="bi bi-exclamation-triangle text-danger" style="font-size: 3rem;"></i>
-                <h5 class="mt-3">Error Loading Requests</h5>
-                <p class="text-muted">An error occurred while loading the requests.</p>
-            </div>
-        `;
-    });
-}
-
-function displayRequests(requests) {
-    if (requests.length === 0) {
-        document.getElementById('requestsContent').innerHTML = `
-            <div class="text-center py-4">
-                <i class="bi bi-hand-thumbs-up text-muted" style="font-size: 3rem;"></i>
-                <h5 class="mt-3">No Requests Yet</h5>
-                <p class="text-muted">No one has requested this food donation yet.</p>
-            </div>
-        `;
-        return;
-    }
-    
-    let requestsHtml = '<div class="row">';
-    
-    requests.forEach(request => {
-        const statusClass = request.status === 'pending' ? 'warning' : 
-                           request.status === 'approved' ? 'success' : 
-                           request.status === 'rejected' ? 'danger' : 
-                           request.status === 'completed' ? 'info' : 'secondary';
-        const statusIcon = request.status === 'pending' ? 'clock' : 
-                          request.status === 'approved' ? 'check-circle' : 
-                          request.status === 'rejected' ? 'x-circle' : 
-                          request.status === 'completed' ? 'check2-all' : 'x-circle';
-        
-        requestsHtml += `
-            <div class="col-md-6 mb-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-start mb-3">
-                            <h6 class="card-title">${request.requester_name}</h6>
-                            <span class="badge bg-${statusClass}">
-                                <i class="bi bi-${statusIcon}"></i> ${request.status.charAt(0).toUpperCase() + request.status.slice(1)}
-                            </span>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <strong>Message:</strong>
-                            <p class="text-muted small">${request.message}</p>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <strong>Contact Info:</strong>
-                            <p class="text-muted small">${request.contact_info}</p>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <small class="text-muted">
-                                <i class="bi bi-calendar"></i> 
-                                Requested: ${new Date(request.reserved_at).toLocaleString()}
-                            </small>
-                        </div>
-                        
-                        ${request.status === 'pending' ? `
-                            <div class="d-flex gap-2">
-                                <button class="btn btn-success btn-sm" onclick="updateRequestStatus(${request.id}, 'approved')">
-                                    <i class="bi bi-check"></i> Approve
-                                </button>
-                                <button class="btn btn-danger btn-sm" onclick="updateRequestStatus(${request.id}, 'rejected')">
-                                    <i class="bi bi-x"></i> Reject
-                                </button>
-                            </div>
-                        ` : request.status === 'approved' ? `
-                            <div class="d-flex gap-2">
-                                <button class="btn btn-info btn-sm" onclick="updateRequestStatus(${request.id}, 'completed')">
-                                    <i class="bi bi-check2-all"></i> Mark Complete
-                                </button>
-                            </div>
-                        ` : ''}
-                    </div>
-                </div>
-            </div>
-        `;
-    });
-    
-    requestsHtml += '</div>';
-    document.getElementById('requestsContent').innerHTML = requestsHtml;
-}
-
-function updateRequestStatus(requestId, newStatus) {
-    if (confirm(`Are you sure you want to ${newStatus} this request?`)) {
-        const formData = new FormData();
-        formData.append('action', 'update_request_status');
-        formData.append('request_id', requestId);
-        formData.append('status', newStatus);
-        
-        fetch(window.location.href, {
-            method: 'POST',
-            body: formData
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                showNotification(data.message, 'success');
-                // Refresh the requests modal
-                const donationId = document.querySelector('#requestsModal .btn-primary').onclick.toString().match(/\d+/)[0];
-                viewRequests(donationId);
-            } else {
-                showNotification(data.message, 'error');
-            }
-        })
-        .catch(error => {
-            showNotification('An error occurred while updating the request status.', 'error');
         });
     }
 }

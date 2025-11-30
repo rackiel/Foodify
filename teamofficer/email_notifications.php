@@ -401,6 +401,22 @@ class DonationEmailNotifications {
             return false;
         }
     }
+    
+    public function sendDonationAssigned($donation, $resident_email, $resident_name, $assignment_notes = '') {
+        try {
+            $this->mail->clearAddresses();
+            $this->mail->addAddress($resident_email, $resident_name);
+            $this->mail->Subject = '🎁 Food Donation Assigned to You!';
+            
+            $this->mail->Body = $this->getDonationAssignedTemplate($donation, $resident_name, $assignment_notes);
+            
+            $this->mail->send();
+            return true;
+        } catch (Exception $e) {
+            error_log("Assignment email failed: " . $e->getMessage());
+            return false;
+        }
+    }
 
     private function getRequestNotificationTemplate($donation, $donor_name, $requester_name, $message, $contact_info) {
         $expiration_date = $donation['expiration_date'] ? date('M d, Y', strtotime($donation['expiration_date'])) : 'Not specified';
@@ -707,6 +723,102 @@ class DonationEmailNotifications {
                 
                 <div class='footer'>
                     <p>This is an automated message from Foodify. Please do not reply to this email.</p>
+                </div>
+            </div>
+        </body>
+        </html>";
+    }
+    
+    private function getDonationAssignedTemplate($donation, $resident_name, $assignment_notes) {
+        $expiration_date = $donation['expiration_date'] ? date('M d, Y', strtotime($donation['expiration_date'])) : 'Not specified';
+        $pickup_times = '';
+        if ($donation['pickup_time_start'] && $donation['pickup_time_end']) {
+            $pickup_times = "Available for pickup: {$donation['pickup_time_start']} - {$donation['pickup_time_end']}";
+        }
+        $notes_section = $assignment_notes ? "<div class='notes-card'><h4>📝 Assignment Notes:</h4><p><strong>{$assignment_notes}</strong></p></div>" : "";
+        
+        return "
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset='UTF-8'>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+            <title>Donation Assigned</title>
+            <style>
+                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+                .header { background: linear-gradient(135deg, #007bff, #0056b3); color: white; padding: 30px; text-align: center; border-radius: 10px 10px 0 0; }
+                .content { background: #f8f9fa; padding: 30px; border-radius: 0 0 10px 10px; }
+                .donation-card { background: white; padding: 20px; border-radius: 8px; margin: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+                .notes-card { background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 5px; margin: 15px 0; }
+                .status-badge { background: #007bff; color: white; padding: 8px 16px; border-radius: 20px; font-weight: bold; display: inline-block; }
+                .info-row { margin: 10px 0; }
+                .label { font-weight: bold; color: #495057; }
+                .footer { text-align: center; margin-top: 30px; color: #6c757d; font-size: 14px; }
+                .btn { display: inline-block; background: #28a745; color: white; padding: 12px 24px; text-decoration: none; border-radius: 5px; margin: 10px 0; }
+            </style>
+        </head>
+        <body>
+            <div class='container'>
+                <div class='header'>
+                    <h1>🎁 Food Donation Assigned!</h1>
+                    <p>A food donation has been assigned to you</p>
+                </div>
+                
+                <div class='content'>
+                    <p>Dear <strong>{$resident_name}</strong>,</p>
+                    
+                    <p>Great news! A team officer has assigned a food donation to you. This donation is now reserved for you to pick up.</p>
+                    
+                    <div class='donation-card'>
+                        <h3>📦 Donation Details</h3>
+                        <div class='info-row'>
+                            <span class='label'>Title:</span> {$donation['title']}
+                        </div>
+                        <div class='info-row'>
+                            <span class='label'>Description:</span> {$donation['description']}
+                        </div>
+                        <div class='info-row'>
+                            <span class='label'>Food Type:</span> " . ucfirst($donation['food_type']) . "
+                        </div>
+                        <div class='info-row'>
+                            <span class='label'>Quantity:</span> {$donation['quantity']}
+                        </div>
+                        <div class='info-row'>
+                            <span class='label'>Expiration Date:</span> {$expiration_date}
+                        </div>
+                        <div class='info-row'>
+                            <span class='label'>Location:</span> {$donation['location_address']}
+                        </div>
+                        " . ($pickup_times ? "<div class='info-row'><span class='label'>{$pickup_times}</span></div>" : "") . "
+                        <div class='info-row'>
+                            <span class='label'>Contact Info:</span> {$donation['contact_info']}
+                        </div>
+                        <div class='info-row'>
+                            <span class='label'>Status:</span> <span class='status-badge'>✅ Assigned to You</span>
+                        </div>
+                    </div>
+                    
+                    {$notes_section}
+                    
+                    <p><strong>Next Steps:</strong></p>
+                    <ul>
+                        <li>Contact the donor using the contact information provided above</li>
+                        <li>Coordinate a convenient pickup time and location</li>
+                        <li>Follow any specific instructions from the donor</li>
+                        <li>Enjoy your food and help reduce waste!</li>
+                    </ul>
+                    
+                    <p>Thank you for being part of our community and helping reduce food waste! 🌱</p>
+                    
+                    <div style='text-align: center; margin: 30px 0;'>
+                        <a href='http://localhost/foodify/residents/my_requests.php' class='btn'>View My Assignments</a>
+                    </div>
+                </div>
+                
+                <div class='footer'>
+                    <p>This is an automated message from Foodify. Please do not reply to this email.</p>
+                    <p>If you have any questions, please contact our support team.</p>
                 </div>
             </div>
         </body>

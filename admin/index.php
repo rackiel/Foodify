@@ -197,8 +197,24 @@ try {
     ");
     $donation_trends = $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
     
+    // User Logs - Admin can see all logs
+    $check_logs_table = $conn->query("SHOW TABLES LIKE 'user_logs'");
+    if ($check_logs_table && $check_logs_table->num_rows > 0) {
+        $result = $conn->query("
+            SELECT ul.*, ua.full_name, ua.email, ua.role
+            FROM user_logs ul
+            JOIN user_accounts ua ON ul.user_id = ua.user_id
+            ORDER BY ul.created_at DESC
+            LIMIT 50
+        ");
+        $user_logs = $result ? $result->fetch_all(MYSQLI_ASSOC) : [];
+    } else {
+        $user_logs = [];
+    }
+    
 } catch (Exception $e) {
     $error_message = "Error: " . $e->getMessage();
+    $user_logs = [];
 }
 
 include 'header.php'; 
@@ -438,6 +454,67 @@ include 'header.php';
                       <?php endif; ?>
                     </tbody>
                   </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- User Logs -->
+            <div class="col-12">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">User Activity Logs <span>| All Users</span></h5>
+                  <div class="table-responsive">
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>Time</th>
+                          <th>User</th>
+                          <th>Action</th>
+                          <th>Module</th>
+                          <th>Description</th>
+                          <th>IP Address</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php if (!empty($user_logs)): ?>
+                          <?php foreach ($user_logs as $log): ?>
+                            <tr>
+                              <td>
+                                <small><?= date('M d, Y', strtotime($log['created_at'])) ?></small>
+                                <br><small class="text-muted"><?= date('g:i A', strtotime($log['created_at'])) ?></small>
+                              </td>
+                              <td>
+                                <div class="d-flex align-items-center">
+                                  <span class="badge bg-<?= 
+                                    $log['role'] === 'admin' ? 'danger' :
+                                    ($log['role'] === 'team officer' ? 'success' : 'primary')
+                                  ?> me-2"><?= ucfirst($log['role']) ?></span>
+                                  <div>
+                                    <strong><?= htmlspecialchars($log['full_name']) ?></strong>
+                                    <br><small class="text-muted"><?= htmlspecialchars($log['email']) ?></small>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>
+                                <span class="badge bg-info"><?= htmlspecialchars($log['action_type']) ?></span>
+                              </td>
+                              <td><?= htmlspecialchars($log['module']) ?></td>
+                              <td>
+                                <small><?= htmlspecialchars(substr($log['action_description'], 0, 60)) ?><?= strlen($log['action_description']) > 60 ? '...' : '' ?></small>
+                              </td>
+                              <td><small class="text-muted"><?= htmlspecialchars($log['ip_address'] ?? 'N/A') ?></small></td>
+                            </tr>
+                          <?php endforeach; ?>
+                        <?php else: ?>
+                          <tr>
+                            <td colspan="6" class="text-center text-muted py-4">
+                              <i class="bi bi-info-circle"></i> No user logs available yet
+                            </td>
+                          </tr>
+                        <?php endif; ?>
+                      </tbody>
+                    </table>
+                  </div>
                 </div>
               </div>
             </div>

@@ -15,15 +15,16 @@ if (!isset($_SESSION['user_id'])) {
 // Get current user ID
 $current_user_id = $_SESSION['user_id'];
 
-// Get approved food donations only
+// Get user's own food donations only
 $stmt = $conn->prepare("
     SELECT fd.*, ua.full_name, ua.email 
     FROM food_donations fd 
     JOIN user_accounts ua ON fd.user_id = ua.user_id 
-    WHERE fd.approval_status = 'approved'
+    WHERE fd.user_id = ? AND fd.approval_status = 'approved'
     ORDER BY fd.created_at DESC
     LIMIT 20
 ");
+$stmt->bind_param("i", $current_user_id);
 $stmt->execute();
 $result = $stmt->get_result();
 $donations = $result->fetch_all(MYSQLI_ASSOC);
@@ -53,7 +54,7 @@ include 'sidebar.php';
                     <div class="text-center py-5">
                         <i class="bi bi-basket text-muted" style="font-size: 3rem;"></i>
                         <h4 class="mt-3">No Food Donations Available</h4>
-                        <p class="text-muted">No approved food donations are currently available.</p>
+                        <p class="text-muted">You haven't created any approved food donations yet.</p>
                     </div>
                 </div>
             <?php else: ?>

@@ -1,5 +1,7 @@
 <?php
+session_start();
 include '../config/db.php';
+$user_id = isset($_SESSION['user_id']) ? $_SESSION['user_id'] : null;
 
 // Handle AJAX requests BEFORE any HTML output
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -39,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $plan_data = json_encode($_POST['plan_data'] ?? []);
                 $filters = json_encode($_POST['filters'] ?? []);
                 
-                // Calculate totals
+                // Calculate totals (still needed for database compatibility)
                 $totals = calculateMealPlanTotals(json_decode($plan_data, true));
                 
                 // Generate share token if sharing is enabled
@@ -197,27 +199,83 @@ include 'header.php';
 include 'topbar.php'; 
 include 'sidebar.php';
 
+// Get user's available ingredients
+$available_ingredients = [];
+if ($user_id) {
+    $stmt = $conn->prepare("SELECT ingredient_id, ingredient_name, category, unit, quantity, expiration_date FROM ingredient WHERE user_id = ? AND status = 'active' ORDER BY expiration_date ASC");
+    $stmt->bind_param('i', $user_id);
+    $stmt->execute();
+    $result = $stmt->get_result();
+    while ($row = $result->fetch_assoc()) {
+        $available_ingredients[] = [
+            'id' => $row['ingredient_id'],
+            'name' => strtolower(trim($row['ingredient_name'])),
+            'category' => $row['category'],
+            'unit' => $row['unit'],
+            'quantity' => $row['quantity'],
+            'expiration_date' => $row['expiration_date']
+        ];
+    }
+    $stmt->close();
+}
+
 // Read CSV and parse dishes
 $dishes = [];
 if (($handle = fopen('foodify_filipino_dishes.csv', 'r')) !== false) {
-    $header = fgetcsv($handle); // skip header
+    $header = fgetcsv($handle);
     while (($row = fgetcsv($handle)) !== false) {
         $dishes[] = array_combine($header, $row);
     }
     fclose($handle);
 }
 
-// Handle filters
-$cal_min = isset($_GET['cal_min']) ? (int)$_GET['cal_min'] : '';
-$cal_max = isset($_GET['cal_max']) ? (int)$_GET['cal_max'] : '';
+// Function to check if a dish matches available ingredients
+function dishMatchesIngredients($dish, $available_ingredients) {
+    if (empty($available_ingredients)) return false;
+    
+    $dish_name = strtolower($dish['Dish Name'] ?? '');
+    $dish_ingredients = [];
+    
+    // Try to extract ingredients from dish name or other fields
+    // Check if any available ingredient name appears in dish name
+    foreach ($available_ingredients as $ing) {
+        $ing_name = $ing['name'];
+        // Check if ingredient name or part of it appears in dish name
+        if (stripos($dish_name, $ing_name) !== false) {
+            return true;
+        }
+        // Also check common variations
+        $ing_words = explode(' ', $ing_name);
+        foreach ($ing_words as $word) {
+            if (strlen($word) > 3 && stripos($dish_name, $word) !== false) {
+                return true;
+            }
+        }
+    }
+    
+    // If dish has an Ingredients column, check that too
+    if (isset($dish['Ingredients']) && !empty($dish['Ingredients'])) {
+        $dish_ingredients_str = strtolower($dish['Ingredients']);
+        foreach ($available_ingredients as $ing) {
+            if (stripos($dish_ingredients_str, $ing['name']) !== false) {
+                return true;
+            }
+        }
+    }
+    
+    return false;
+}
 
-$filtered = array_filter($dishes, function($d) use ($cal_min, $cal_max) {
+// Filter dishes based on available ingredients
+$filtered = array_filter($dishes, function($d) use ($available_ingredients) {
     // Exclude Snack, Street, Dessert from meal plan
     if (stripos($d['Category'], 'snack') !== false || stripos($d['Category'], 'street') !== false || stripos($d['Category'], 'dessert') !== false) return false;
-    $ok = true;
-    if ($cal_min !== '' && (int)$d['Calories (kcal)'] < $cal_min) $ok = false;
-    if ($cal_max !== '' && (int)$d['Calories (kcal)'] > $cal_max) $ok = false;
-    return $ok;
+    
+    // If no ingredients available, show all dishes
+    if (empty($available_ingredients)) return true;
+    
+    // Otherwise, only show dishes that match available ingredients
+    return dishMatchesIngredients($d, $available_ingredients);
 });
 
 // Group for meal plan
@@ -240,22 +298,25 @@ for ($i = 0; $i < 7; $i++) {
 <main id="main" class="main">
 <div class="container py-5">
     <h2>
-        Filipino Meal Plan (7 Days) 
+        Filipino Meal Plan (7 Days) - Based on Your Ingredients
         <i class="bi bi-info-circle info-icon-blink ms-2" data-bs-toggle="modal" data-bs-target="#referencesModal" style="cursor: pointer; font-size: 1.5rem;" title="View Data Sources"></i>
     </h2>
-    <form method="get" class="row g-3 mb-4">
-        <div class="col-md-3">
-            <label for="cal_min" class="form-label">Min Calories</label>
-            <input type="number" name="cal_min" id="cal_min" class="form-control" value="<?= htmlspecialchars($cal_min) ?>" placeholder="e.g. 200">
-        </div>
-        <div class="col-md-3">
-            <label for="cal_max" class="form-label">Max Calories</label>
-            <input type="number" name="cal_max" id="cal_max" class="form-control" value="<?= htmlspecialchars($cal_max) ?>" placeholder="e.g. 800">
-        </div>
-        <div class="col-md-6 d-flex align-items-end gap-2">
-            <button type="submit" class="btn btn-primary">
-                <i class="bi bi-funnel"></i> Filter by Calories
-            </button>
+    
+    <?php if (empty($available_ingredients)): ?>
+    <div class="alert alert-warning mb-4">
+        <i class="bi bi-exclamation-triangle"></i> 
+        <strong>No ingredients available!</strong> 
+        Please add ingredients to your <a href="input_ingredients.php" class="alert-link">Ingredients Feed</a> to generate a personalized meal plan.
+    </div>
+    <?php else: ?>
+    <div class="alert alert-info mb-4">
+        <i class="bi bi-info-circle"></i> 
+        Meal plan generated based on <strong><?= count($available_ingredients) ?> available ingredient(s)</strong>.
+    </div>
+    <?php endif; ?>
+    
+    <div class="row g-3 mb-4">
+        <div class="col-12 d-flex gap-2 flex-wrap">
             <a href="meal_plan_generator.php" class="btn btn-success" id="generate-btn">
                 <i class="bi bi-arrow-clockwise"></i> Generate Random
             </a>
@@ -265,8 +326,11 @@ for ($i = 0; $i < 7; $i++) {
             <button type="button" class="btn btn-info" id="load-btn">
                 <i class="bi bi-folder-open"></i> Load Plans
             </button>
+            <a href="input_ingredients.php" class="btn btn-outline-primary">
+                <i class="bi bi-basket"></i> Manage Ingredients
+            </a>
         </div>
-    </form>
+    </div>
     <?php if ($shared_plan): ?>
     <div class="row mb-3">
         <div class="col-12">
@@ -277,42 +341,24 @@ for ($i = 0; $i < 7; $i++) {
     </div>
     <?php endif; ?>
 
-<!-- Meal Plan Summary -->
+<!-- Meal Plan Summary - Ingredients Used -->
 <?php if (!$shared_plan): ?>
 <div class="row mb-4">
     <div class="col-12">
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h5 class="mb-0">Meal Plan Summary</h5>
+                <h5 class="mb-0"><i class="bi bi-basket"></i> Ingredients Summary</h5>
                 <button type="button" class="btn btn-sm btn-outline-primary" id="export-btn">
                     <i class="bi bi-download"></i> Export Plan
                 </button>
             </div>
             <div class="card-body">
-                <div class="row text-center">
-                    <div class="col-md-3">
-                        <div class="metric-card"> <!-- calorie -->
-                            <div class="metric-value" id="total-calories">0</div>
-                            <div class="metric-label">Total Calories</div>
+                <div id="ingredients-summary">
+                    <div class="text-center py-3">
+                        <div class="spinner-border text-primary" role="status">
+                            <span class="visually-hidden">Analyzing ingredients...</span>
                         </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="metric-card"> <!-- protein -->
-                            <div class="metric-value" id="total-protein">0g</div>
-                            <div class="metric-label">Total Protein</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="metric-card"> <!-- carbs -->
-                            <div class="metric-value" id="total-carbs">0g</div>
-                            <div class="metric-label">Total Carbs</div>
-                        </div>
-                    </div>
-                    <div class="col-md-3">
-                        <div class="metric-card">
-                            <div class="metric-value" id="total-fat">0g</div>
-                            <div class="metric-label">Total Fat</div>
-                        </div>
+                        <p class="mt-2 text-muted">Analyzing meal plan ingredients...</p>
                     </div>
                 </div>
             </div>
@@ -723,25 +769,103 @@ function showLoadingOverlay() {
         document.body.appendChild(overlay);
 }
 
-// Calculate and update meal plan totals
-function updateMealPlanTotals() {
-    const totals = { calories: 0, protein: 0, carbs: 0, fat: 0 };
+// Extract and display ingredients used in meal plan
+function updateIngredientsSummary() {
+    const ingredientsUsed = new Map();
+    const availableIngredients = <?= json_encode($available_ingredients) ?>;
     
+    // Extract ingredients from dish names
     currentMealPlan.forEach(day => {
         ['Breakfast', 'Lunch', 'Dinner'].forEach(meal => {
             if (day[meal]) {
-                totals.calories += parseInt(day[meal]['Calories (kcal)'] || 0);
-                totals.protein += parseFloat(day[meal]['Protein (g)'] || 0);
-                totals.carbs += parseFloat(day[meal]['Carbs (g)'] || 0);
-                totals.fat += parseFloat(day[meal]['Fat (g)'] || 0);
+                const dishName = day[meal]['Dish Name'] || '';
+                const dishNameLower = dishName.toLowerCase();
+                
+                // Check which available ingredients are used in this dish
+                availableIngredients.forEach(ing => {
+                    const ingName = ing.name;
+                    if (dishNameLower.includes(ingName)) {
+                        if (!ingredientsUsed.has(ing.id)) {
+                            ingredientsUsed.set(ing.id, {
+                                name: ing.name,
+                                category: ing.category,
+                                unit: ing.unit,
+                                quantity: ing.quantity,
+                                expiration_date: ing.expiration_date,
+                                count: 0
+                            });
+                        }
+                        ingredientsUsed.get(ing.id).count++;
+                    }
+                });
             }
         });
     });
     
-    document.getElementById('total-calories').textContent = totals.calories;
-    document.getElementById('total-protein').textContent = totals.protein.toFixed(1) + 'g';
-    document.getElementById('total-carbs').textContent = totals.carbs.toFixed(1) + 'g';
-    document.getElementById('total-fat').textContent = totals.fat.toFixed(1) + 'g';
+    // Display ingredients summary
+    const summaryContainer = document.getElementById('ingredients-summary');
+    
+    if (ingredientsUsed.size === 0) {
+        summaryContainer.innerHTML = `
+            <div class="alert alert-warning">
+                <i class="bi bi-exclamation-triangle"></i> 
+                No ingredients from your inventory are being used in this meal plan.
+                <br><small class="text-muted">Try adding more ingredients or generating a new plan.</small>
+            </div>
+        `;
+        return;
+    }
+    
+    let html = '<div class="row">';
+    let totalIngredients = 0;
+    
+    ingredientsUsed.forEach((ing, id) => {
+        totalIngredients += ing.count;
+        const expirationDate = ing.expiration_date ? new Date(ing.expiration_date).toLocaleDateString() : 'N/A';
+        const daysUntilExpiry = ing.expiration_date ? Math.ceil((new Date(ing.expiration_date) - new Date()) / (1000 * 60 * 60 * 24)) : null;
+        const expiryClass = daysUntilExpiry !== null && daysUntilExpiry <= 7 ? 'text-danger' : daysUntilExpiry !== null && daysUntilExpiry <= 14 ? 'text-warning' : 'text-success';
+        
+        html += `
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card h-100 border-start border-4 border-primary">
+                    <div class="card-body">
+                        <h6 class="card-title">
+                            <i class="bi bi-basket"></i> ${escapeHtml(ing.name.charAt(0).toUpperCase() + ing.name.slice(1))}
+                            <span class="badge bg-primary ms-2">${ing.count}x</span>
+                        </h6>
+                        <p class="card-text small mb-1">
+                            <strong>Category:</strong> ${escapeHtml(ing.category)}<br>
+                            ${ing.quantity && ing.unit ? `<strong>Available:</strong> ${ing.quantity} ${ing.unit}<br>` : ''}
+                            <strong>Expires:</strong> <span class="${expiryClass}">${expirationDate}</span>
+                            ${daysUntilExpiry !== null ? `<br><small class="text-muted">(${daysUntilExpiry > 0 ? daysUntilExpiry + ' days left' : 'Expired'})</small>` : ''}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    
+    html += '</div>';
+    html += `
+        <div class="mt-3 p-3 bg-light rounded">
+            <div class="row text-center">
+                <div class="col-md-4">
+                    <h4 class="text-primary mb-0">${ingredientsUsed.size}</h4>
+                    <small class="text-muted">Unique Ingredients</small>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="text-success mb-0">${totalIngredients}</h4>
+                    <small class="text-muted">Total Uses</small>
+                </div>
+                <div class="col-md-4">
+                    <h4 class="text-info mb-0">${availableIngredients.length}</h4>
+                    <small class="text-muted">Available in Inventory</small>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    summaryContainer.innerHTML = html;
 }
 
 // Save meal plan functionality
@@ -967,7 +1091,7 @@ function loadMealPlan(planId) {
         if (data.success) {
             currentMealPlan = JSON.parse(data.data.plan_data);
             updateMealPlanDisplay();
-            updateMealPlanTotals();
+            updateIngredientsSummary();
             bootstrap.Modal.getInstance(document.getElementById('loadModal')).hide();
             showNotification('Meal plan loaded successfully!', 'success');
         } else {
@@ -1065,8 +1189,7 @@ function copyShareLink() {
 
 function getCurrentFilters() {
     return {
-        cal_min: document.getElementById('cal_min').value,
-        cal_max: document.getElementById('cal_max').value
+        based_on: 'ingredients'
     };
 }
 
@@ -1082,30 +1205,38 @@ document.getElementById('export-btn').addEventListener('click', function() {
 });
 
 function exportMealPlan() {
-    const totals = { calories: 0, protein: 0, carbs: 0, fat: 0 };
-    let csvContent = "Day,Meal,Dish Name,Serving Size,Calories,Protein (g),Carbs (g),Fat (g)\n";
+    const availableIngredients = <?= json_encode($available_ingredients) ?>;
+    const ingredientsUsed = new Map();
+    let csvContent = "Day,Meal,Dish Name,Serving Size,Calories,Protein (g),Carbs (g),Fat (g),Ingredients Used\n";
     
     currentMealPlan.forEach((day, dayIndex) => {
         ['Breakfast', 'Lunch', 'Dinner'].forEach(meal => {
             if (day[meal]) {
                 const dish = day[meal];
-                totals.calories += parseInt(dish['Calories (kcal)'] || 0);
-                totals.protein += parseFloat(dish['Protein (g)'] || 0);
-                totals.carbs += parseFloat(dish['Carbs (g)'] || 0);
-                totals.fat += parseFloat(dish['Fat (g)'] || 0);
+                const dishNameLower = (dish['Dish Name'] || '').toLowerCase();
+                const usedIngs = [];
                 
-                csvContent += `Day ${dayIndex + 1},${meal},"${dish['Dish Name']}","${dish['Serving Size']}",${dish['Calories (kcal)']},${dish['Protein (g)']},${dish['Carbs (g)']},${dish['Fat (g)']}\n`;
+                availableIngredients.forEach(ing => {
+                    if (dishNameLower.includes(ing.name)) {
+                        usedIngs.push(ing.name);
+                        if (!ingredientsUsed.has(ing.id)) {
+                            ingredientsUsed.set(ing.id, ing.name);
+                        }
+                    }
+                });
+                
+                csvContent += `Day ${dayIndex + 1},${meal},"${dish['Dish Name']}","${dish['Serving Size']}",${dish['Calories (kcal)']},${dish['Protein (g)']},${dish['Carbs (g)']},${dish['Fat (g)']},"${usedIngs.join(', ')}"\n`;
             }
         });
     });
     
-    csvContent += `\nTOTALS,,,,${totals.calories},${totals.protein.toFixed(1)},${totals.carbs.toFixed(1)},${totals.fat.toFixed(1)}\n`;
+    csvContent += `\nINGREDIENTS USED: ${Array.from(ingredientsUsed.values()).join(', ')}\n`;
     
     const blob = new Blob([csvContent], { type: 'text/csv' });
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `meal_plan_${new Date().toISOString().split('T')[0]}.csv`;
+    a.download = `meal_plan_ingredients_${new Date().toISOString().split('T')[0]}.csv`;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -1168,9 +1299,9 @@ document.addEventListener('click', function(e) {
     }
 });
 
-// Initialize totals on page load
+// Initialize ingredients summary on page load
 document.addEventListener('DOMContentLoaded', function() {
-    updateMealPlanTotals();
+    updateIngredientsSummary();
     
     // Debug mode
     if (window.location.search.includes('debug=1')) {

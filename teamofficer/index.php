@@ -244,8 +244,43 @@ try {
         $top_contributors = $result->fetch_all(MYSQLI_ASSOC);
     }
     
+    // User Logs - Team officers can see logs for users in their area
+    $user_logs = [];
+    $check_logs_table = $conn->query("SHOW TABLES LIKE 'user_logs'");
+    if ($check_logs_table && $check_logs_table->num_rows > 0) {
+        // Get team officer's address to filter users by area
+        $stmt = $conn->prepare("SELECT address FROM user_accounts WHERE user_id = ?");
+        $stmt->bind_param('i', $user_id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $officer = $result->fetch_assoc();
+        $stmt->close();
+        
+        $team_officer_address = trim($officer['address'] ?? '');
+        
+        if (!empty($team_officer_address)) {
+            $stmt = $conn->prepare("
+                SELECT ul.*, ua.full_name, ua.email, ua.role, ua.address
+                FROM user_logs ul
+                JOIN user_accounts ua ON ul.user_id = ua.user_id
+                WHERE ua.address LIKE ?
+                ORDER BY ul.created_at DESC
+                LIMIT 50
+            ");
+            $address_pattern = '%' . $conn->real_escape_string($team_officer_address) . '%';
+            $stmt->bind_param('s', $address_pattern);
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result) {
+                $user_logs = $result->fetch_all(MYSQLI_ASSOC);
+            }
+            $stmt->close();
+        }
+    }
+    
 } catch (Exception $e) {
     $error_message = "Error: " . $e->getMessage();
+    $user_logs = [];
 }
 
 // Calculate total pending items
@@ -670,6 +705,68 @@ include 'sidebar.php';
                     </div>
                 </div>
                 <?php endif; ?>
+            </div>
+        </div>
+        
+        <!-- User Activity Logs Section -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">User Activity Logs <span>| Your Area</span></h5>
+                        <p class="text-muted small mb-3">Activity logs for users in your area</p>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Time</th>
+                                        <th>User</th>
+                                        <th>Action</th>
+                                        <th>Module</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php if (!empty($user_logs)): ?>
+                                        <?php foreach ($user_logs as $log): ?>
+                                            <tr>
+                                                <td>
+                                                    <small><?= date('M d, Y', strtotime($log['created_at'])) ?></small>
+                                                    <br><small class="text-muted"><?= date('g:i A', strtotime($log['created_at'])) ?></small>
+                                                </td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="badge bg-<?= 
+                                                            $log['role'] === 'admin' ? 'danger' :
+                                                            ($log['role'] === 'team officer' ? 'success' : 'primary')
+                                                        ?> me-2"><?= ucfirst($log['role']) ?></span>
+                                                        <div>
+                                                            <strong><?= htmlspecialchars($log['full_name']) ?></strong>
+                                                            <br><small class="text-muted"><?= htmlspecialchars($log['email']) ?></small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <span class="badge bg-info"><?= htmlspecialchars($log['action_type']) ?></span>
+                                                </td>
+                                                <td><?= htmlspecialchars($log['module']) ?></td>
+                                                <td>
+                                                    <small><?= htmlspecialchars(substr($log['action_description'], 0, 60)) ?><?= strlen($log['action_description']) > 60 ? '...' : '' ?></small>
+                                                </td>
+                                            </tr>
+                                        <?php endforeach; ?>
+                                    <?php else: ?>
+                                        <tr>
+                                            <td colspan="5" class="text-center text-muted py-4">
+                                                <i class="bi bi-info-circle"></i> No activity logs available for users in your area
+                                            </td>
+                                        </tr>
+                                    <?php endif; ?>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>

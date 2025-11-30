@@ -1,6 +1,7 @@
 {
     "name": "foodify/foodify",
     "require": {
-        "smalot/pdfparser": "1.0"
+        "smalot/pdfparser": "^2.12",
+        "phpmailer/phpmailer": "^7.0"
     }
 }
