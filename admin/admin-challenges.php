@@ -18,7 +18,7 @@ $create_table = "CREATE TABLE IF NOT EXISTS challenges (
     description TEXT,
     challenge_type ENUM('daily', 'weekly', 'monthly', 'special') DEFAULT 'weekly',
     category ENUM('donation', 'waste_reduction', 'recipe', 'community', 'sustainability') DEFAULT 'donation',
-    points INT DEFAULT 10,ha
+    points INT DEFAULT 10,
     target_value INT DEFAULT 1,
     start_date DATE NOT NULL,
     end_date DATE NOT NULL,
@@ -62,10 +62,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             $category = $_POST['category'];
             $points = intval($_POST['points']);
             $target_value = intval($_POST['target_value']);
-            $start_date = $_POST['start_date'];
-            $end_date = $_POST['end_date'];
+            $start_date = trim($_POST['start_date']);
+            $end_date = trim($_POST['end_date']);
             $status = $_POST['status'];
             $prize_description = trim($_POST['prize_description'] ?? '');
+            
+            // Validate dates
+            if (empty($start_date) || empty($end_date)) {
+                $response['message'] = 'Start date and end date are required!';
+                echo json_encode($response);
+                exit();
+            }
+            
+            // Validate date format (YYYY-MM-DD)
+            if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $start_date) || !preg_match('/^\d{4}-\d{2}-\d{2}$/', $end_date)) {
+                $response['message'] = 'Invalid date format!';
+                echo json_encode($response);
+                exit();
+            }
+            
+            // Validate end date is after start date
+            if (strtotime($end_date) <= strtotime($start_date)) {
+                $response['message'] = 'End date must be after start date!';
+                echo json_encode($response);
+                exit();
+            }
             
             // Handle image upload
             $banner_image = null;
@@ -108,10 +129,31 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             $category = $_POST['category'];
             $points = intval($_POST['points']);
             $target_value = intval($_POST['target_value']);
-            $start_date = $_POST['start_date'];
-            $end_date = $_POST['end_date'];
+            $start_date = trim($_POST['start_date']);
+            $end_date = trim($_POST['end_date']);
             $status = $_POST['status'];
             $prize_description = trim($_POST['prize_description'] ?? '');
+            
+            // Validate dates
+            if (empty($start_date) || empty($end_date)) {
+                $response['message'] = 'Start date and end date are required!';
+                echo json_encode($response);
+                exit();
+            }
+            
+            // Validate date format (YYYY-MM-DD)
+            if (!preg_match('/^\d{4}-\d{2}-\d{2}$/', $start_date) || !preg_match('/^\d{4}-\d{2}-\d{2}$/', $end_date)) {
+                $response['message'] = 'Invalid date format!';
+                echo json_encode($response);
+                exit();
+            }
+            
+            // Validate end date is after start date
+            if (strtotime($end_date) <= strtotime($start_date)) {
+                $response['message'] = 'End date must be after start date!';
+                echo json_encode($response);
+                exit();
+            }
             
             // Handle image upload
             $banner_image = $_POST['existing_image'] ?? null;
@@ -242,6 +284,8 @@ try {
     if ($status_filter && $status_filter !== 'all') {
         $stmt = $conn->prepare("
             SELECT c.*, ua.full_name as creator_name,
+                   DATE_FORMAT(c.start_date, '%Y-%m-%d') as start_date,
+                   DATE_FORMAT(c.end_date, '%Y-%m-%d') as end_date,
                    COUNT(DISTINCT cp.participant_id) as participant_count,
                    COUNT(CASE WHEN cp.completed = TRUE THEN 1 END) as completed_count
             FROM challenges c
@@ -258,6 +302,8 @@ try {
     } else {
         $result = $conn->query("
             SELECT c.*, ua.full_name as creator_name,
+                   DATE_FORMAT(c.start_date, '%Y-%m-%d') as start_date,
+                   DATE_FORMAT(c.end_date, '%Y-%m-%d') as end_date,
                    COUNT(DISTINCT cp.participant_id) as participant_count,
                    COUNT(CASE WHEN cp.completed = TRUE THEN 1 END) as completed_count
             FROM challenges c
@@ -450,7 +496,19 @@ include 'header.php';
                                         <td><span class="badge bg-info"><?= ucfirst($challenge['challenge_type']) ?></span></td>
                                         <td><span class="badge bg-secondary"><?= ucfirst(str_replace('_', ' ', $challenge['category'])) ?></span></td>
                                         <td>
-                                            <small><?= date('M j', strtotime($challenge['start_date'])) ?> - <?= date('M j, Y', strtotime($challenge['end_date'])) ?></small>
+                                            <small>
+                                                <?= date('M j, Y', strtotime($challenge['start_date'])) ?> - <?= date('M j, Y', strtotime($challenge['end_date'])) ?>
+                                                <br>
+                                                <span class="text-muted">
+                                                    (<?php 
+                                                        $start = new DateTime($challenge['start_date']);
+                                                        $end = new DateTime($challenge['end_date']);
+                                                        $diff = $start->diff($end);
+                                                        $days = $diff->days + 1; // Include both start and end days
+                                                        echo $days . ' day' . ($days != 1 ? 's' : '');
+                                                    ?>)
+                                                </span>
+                                            </small>
                                         </td>
                                         <td>
                                             <span class="badge bg-light text-dark">
@@ -578,6 +636,7 @@ include 'header.php';
                         <div class="col-md-6 mb-3">
                             <label class="form-label">End Date *</label>
                             <input type="date" class="form-control" name="end_date" id="end_date" required>
+                            <small class="text-muted">Must be after start date</small>
                         </div>
                         
                         <div class="col-md-6 mb-3">
@@ -699,8 +758,93 @@ function editChallenge(challenge) {
     document.getElementById('category').value = challenge.category;
     document.getElementById('points').value = challenge.points;
     document.getElementById('target_value').value = challenge.target_value;
-    document.getElementById('start_date').value = challenge.start_date;
-    document.getElementById('end_date').value = challenge.end_date;
+    
+    // Format dates properly for HTML5 date input (YYYY-MM-DD)
+    const formatDate = (dateString) => {
+        if (!dateString) return '';
+        
+        // Handle MySQL zero date
+        if (dateString === '0000-00-00' || dateString === '0000-00-00 00:00:00') {
+            console.warn('Zero date detected:', dateString);
+            return '';
+        }
+        
+        // If already in YYYY-MM-DD format, validate it's not a zero date
+        if (typeof dateString === 'string' && dateString.match(/^\d{4}-\d{2}-\d{2}$/)) {
+            // Check if it's a valid date (not 0000-00-00)
+            if (dateString.startsWith('0000-')) {
+                console.warn('Invalid zero date:', dateString);
+                return '';
+            }
+            return dateString;
+        }
+        
+        // Extract date part if it includes time (YYYY-MM-DD HH:MM:SS)
+        let datePart = dateString;
+        if (typeof dateString === 'string' && dateString.includes(' ')) {
+            datePart = dateString.split(' ')[0];
+            // Check for zero date
+            if (datePart === '0000-00-00' || datePart.startsWith('0000-')) {
+                console.warn('Invalid zero date:', datePart);
+                return '';
+            }
+            // If it's already in YYYY-MM-DD format after splitting, return it
+            if (datePart.match(/^\d{4}-\d{2}-\d{2}$/)) {
+                return datePart;
+            }
+        }
+        
+        // Try to parse and format
+        const date = new Date(datePart + 'T00:00:00'); // Add time to avoid timezone issues
+        if (isNaN(date.getTime()) || date.getFullYear() < 1900) {
+            console.warn('Invalid date:', dateString, 'Parsed as:', date);
+            return '';
+        }
+        
+        const year = date.getFullYear();
+        const month = String(date.getMonth() + 1).padStart(2, '0');
+        const day = String(date.getDate()).padStart(2, '0');
+        const formatted = `${year}-${month}-${day}`;
+        
+        // Double check the formatted date is valid
+        if (formatted.startsWith('0000-') || year < 1900) {
+            console.warn('Formatted date is invalid:', formatted, 'from:', dateString);
+            return '';
+        }
+        
+        return formatted;
+    };
+    
+    const startDateFormatted = formatDate(challenge.start_date);
+    const endDateFormatted = formatDate(challenge.end_date);
+    
+    // Set start date first
+    const startDateInput = document.getElementById('start_date');
+    const endDateInput = document.getElementById('end_date');
+    
+    // Remove min constraint temporarily to allow setting the value
+    endDateInput.removeAttribute('min');
+    
+    // Set start date
+    startDateInput.value = startDateFormatted;
+    
+    // Set end date value FIRST (before applying min constraint)
+    endDateInput.value = endDateFormatted;
+    endDateInput.setCustomValidity(''); // Clear any validation errors
+    
+    // Now set minimum end date to start date + 1 day (after value is set)
+    if (startDateFormatted && endDateFormatted) {
+        const startDate = new Date(startDateFormatted);
+        const existingEndDate = new Date(endDateFormatted);
+        const minEndDate = new Date(startDate);
+        minEndDate.setDate(minEndDate.getDate() + 1);
+        
+        // Only apply min if end date is valid (greater than start date)
+        if (existingEndDate > startDate) {
+            endDateInput.min = minEndDate.toISOString().split('T')[0];
+        }
+    }
+    
     document.getElementById('status').value = challenge.status;
     document.getElementById('prize_description').value = challenge.prize_description || '';
     document.getElementById('existing_image').value = challenge.banner_image || '';
@@ -718,6 +862,15 @@ function editChallenge(challenge) {
 // Challenge Form Submit
 document.getElementById('challengeForm').addEventListener('submit', function(e) {
     e.preventDefault();
+    
+    // Validate end date is after start date
+    const startDate = new Date(document.getElementById('start_date').value);
+    const endDate = new Date(document.getElementById('end_date').value);
+    
+    if (endDate <= startDate) {
+        showNotification('End date must be after start date!', 'error');
+        return;
+    }
     
     const formData = new FormData(this);
     const challengeId = document.getElementById('challenge_id').value;
@@ -737,6 +890,70 @@ document.getElementById('challengeForm').addEventListener('submit', function(e) 
         }
     });
 });
+
+// Add date validation on change
+document.getElementById('start_date').addEventListener('change', function() {
+    const startDate = new Date(this.value);
+    const endDateInput = document.getElementById('end_date');
+    if (endDateInput.value) {
+        const endDate = new Date(endDateInput.value);
+        if (endDate <= startDate) {
+            endDateInput.setCustomValidity('End date must be after start date');
+        } else {
+            endDateInput.setCustomValidity('');
+        }
+    }
+    // Set minimum end date to start date + 1 day
+    const minEndDate = new Date(startDate);
+    minEndDate.setDate(minEndDate.getDate() + 1);
+    endDateInput.min = minEndDate.toISOString().split('T')[0];
+});
+
+document.getElementById('end_date').addEventListener('change', function() {
+    const endDate = new Date(this.value);
+    const startDateInput = document.getElementById('start_date');
+    if (startDateInput.value) {
+        const startDate = new Date(startDateInput.value);
+        if (endDate <= startDate) {
+            this.setCustomValidity('End date must be after start date');
+        } else {
+            this.setCustomValidity('');
+        }
+    }
+});
+
+// Helper function to format date for display
+function formatDisplayDate(dateString) {
+    if (!dateString) return 'N/A';
+    const date = new Date(dateString);
+    if (isNaN(date.getTime())) return dateString;
+    return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+}
+
+// Helper function to calculate duration
+function calculateDuration(startDate, endDate) {
+    if (!startDate || !endDate) return 'N/A';
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    if (isNaN(start.getTime()) || isNaN(end.getTime())) return 'Invalid dates';
+    
+    const diffTime = Math.abs(end - start);
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1; // +1 to include both start and end days
+    
+    if (diffDays === 1) {
+        return '1 day';
+    } else if (diffDays < 30) {
+        return `${diffDays} days`;
+    } else if (diffDays < 365) {
+        const months = Math.floor(diffDays / 30);
+        const days = diffDays % 30;
+        return months > 0 ? `${months} month${months > 1 ? 's' : ''}${days > 0 ? ` ${days} day${days > 1 ? 's' : ''}` : ''}` : `${diffDays} days`;
+    } else {
+        const years = Math.floor(diffDays / 365);
+        const months = Math.floor((diffDays % 365) / 30);
+        return `${years} year${years > 1 ? 's' : ''}${months > 0 ? ` ${months} month${months > 1 ? 's' : ''}` : ''}`;
+    }
+}
 
 // View Challenge Details
 function viewChallenge(challenge) {
@@ -774,10 +991,13 @@ function viewChallenge(challenge) {
                 <strong>Target Value:</strong> ${challenge.target_value}
             </div>
             <div class="col-md-6 mb-3">
-                <strong>Start Date:</strong> ${new Date(challenge.start_date).toLocaleDateString()}
+                <strong>Start Date:</strong> ${formatDisplayDate(challenge.start_date)}
             </div>
             <div class="col-md-6 mb-3">
-                <strong>End Date:</strong> ${new Date(challenge.end_date).toLocaleDateString()}
+                <strong>End Date:</strong> ${formatDisplayDate(challenge.end_date)}
+            </div>
+            <div class="col-md-6 mb-3">
+                <strong>Duration:</strong> ${calculateDuration(challenge.start_date, challenge.end_date)}
             </div>
             <div class="col-md-6 mb-3">
                 <strong>Participants:</strong> ${challenge.participant_count} joined

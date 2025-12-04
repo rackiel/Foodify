@@ -219,11 +219,11 @@ if ($user_id) {
     $stmt->close();
 }
 
-// Read CSV and parse dishes
+// Read CSV and parse dishes (using file with Ingredients column)
 $dishes = [];
-if (($handle = fopen('foodify_filipino_dishes.csv', 'r')) !== false) {
-    $header = fgetcsv($handle);
-    while (($row = fgetcsv($handle)) !== false) {
+if (($handle = fopen('foodify_filipino_dishes_with_people_size.csv', 'r')) !== false) {
+    $header = fgetcsv($handle, 0, ',', '"');
+    while (($row = fgetcsv($handle, 0, ',', '"')) !== false) {
         $dishes[] = array_combine($header, $row);
     }
     fclose($handle);
@@ -234,10 +234,27 @@ function dishMatchesIngredients($dish, $available_ingredients) {
     if (empty($available_ingredients)) return false;
     
     $dish_name = strtolower($dish['Dish Name'] ?? '');
-    $dish_ingredients = [];
     
-    // Try to extract ingredients from dish name or other fields
-    // Check if any available ingredient name appears in dish name
+    // First, check the Ingredients column from CSV (primary method)
+    if (isset($dish['Ingredients']) && !empty(trim($dish['Ingredients']))) {
+        $dish_ingredients_str = strtolower(trim($dish['Ingredients']));
+        foreach ($available_ingredients as $ing) {
+            $ing_name = strtolower($ing['name']);
+            // Check if ingredient name appears in ingredients list
+            if (stripos($dish_ingredients_str, $ing_name) !== false) {
+                return true;
+            }
+            // Also check word by word for longer ingredient names
+            $ing_words = explode(' ', $ing_name);
+            foreach ($ing_words as $word) {
+                if (strlen($word) > 3 && stripos($dish_ingredients_str, $word) !== false) {
+                    return true;
+                }
+            }
+        }
+    }
+    
+    // Fallback: Check dish name if Ingredients column is empty
     foreach ($available_ingredients as $ing) {
         $ing_name = $ing['name'];
         // Check if ingredient name or part of it appears in dish name
@@ -248,16 +265,6 @@ function dishMatchesIngredients($dish, $available_ingredients) {
         $ing_words = explode(' ', $ing_name);
         foreach ($ing_words as $word) {
             if (strlen($word) > 3 && stripos($dish_name, $word) !== false) {
-                return true;
-            }
-        }
-    }
-    
-    // If dish has an Ingredients column, check that too
-    if (isset($dish['Ingredients']) && !empty($dish['Ingredients'])) {
-        $dish_ingredients_str = strtolower($dish['Ingredients']);
-        foreach ($available_ingredients as $ing) {
-            if (stripos($dish_ingredients_str, $ing['name']) !== false) {
                 return true;
             }
         }
@@ -696,9 +703,19 @@ for ($i = 0; $i < 7; $i++) {
         <td>Day <?= $i+1 ?></td>
         <?php foreach (['Breakfast', 'Lunch', 'Dinner'] as $meal): ?>
           <td>
-            <?php if ($day[$meal]): ?>
-              <strong><?= htmlspecialchars($day[$meal]['Dish Name']) ?></strong><br>
-              <small><?= htmlspecialchars($day[$meal]['Serving Size']) ?> | <?= htmlspecialchars($day[$meal]['Calories (kcal)']) ?> kcal | <?= htmlspecialchars($day[$meal]['Protein (g)']) ?>g protein | <?= htmlspecialchars($day[$meal]['Carbs (g)']) ?>g carbs | <?= htmlspecialchars($day[$meal]['Fat (g)']) ?>g fat</small>
+            <?php if ($day[$meal]): 
+              $dish = $day[$meal];
+              
+              // Get ingredients directly from CSV Ingredients column
+              $ingredients_display = 'Ingredients not specified';
+              if (isset($dish['Ingredients']) && !empty(trim($dish['Ingredients']))) {
+                  $ingredients_display = trim($dish['Ingredients']);
+              }
+            ?>
+              <strong><?= htmlspecialchars($dish['Dish Name']) ?></strong><br>
+              <small class="text-muted">
+                <i class="bi bi-basket"></i> <strong>Ingredients:</strong> <?= htmlspecialchars($ingredients_display) ?>
+              </small>
             <?php else: ?>
               <em>No dish available</em>
             <?php endif; ?>
@@ -774,17 +791,18 @@ function updateIngredientsSummary() {
     const ingredientsUsed = new Map();
     const availableIngredients = <?= json_encode($available_ingredients) ?>;
     
-    // Extract ingredients from dish names
+    // Extract ingredients from CSV Ingredients column
     currentMealPlan.forEach(day => {
         ['Breakfast', 'Lunch', 'Dinner'].forEach(meal => {
             if (day[meal]) {
-                const dishName = day[meal]['Dish Name'] || '';
-                const dishNameLower = dishName.toLowerCase();
+                const dish = day[meal];
+                const dishIngredients = (dish['Ingredients'] || '').toLowerCase();
                 
                 // Check which available ingredients are used in this dish
                 availableIngredients.forEach(ing => {
-                    const ingName = ing.name;
-                    if (dishNameLower.includes(ingName)) {
+                    const ingName = ing.name.toLowerCase();
+                    // Check if ingredient appears in the Ingredients column
+                    if (dishIngredients.includes(ingName)) {
                         if (!ingredientsUsed.has(ing.id)) {
                             ingredientsUsed.set(ing.id, {
                                 name: ing.name,
@@ -796,6 +814,24 @@ function updateIngredientsSummary() {
                             });
                         }
                         ingredientsUsed.get(ing.id).count++;
+                    } else {
+                        // Also check word by word for longer ingredient names
+                        const ingWords = ingName.split(' ');
+                        ingWords.forEach(word => {
+                            if (word.length > 3 && dishIngredients.includes(word)) {
+                                if (!ingredientsUsed.has(ing.id)) {
+                                    ingredientsUsed.set(ing.id, {
+                                        name: ing.name,
+                                        category: ing.category,
+                                        unit: ing.unit,
+                                        quantity: ing.quantity,
+                                        expiration_date: ing.expiration_date,
+                                        count: 0
+                                    });
+                                }
+                                ingredientsUsed.get(ing.id).count++;
+                            }
+                        });
                     }
                 });
             }
@@ -1207,30 +1243,36 @@ document.getElementById('export-btn').addEventListener('click', function() {
 function exportMealPlan() {
     const availableIngredients = <?= json_encode($available_ingredients) ?>;
     const ingredientsUsed = new Map();
-    let csvContent = "Day,Meal,Dish Name,Serving Size,Calories,Protein (g),Carbs (g),Fat (g),Ingredients Used\n";
+    let csvContent = "Day,Meal,Dish Name,Ingredients\n";
     
     currentMealPlan.forEach((day, dayIndex) => {
         ['Breakfast', 'Lunch', 'Dinner'].forEach(meal => {
             if (day[meal]) {
                 const dish = day[meal];
-                const dishNameLower = (dish['Dish Name'] || '').toLowerCase();
-                const usedIngs = [];
                 
-                availableIngredients.forEach(ing => {
-                    if (dishNameLower.includes(ing.name)) {
-                        usedIngs.push(ing.name);
-                        if (!ingredientsUsed.has(ing.id)) {
-                            ingredientsUsed.set(ing.id, ing.name);
+                // Get ingredients directly from CSV Ingredients column
+                let ingredientsList = 'Ingredients not specified';
+                if (dish['Ingredients'] && dish['Ingredients'].trim()) {
+                    ingredientsList = dish['Ingredients'].trim();
+                    
+                    // Also track which ingredients from user's inventory are used
+                    const ingredientsLower = ingredientsList.toLowerCase();
+                    availableIngredients.forEach(ing => {
+                        const ingName = ing.name.toLowerCase();
+                        if (ingredientsLower.includes(ingName)) {
+                            if (!ingredientsUsed.has(ing.id)) {
+                                ingredientsUsed.set(ing.id, ing.name);
+                            }
                         }
-                    }
-                });
+                    });
+                }
                 
-                csvContent += `Day ${dayIndex + 1},${meal},"${dish['Dish Name']}","${dish['Serving Size']}",${dish['Calories (kcal)']},${dish['Protein (g)']},${dish['Carbs (g)']},${dish['Fat (g)']},"${usedIngs.join(', ')}"\n`;
+                csvContent += `Day ${dayIndex + 1},${meal},"${dish['Dish Name']}","${ingredientsList}"\n`;
             }
         });
     });
     
-    csvContent += `\nINGREDIENTS USED: ${Array.from(ingredientsUsed.values()).join(', ')}\n`;
+    csvContent += `\nINGREDIENTS USED FROM INVENTORY: ${Array.from(ingredientsUsed.values()).join(', ')}\n`;
     
     const blob = new Blob([csvContent], { type: 'text/csv' });
     const url = window.URL.createObjectURL(blob);

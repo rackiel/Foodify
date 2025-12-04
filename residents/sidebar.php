@@ -28,7 +28,6 @@
       </a>
       <ul id="food-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
         <li><a href="post_excess_food.php"><i class="bi bi-circle"></i><span>Post Excess Food</span></a></li>
-        <li><a href="browse_donations.php"><i class="bi bi-circle"></i><span>Browse Donations</span></a></li>
         <li><a href="my_requests.php"><i class="bi bi-circle"></i><span>My Food Requests</span></a></li>
         <li><a href="my_food_status.php"><i class="bi bi-circle"></i><span>My Food Status</span></a></li>
         <li><a href="donation_history.php"><i class="bi bi-circle"></i><span>My Donation History</span></a></li>

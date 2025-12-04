@@ -18,6 +18,132 @@ include 'update_challenge_progress.php';
 // Auto-update user's challenge progress on page load
 updateChallengeProgress($conn, $_SESSION['user_id']);
 
+// Auto-create badges and user_badges tables if they don't exist
+$create_badges_table = "CREATE TABLE IF NOT EXISTS badges (
+    badge_id INT AUTO_INCREMENT PRIMARY KEY,
+    badge_name VARCHAR(255) NOT NULL,
+    badge_description TEXT,
+    badge_icon VARCHAR(100) DEFAULT 'bi-trophy',
+    badge_color VARCHAR(50) DEFAULT 'primary',
+    badge_category ENUM('challenge', 'donation', 'community', 'achievement', 'milestone') DEFAULT 'achievement',
+    requirement_type ENUM('challenges_completed', 'points_earned', 'donations_made', 'days_active', 'custom') DEFAULT 'challenges_completed',
+    requirement_value INT DEFAULT 1,
+    is_active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)";
+$conn->query($create_badges_table);
+
+$create_user_badges_table = "CREATE TABLE IF NOT EXISTS user_badges (
+    user_badge_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    badge_id INT NOT NULL,
+    earned_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES user_accounts(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (badge_id) REFERENCES badges(badge_id) ON DELETE CASCADE,
+    UNIQUE KEY unique_user_badge (user_id, badge_id),
+    INDEX idx_user_id (user_id),
+    INDEX idx_badge_id (badge_id)
+)";
+$conn->query($create_user_badges_table);
+
+// Insert default badges if table is empty
+$check_badges = $conn->query("SELECT COUNT(*) as count FROM badges");
+if ($check_badges && $check_badges->fetch_assoc()['count'] == 0) {
+    $default_badges = [
+        ['First Challenge', 'Complete your first challenge', 'bi-trophy', 'primary', 'challenge', 'challenges_completed', 1],
+        ['Challenge Master', 'Complete 5 challenges', 'bi-trophy-fill', 'warning', 'challenge', 'challenges_completed', 5],
+        ['Challenge Champion', 'Complete 10 challenges', 'bi-award', 'success', 'challenge', 'challenges_completed', 10],
+        ['Point Collector', 'Earn 50 points', 'bi-star', 'info', 'achievement', 'points_earned', 50],
+        ['Point Master', 'Earn 100 points', 'bi-star-fill', 'primary', 'achievement', 'points_earned', 100],
+        ['Generous Heart', 'Make your first donation', 'bi-heart', 'danger', 'donation', 'donations_made', 1],
+        ['Community Helper', 'Make 5 donations', 'bi-heart-fill', 'danger', 'donation', 'donations_made', 5],
+        ['Philanthropist', 'Make 10 donations', 'bi-heart-pulse', 'danger', 'donation', 'donations_made', 10],
+        ['Getting Started', 'Earn your first 10 points', 'bi-rocket-takeoff', 'info', 'milestone', 'points_earned', 10],
+        ['Rising Star', 'Earn 25 points', 'bi-star', 'warning', 'milestone', 'points_earned', 25]
+    ];
+    
+    $stmt = $conn->prepare("
+        INSERT INTO badges (badge_name, badge_description, badge_icon, badge_color, badge_category, requirement_type, requirement_value)
+        VALUES (?, ?, ?, ?, ?, ?, ?)
+    ");
+    
+    foreach ($default_badges as $badge) {
+        $stmt->bind_param('ssssssi', $badge[0], $badge[1], $badge[2], $badge[3], $badge[4], $badge[5], $badge[6]);
+        $stmt->execute();
+    }
+    $stmt->close();
+}
+
+// Auto-award badges based on user achievements
+function checkAndAwardBadges($conn, $user_id) {
+    // Get user stats - challenges
+    $challenges_query = "
+        SELECT 
+            COUNT(CASE WHEN completed = TRUE THEN 1 END) as completed_challenges,
+            COALESCE(SUM(points_earned), 0) as total_points
+        FROM challenge_participants
+        WHERE user_id = $user_id
+    ";
+    $challenges_result = $conn->query($challenges_query);
+    $challenges_stats = $challenges_result ? $challenges_result->fetch_assoc() : ['completed_challenges' => 0, 'total_points' => 0];
+    
+    // Get user stats - donations (check if approval_status column exists)
+    $check_approval = $conn->query("SHOW COLUMNS FROM food_donations LIKE 'approval_status'");
+    $has_approval_status = $check_approval && $check_approval->num_rows > 0;
+    
+    $donations_query = "
+        SELECT COUNT(DISTINCT id) as donations_made
+        FROM food_donations
+        WHERE user_id = $user_id
+        " . ($has_approval_status ? "AND approval_status = 'approved'" : "");
+    $donations_result = $conn->query($donations_query);
+    $donations_stats = $donations_result ? $donations_result->fetch_assoc() : ['donations_made' => 0];
+    
+    // Combine stats
+    $stats = [
+        'completed_challenges' => $challenges_stats['completed_challenges'] ?? 0,
+        'total_points' => $challenges_stats['total_points'] ?? 0,
+        'donations_made' => $donations_stats['donations_made'] ?? 0
+    ];
+    
+    // Get all active badges
+    $badges_query = "SELECT * FROM badges WHERE is_active = TRUE";
+    $badges_result = $conn->query($badges_query);
+    
+    if ($badges_result) {
+        while ($badge = $badges_result->fetch_assoc()) {
+            // Check if user already has this badge
+            $check_query = "SELECT user_badge_id FROM user_badges WHERE user_id = $user_id AND badge_id = {$badge['badge_id']}";
+            $check_result = $conn->query($check_query);
+            
+            if ($check_result && $check_result->num_rows == 0) {
+                // Check if requirement is met
+                $requirement_met = false;
+                switch ($badge['requirement_type']) {
+                    case 'challenges_completed':
+                        $requirement_met = ($stats['completed_challenges'] >= $badge['requirement_value']);
+                        break;
+                    case 'points_earned':
+                        $requirement_met = ($stats['total_points'] >= $badge['requirement_value']);
+                        break;
+                    case 'donations_made':
+                        $requirement_met = ($stats['donations_made'] >= $badge['requirement_value']);
+                        break;
+                }
+                
+                if ($requirement_met) {
+                    // Award badge
+                    $award_query = "INSERT INTO user_badges (user_id, badge_id) VALUES ($user_id, {$badge['badge_id']})";
+                    $conn->query($award_query);
+                }
+            }
+        }
+    }
+}
+
+// Check and award badges
+checkAndAwardBadges($conn, $_SESSION['user_id']);
+
 // Handle AJAX requests
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     header('Content-Type: application/json');
@@ -185,6 +311,51 @@ try {
         $leaderboard = $result->fetch_all(MYSQLI_ASSOC);
     }
     
+    // Get user's badges
+    $user_badges = [];
+    $result = $conn->query("
+        SELECT b.*, ub.earned_at
+        FROM user_badges ub
+        JOIN badges b ON ub.badge_id = b.badge_id
+        WHERE ub.user_id = $user_id
+        ORDER BY ub.earned_at DESC
+    ");
+    
+    if ($result) {
+        $user_badges = $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    // Get all available badges (for progress tracking)
+    $all_badges = [];
+    $result = $conn->query("
+        SELECT b.*, 
+               CASE WHEN ub.user_badge_id IS NOT NULL THEN 1 ELSE 0 END as is_earned,
+               ub.earned_at
+        FROM badges b
+        LEFT JOIN user_badges ub ON b.badge_id = ub.badge_id AND ub.user_id = $user_id
+        WHERE b.is_active = TRUE
+        ORDER BY b.badge_category, b.requirement_value ASC
+    ");
+    
+    if ($result) {
+        $all_badges = $result->fetch_all(MYSQLI_ASSOC);
+    }
+    
+    // Get badge statistics
+    $badge_stats = [
+        'total_earned' => count($user_badges),
+        'total_available' => count($all_badges),
+        'by_category' => []
+    ];
+    
+    foreach ($user_badges as $badge) {
+        $category = $badge['badge_category'];
+        if (!isset($badge_stats['by_category'][$category])) {
+            $badge_stats['by_category'][$category] = 0;
+        }
+        $badge_stats['by_category'][$category]++;
+    }
+    
 } catch (Exception $e) {
     $error_message = "Error: " . $e->getMessage();
 }
@@ -310,6 +481,12 @@ include 'header.php';
                 <button class="nav-link" id="leaderboard-tab" data-bs-toggle="tab" 
                         data-bs-target="#leaderboard" type="button" role="tab">
                     <i class="bi bi-bar-chart"></i> Leaderboard
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="my-badges-tab" data-bs-toggle="tab" 
+                        data-bs-target="#my-badges" type="button" role="tab">
+                    <i class="bi bi-award"></i> My Badges (<?= $badge_stats['total_earned'] ?>)
                 </button>
             </li>
         </ul>
@@ -604,6 +781,151 @@ include 'header.php';
                     </div>
                 </div>
             </div>
+
+            <!-- My Badges Tab -->
+            <div class="tab-pane fade" id="my-badges" role="tabpanel">
+                <!-- Badge Statistics -->
+                <div class="row mb-4">
+                    <div class="col-md-4 mb-3">
+                        <div class="card stat-card">
+                            <div class="card-body text-center">
+                                <h3 class="mb-0 text-primary"><?= $badge_stats['total_earned'] ?></h3>
+                                <small class="text-muted">Badges Earned</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card stat-card">
+                            <div class="card-body text-center">
+                                <h3 class="mb-0 text-info"><?= $badge_stats['total_available'] ?></h3>
+                                <small class="text-muted">Total Available</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="card stat-card">
+                            <div class="card-body text-center">
+                                <h3 class="mb-0 text-success">
+                                    <?= $badge_stats['total_available'] > 0 ? round(($badge_stats['total_earned'] / $badge_stats['total_available']) * 100) : 0 ?>%
+                                </h3>
+                                <small class="text-muted">Completion Rate</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Earned Badges -->
+                <div class="card mb-4">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-trophy-fill text-warning"></i> Your Earned Badges</h5>
+                    </div>
+                    <div class="card-body">
+                        <?php if (!empty($user_badges)): ?>
+                            <div class="row">
+                                <?php foreach ($user_badges as $badge): ?>
+                                    <div class="col-md-4 col-lg-3 mb-3">
+                                        <div class="card badge-card h-100" onclick="viewBadgeDetails(<?= htmlspecialchars(json_encode($badge)) ?>)">
+                                            <div class="card-body text-center">
+                                                <div class="badge-icon mb-3" style="font-size: 4rem; color: var(--bs-<?= $badge['badge_color'] ?>);">
+                                                    <i class="bi <?= htmlspecialchars($badge['badge_icon']) ?>"></i>
+                                                </div>
+                                                <h6 class="card-title"><?= htmlspecialchars($badge['badge_name']) ?></h6>
+                                                <p class="card-text text-muted small"><?= htmlspecialchars(substr($badge['badge_description'], 0, 60)) ?>...</p>
+                                                <?php if (!empty($badge['earned_at']) && strtotime($badge['earned_at']) > 0): ?>
+                                                <small class="text-muted">
+                                                    <i class="bi bi-calendar"></i> <?= date('M j, Y', strtotime($badge['earned_at'])) ?>
+                                                </small>
+                                                <?php endif; ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                <?php endforeach; ?>
+                            </div>
+                        <?php else: ?>
+                            <div class="alert alert-info text-center">
+                                <i class="bi bi-award" style="font-size: 3rem;"></i>
+                                <p class="mt-3 mb-0">You haven't earned any badges yet. Complete challenges to earn your first badge!</p>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                </div>
+
+                <!-- All Available Badges -->
+                <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-list-check"></i> All Available Badges</h5>
+                    </div>
+                    <div class="card-body">
+                        <?php 
+                        $categories = ['challenge', 'donation', 'community', 'achievement', 'milestone'];
+                        foreach ($categories as $category): 
+                            $category_badges = array_filter($all_badges, function($b) use ($category) {
+                                return $b['badge_category'] === $category;
+                            });
+                            if (!empty($category_badges)):
+                        ?>
+                            <div class="mb-4">
+                                <h6 class="text-capitalize mb-3">
+                                    <i class="bi bi-<?= $category === 'challenge' ? 'trophy' : ($category === 'donation' ? 'heart' : ($category === 'community' ? 'people' : 'star')) ?>"></i>
+                                    <?= ucfirst(str_replace('_', ' ', $category)) ?> Badges
+                                </h6>
+                                <div class="row">
+                                    <?php foreach ($category_badges as $badge): ?>
+                                        <div class="col-md-4 col-lg-3 mb-3">
+                                            <div class="card badge-card <?= $badge['is_earned'] ? 'badge-earned' : 'badge-locked' ?> h-100" 
+                                                 onclick="viewBadgeDetails(<?= htmlspecialchars(json_encode($badge)) ?>)">
+                                                <div class="card-body text-center">
+                                                    <div class="badge-icon mb-3" 
+                                                         style="font-size: 4rem; color: <?= $badge['is_earned'] ? 'var(--bs-' . $badge['badge_color'] . ')' : '#ccc' ?>; opacity: <?= $badge['is_earned'] ? '1' : '0.3' ?>;">
+                                                        <i class="bi <?= htmlspecialchars($badge['badge_icon']) ?>"></i>
+                                                    </div>
+                                                    <h6 class="card-title">
+                                                        <?= htmlspecialchars($badge['badge_name']) ?>
+                                                        <?php if ($badge['is_earned']): ?>
+                                                            <span class="badge bg-success ms-1"><i class="bi bi-check"></i></span>
+                                                        <?php endif; ?>
+                                                    </h6>
+                                                    <p class="card-text text-muted small"><?= htmlspecialchars(substr($badge['badge_description'], 0, 60)) ?>...</p>
+                                                    <?php if (!$badge['is_earned']): ?>
+                                                        <small class="text-muted">
+                                                            <?php
+                                                            $requirement_text = '';
+                                                            switch ($badge['requirement_type']) {
+                                                                case 'challenges_completed':
+                                                                    $requirement_text = 'Complete ' . $badge['requirement_value'] . ' challenge' . ($badge['requirement_value'] > 1 ? 's' : '');
+                                                                    break;
+                                                                case 'points_earned':
+                                                                    $requirement_text = 'Earn ' . $badge['requirement_value'] . ' points';
+                                                                    break;
+                                                                case 'donations_made':
+                                                                    $requirement_text = 'Make ' . $badge['requirement_value'] . ' donation' . ($badge['requirement_value'] > 1 ? 's' : '');
+                                                                    break;
+                                                                default:
+                                                                    $requirement_text = 'Meet requirement';
+                                                            }
+                                                            echo $requirement_text;
+                                                            ?>
+                                                        </small>
+                                                    <?php else: ?>
+                                                        <?php if (!empty($badge['earned_at']) && strtotime($badge['earned_at']) > 0): ?>
+                                                        <small class="text-success">
+                                                            <i class="bi bi-calendar"></i> Earned: <?= date('M j, Y', strtotime($badge['earned_at'])) ?>
+                                                        </small>
+                                                        <?php endif; ?>
+                                                    <?php endif; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                        <?php 
+                            endif;
+                        endforeach; 
+                        ?>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 </main>
@@ -669,6 +991,36 @@ include 'header.php';
     color: #0d6efd;
     font-weight: 600;
 }
+
+.badge-card {
+    border: 2px solid #e9ecef;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.badge-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-color: var(--bs-primary);
+}
+
+.badge-card.badge-earned {
+    border-color: var(--bs-success);
+    background: linear-gradient(135deg, rgba(25, 135, 84, 0.05) 0%, rgba(25, 135, 84, 0.02) 100%);
+}
+
+.badge-card.badge-locked {
+    opacity: 0.7;
+    filter: grayscale(0.3);
+}
+
+.badge-icon {
+    transition: transform 0.3s;
+}
+
+.badge-card:hover .badge-icon {
+    transform: scale(1.1);
+}
 </style>
 
 <script>
@@ -722,6 +1074,95 @@ function leaveChallenge(challengeId) {
     .catch(error => {
         showNotification('An error occurred', 'error');
     });
+}
+
+// View Badge Details
+function viewBadgeDetails(badge) {
+    const isEarned = badge.is_earned || badge.earned_at;
+    const requirementText = getRequirementText(badge);
+    
+    const content = `
+        <div class="text-center mb-4">
+            <div class="badge-icon mb-3" style="font-size: 6rem; color: var(--bs-${badge.badge_color}); opacity: ${isEarned ? '1' : '0.3'};">
+                <i class="bi ${badge.badge_icon}"></i>
+            </div>
+            <h3>${badge.badge_name}</h3>
+            ${isEarned ? '<span class="badge bg-success"><i class="bi bi-check-circle"></i> Earned</span>' : '<span class="badge bg-secondary"><i class="bi bi-lock"></i> Locked</span>'}
+        </div>
+        
+        <div class="mb-3">
+            <h6>Description</h6>
+            <p class="text-muted">${badge.badge_description || 'No description available.'}</p>
+        </div>
+        
+        <div class="mb-3">
+            <h6>Category</h6>
+            <span class="badge bg-info">${badge.badge_category.charAt(0).toUpperCase() + badge.badge_category.slice(1).replace('_', ' ')}</span>
+        </div>
+        
+        <div class="mb-3">
+            <h6>Requirement</h6>
+            <p class="text-muted">${requirementText}</p>
+        </div>
+        
+        ${isEarned ? `
+        <div class="alert alert-success">
+            <i class="bi bi-check-circle"></i> 
+            <strong>Congratulations!</strong> You have earned this badge.
+        </div>
+        ` : `
+        <div class="alert alert-warning">
+            <i class="bi bi-info-circle"></i> 
+            Complete the requirement to unlock this badge!
+        </div>
+        `}
+    `;
+    
+    // Create modal dynamically
+    const modal = document.createElement('div');
+    modal.className = 'modal fade';
+    modal.id = 'badgeDetailsModal';
+    modal.innerHTML = `
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><i class="bi bi-award"></i> Badge Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    ${content}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+    const bsModal = new bootstrap.Modal(modal);
+    bsModal.show();
+    
+    // Remove modal from DOM after it's hidden
+    modal.addEventListener('hidden.bs.modal', function() {
+        document.body.removeChild(modal);
+    });
+}
+
+// Get requirement text for badge
+function getRequirementText(badge) {
+    switch (badge.requirement_type) {
+        case 'challenges_completed':
+            return `Complete ${badge.requirement_value} challenge${badge.requirement_value > 1 ? 's' : ''}`;
+        case 'points_earned':
+            return `Earn ${badge.requirement_value} points from challenges`;
+        case 'donations_made':
+            return `Make ${badge.requirement_value} donation${badge.requirement_value > 1 ? 's' : ''}`;
+        case 'days_active':
+            return `Be active for ${badge.requirement_value} day${badge.requirement_value > 1 ? 's' : ''}`;
+        default:
+            return 'Meet the requirement to unlock';
+    }
 }
 
 // Notification System

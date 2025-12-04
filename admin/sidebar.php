@@ -44,6 +44,7 @@
         <i class="bi bi-people-fill"></i><span>Community</span><i class="bi bi-chevron-down ms-auto"></i>
       </a>
       <ul id="community-nav" class="nav-content collapse" data-bs-parent="#sidebar-nav">
+        <li><a href="admin-challenges.php"><i class="bi bi-circle"></i><span>Manage Challenges</span></a></li>
         <li><a href="user-challenges-progress.php"><i class="bi bi-circle"></i><span>User Challenges Progress</span></a></li>
         <li><a href="admin-newsfeeds.php"><i class="bi bi-circle"></i><span>Newsfeeds</span></a></li>
       </ul>
